@@ -32,6 +32,20 @@
                                 <div class="carousel-item"
                                     style="background-image: url({{ asset('toyspace/assets/img/hero-3.png') }})">
                                 </div>
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active"
+                                    style="background-image: url({{ asset('toyspace/assets/img/hero.png') }})">
+                                </div>
+
+                                <!-- Slide 2 -->
+                                <div class="carousel-item"
+                                    style="background-image: url({{ asset('toyspace/assets/img/hero-2.png') }})">
+                                </div>
+
+                                <!-- Slide 3 -->
+                                <div class="carousel-item"
+                                    style="background-image: url({{ asset('toyspace/assets/img/hero-3.png') }})">
+                                </div>
 
                             </div>
                         </div>
@@ -261,7 +275,7 @@
                             <a href="{{ route('singleProduct', ['product' => $prod]) }}">
                                 <div class="card card-product shadow-sm h-10">
                                     <img class="card-img-top"
-                                        src='{{ asset('storage/' . $prod->images()->first()->path) }}' alt=''>
+                                        src='{{ $prod->getFirstMediaUrl('images') }}' alt=''>
                                     <div class="card-overlay">
                                         <span>See Details</span>
                                     </div>

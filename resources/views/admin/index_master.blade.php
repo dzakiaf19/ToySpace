@@ -26,19 +26,17 @@
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href="{{ asset ('admin/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="{{ asset ('admin/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="...">
 
     <!-- CSS Files -->
-    <link id="pagestyle"
-        href="{{ asset ('admin/assets/css/argon-dashboard.css?v=2.0.4') }}"
-        rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('admin/assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
     <style>
         /* Gaya untuk dropdown */
         /* .dropdown-menu-sidenav {
@@ -162,13 +160,12 @@
             padding: 8px;
             line-height: 1;
             display: none;
-            font-size:24px;
+            font-size: 24px;
         }
 
         .image-container:hover .close-icon {
             display: block;
         }
-
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -193,12 +190,13 @@
             @include('admin.body.footer')
         </div>
     </main>
+    @include('sweetalert::alert')
     <!--   Core JS Files   -->
-    <script src="{{ asset ('admin/assets/js/core/popper.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/js/core/bootstrap.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/js/plugins/chartjs.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/plugins/chartjs.min.js') }}"></script>
     <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -281,7 +279,6 @@
                 },
             },
         });
-
     </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
@@ -291,7 +288,6 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
-
     </script>
 
     <!-- UNTUK DRAG AND DROP MULTIPLE IMAGE -->
@@ -381,7 +377,7 @@
                 let gallery = document.getElementById('gallery');
 
                 fReader.readAsDataURL(file);
-                fReader.onloadend = function () {
+                fReader.onloadend = function() {
                     let wrap = document.createElement('div');
                     wrap.classList.add('image-container');
 
@@ -391,7 +387,7 @@
                     let closeIcon = document.createElement('span');
                     closeIcon.classList.add('close-icon');
                     closeIcon.innerHTML = '&times;';
-                    closeIcon.addEventListener('click', function () {
+                    closeIcon.addEventListener('click', function() {
                         gallery.removeChild(wrap);
                     });
 
@@ -419,8 +415,9 @@
             files.forEach(upFile);
             files.forEach(previewFile);
         }
-
     </script>
+
+
 
     <!-- Untuk allert success -->
     <script>
@@ -443,7 +440,7 @@
     </script>
 
     <!-- <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             function handleDropdownClick(event) {
                 const dropdownMenu = event.currentTarget.querySelector(".dropdown-menu-sidenav");
 
@@ -454,7 +451,7 @@
                     }, 300);
                 } else {
                     const allDropdowns = document.querySelectorAll(".dropdown-menu-sidenav");
-                    allDropdowns.forEach(function (dropdown) {
+                    allDropdowns.forEach(function(dropdown) {
                         dropdown.style.maxHeight = "0";
                         dropdown.classList.remove("show");
                     });
@@ -468,13 +465,13 @@
 
             const dropdowns = document.querySelectorAll(".nav-item");
 
-            dropdowns.forEach(function (dropdown) {
+            dropdowns.forEach(function(dropdown) {
                 dropdown.addEventListener("click", handleDropdownClick);
             });
 
-            document.addEventListener("click", function (event) {
+            document.addEventListener("click", function(event) {
                 const dropdowns = document.querySelectorAll(".dropdown-menu-sidenav");
-                dropdowns.forEach(function (dropdown) {
+                dropdowns.forEach(function(dropdown) {
                     dropdown.style.maxHeight = "0";
                     setTimeout(() => {
                         dropdown.classList.remove("show");
@@ -482,7 +479,6 @@
                 });
             });
         });
-
     </script> -->
 
     <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
@@ -490,7 +486,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset ('admin/assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
+    <script src="{{ asset('admin/assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
 </body>
 
 </html>

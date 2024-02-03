@@ -6,11 +6,11 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0 font-weight-bolder d-flex justify-content-between">
-                            <h6>All Products</h6>
-                            <button type="button button-add" onclick="location.href='{{ route('addProduct') }}'"
+                            <h6>All Banners</h6>
+                            <button type="button button-add" onclick="location.href='{{ route('addBanner') }}'"
                                 class="btn btn-primary"
                                 style="background: #344767; border: 1px solid #24263D; color: #FFFDF4; shadow: none;">Add
-                                Products</button>
+                                Banner</button>
                         </div>
                         @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -35,13 +35,13 @@
                                                 No</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Product Name</th>
+                                                Banner Title</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Quantity</th>
+                                                Status</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Price</th>
+                                                Overview</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                                 Action</th>
@@ -51,7 +51,7 @@
                                         @php
                                             $i =1;
                                         @endphp
-                                        @foreach ($product as $key => $prod)
+                                        @foreach ($banner as $key => $ban)
                                             <tr>
                                                 <td>
                                                     <div class="d-flex px-3 py-1">
@@ -61,28 +61,55 @@
                                                 </td>
                                                 <td>
                                                     <span
-                                                        class="text-secondary text-xs font-weight-bold">{{ $prod->name }}</span>
+                                                        class="text-secondary text-xs font-weight-bold">{{ $ban->title }}</span>
                                                 </td>
                                                 <td class="text-sm">
-                                                    <span
-                                                        class="text-secondary text-xs font-weight-bold">{{ $prod->stock }}</span>
+                                                    
                                                 </td>
                                                 <td class="text-sm">
-                                                    <span class="text-secondary text-xs font-weight-bold">Rp
-                                                        {{ $prod->price }}</span>
+
                                                 </td>
                                                 <td class="text-sm">
-                                                    <a href="{{ route('editProduct', ['product' => $prod]) }}"
+                                                    <a href="{{ route('editProduct', ['product' => $ban]) }}"
                                                         rel="tooltip" class="btn btn-icon btn-simple"
                                                         style="background-color:#FFC93F; color:#fff; padding: 10px 15px;"
                                                         data-original-title="" title="">
                                                         <i class="fa-regular fa-pen-to-square"></i>
                                                     </a>
-                                                    <a href="{{ route('deleteProduct', ['product' => $prod]) }}" rel="tooltip" class="btn btn-icon btn-simple"
+                                                    <button type="button" rel="tooltip" class="btn btn-icon btn-simple"
                                                         style="background-color:#DD322B; color:#fff;padding: 10px 15px;"
                                                         data-confirm-delete="true">
                                                         <i class="fa-regular fa-trash-can" data-confirm-delete="true"></i>
-                                                    </a>                                                    
+                                                    </button>
+
+                                                    <div class="modal fade" id="deleteModal{{ $ban->id }}"
+                                                        tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="deleteModalLabel">Delete
+                                                                        Product
+                                                                    </h5>
+                                                                    <button type="button" class="close"
+                                                                        style="border:none; font-size:24px; background: transparent;"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Are you sure?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <a href="{{ route('deleteProduct', ['product' => $ban]) }}"
+                                                                        class="btn"
+                                                                        style="background: #DD322B; color: #fff;">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach

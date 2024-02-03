@@ -10,20 +10,20 @@
                         <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
                             <!-- slides -->
                             <div class="carousel-inner">
-                                @foreach ($product->images as $key => $image)
+                                @foreach ($product->getMedia('images') as $key => $image)
                                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                        <img src="{{ asset('storage/' . $image->path) }}" alt="">
+                                        <img src="{{ $image->getUrl() }}" alt="">
                                     </div>
                                 @endforeach
                             </div>
 
                             <!-- Thumbnails -->
                             <ol class="carousel-indicators list-inline">
-                                @foreach ($product->images as $key => $image)
+                                @foreach ($product->getMedia('images') as $key => $image)
                                     <li class="list-inline-item {{ $key == 0 ? 'active' : '' }}">
                                         <a id="{{ 'carousel-selector-' . $key }}" class="selected"
                                             data-slide-to="{{ $key }}" data-target="#custCarousel">
-                                            <img src="{{ asset('storage/' . $image->path) }}" class="img-fluid">
+                                            <img src="{{ $image->getUrl() }}" class="img-fluid">
                                         </a>
                                     </li>
                                 @endforeach

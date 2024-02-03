@@ -17,6 +17,11 @@ class ProductController extends Controller
     {
         //
         $product = Product::all()->reverse();
+
+        $title = 'Delete Product!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+
         return view('admin.page.show_product', compact('product'));
     }
 
@@ -24,6 +29,7 @@ class ProductController extends Controller
     {
         //
         $product = Product::all();
+        // dd($product->getFirstMediaUrl('images'));
         return view('toyspace.index', compact('product'));
     }
 
@@ -55,14 +61,17 @@ class ProductController extends Controller
         // dd($request->file('images'));
 
         // Simpan gambar ke tabel product_images
-        foreach ($request->file('images') as $image) {
-            $path = $image->store('media/images', 'public'); // Sesuaikan path sesuai kebutuhan
-            // dd($path);
-            $product->images()->create(['path' => $path]);
-            sleep(1);
+        
+        
+        if ($images = $request->file('images')) {
+            foreach ($images as $image) {
+                $product->addMedia($image)->toMediaCollection('images');
+            }
         }
 
-        return redirect()->route('indexProduct')->with('success', 'Product created successfully');
+        toast('Your Post as been submited!','success');
+
+        return redirect()->route('indexProduct');
     }
 
     /**
@@ -129,12 +138,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
-        foreach ($product->images as $image) {
-            // dd($image->path);
-            if (File::exists($image->path)) {
-                File::delete($image->path);
-            }
-        }
+        
         $product->delete();
 
         return redirect()->route('indexProduct')->with('success', 'Product deleted successfully');

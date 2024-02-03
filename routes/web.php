@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,14 @@ Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'pr
     Route::post('/storeProduct', [ProductController::class, 'store'])->name('storeProduct');
     Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('editProduct');
     Route::put('/updateProduct/{product}', [ProductController::class, 'update'])->name('updateProduct');
-    Route::get('/deleteProduct/{product}', [ProductController::class, 'destroy'])->name('deleteProduct');
+    Route::delete('/deleteProduct/{product}', [ProductController::class, 'destroy'])->name('deleteProduct');
+    
+    Route::get('/banner', [BannerController::class, 'index'])->name('indexBanner');
+    Route::get('/banner/add', [BannerController::class, 'create'])->name('addBanner');
+    Route::post('/banner/add', [BannerController::class, 'store'])->name('storeBanner');
+    Route::get('/banner/edit/{id}', [BannerController::class, 'edit'])->name('editBanner');
+    Route::put('/banner/edit/{id}', [BannerController::class, 'update'])->name('updateBanner');
+    Route::get('/deleteBanner/{id}', [BannerController::class, 'destroy'])->name('deleteBanner');
 
 
     Route::get('/category', [CategoryController::class, 'index'])->name('indexCategory');

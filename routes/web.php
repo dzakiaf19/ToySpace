@@ -65,6 +65,7 @@ Route::get('/{product}/detail', [ProductController::class, 'single'])->name('sin
 Route::get('/shopCart', [ProductController::class, 'shopCart'])->name('shopCart');
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkoutProduct');
 
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

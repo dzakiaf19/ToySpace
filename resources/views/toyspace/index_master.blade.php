@@ -55,9 +55,10 @@
 </head>
 
 <body>
-
+    
     @include('toyspace.body.header')
-
+    @include('sweetalert::alert')
+    
     @yield('content')
 
     @include('toyspace.body.footer')

@@ -61,6 +61,9 @@ Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'pr
 });
 
 Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
+    Route::post('/decreaseCart/{id}', [ProductController::class, 'decrease'])->name(('decreaseCart'));
+    Route::post('/increaseCart/{id}', [ProductController::class, 'increase'])->name(('increaseCart'));
+    Route::get('/shopCart/{id}', [ProductController::class, 'deleteCart'])->name(('deleteCart'));
     Route::post('/shopCart/{id}', [ProductController::class, 'addCart'])->name(('addCart'));
     Route::get('/shopCart', [ProductController::class, 'shopCart'])->name('shopCart');
 });

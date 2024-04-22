@@ -9,6 +9,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Alert;
 
 class ProductController extends Controller
 {
@@ -63,28 +64,77 @@ class ProductController extends Controller
         // dd($request->file('images'));
 
         // Simpan gambar ke tabel product_images
-        
-        
+
+
         if ($images = $request->file('images')) {
             foreach ($images as $image) {
                 $product->addMedia($image)->toMediaCollection('images');
             }
         }
 
-        toast('Your Post as been submited!','success');
+        toast('Your Post as been submited!', 'success');
 
         return redirect()->route('indexProduct');
     }
 
     public function addCart(Request $request, $id)
     {
-        Cart::create([
-            'user_id' => Auth::user()->id,
-            'product_id' => $id,
-        ]);
+        $item = Cart::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
+        if ($item != null) {
+            if ($item->quantity + $request->quantity >= 20) {
+                toast('Max quantity', 'error');
+            } else {
+                $item->update(['quantity' => $item->quantity + $request->quantity]);
+            }
+        } else {
+            Cart::create([
+                'user_id' => Auth::user()->id,
+                'product_id' => $id,
+                'quantity' => $request->quantity,
+            ]);
+        };
 
         return redirect('shopCart');
     }
+
+    public function decrease(Request $request, $id)
+    {
+        $item = Cart::findOrFail($id);
+
+        $item->update(['quantity' => $item->quantity - 1]);
+
+        if ($item->quantity == 0) {
+            $item->delete();
+        };
+
+        return redirect('shopCart');
+    }
+
+    public function increase(Request $request, $id)
+    {
+        $item = Cart::findOrFail($id);
+
+        if ($item->quantity+1 > $item->product->stock) {
+            toast('Max quantity', 'error');
+        }else{
+            $item->update(['quantity' => $item->quantity + 1]);
+        }
+
+        return redirect('shopCart');
+    }
+
+    public function deleteCart(Request $request, $id)
+    {
+        $item = Cart::findOrFail($id);
+
+        $item->delete();
+
+        toast('Item deleted successfully', 'success');
+
+        return redirect('shopCart');
+    }
+
+
 
     /**
      * Display the specified resource.
@@ -150,7 +200,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
-        
+
         $product->delete();
 
         return redirect()->route('indexProduct')->with('success', 'Product deleted successfully');
@@ -164,7 +214,8 @@ class ProductController extends Controller
 
     public function shopCart()
     {
-        return view('toyspace.page.shop_cart');
+        $carts = Cart::with(['product'])->where('user_id', Auth::user()->id)->get();
+        return view('toyspace.page.shop_cart', compact('carts'));
     }
 
     public function checkout()

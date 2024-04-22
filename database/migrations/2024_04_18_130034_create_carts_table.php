@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->ulid('user_id');
             $table->ulid('product_id');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

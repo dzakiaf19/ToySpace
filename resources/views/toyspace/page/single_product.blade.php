@@ -50,23 +50,24 @@
                                 <p>{{ $product->desc }}</p>
                             </div>
                         </div>
-                        <div class="add-cart d-flex">
-                            {{-- <div class="col-1 qty" style="padding:0">
-                                <h5>Qty</h5>
-                            </div>
-                            <div class="col-5 quantity" style="padding:0">
-                                <button class="decrease">-</button>
-                                <span class="count">1</span>
-                                <button class="increase">+</button>
-                            </div> --}}
-                            <div class="col-6 entry-button  justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
-                                style="padding:0">
-                                <form action="{{ route('addCart', $product->id) }}" method="POST">
-                                    @csrf
+                        <form action="{{ route('addCart', $product->id) }}" method="POST">
+                            @csrf
+                            <div class="add-cart d-flex">
+                                <div class="col-1 qty" style="padding:0">
+                                    <h5>Qty</h5>
+                                </div>
+                                <div class="col-5 quantity" style="padding:0">
+                                    {{-- <button class="decrease">-</button>
+                                    <span class="count">1</span>
+                                    <button class="increase">+</button> --}}
+                                    <input type="number" id="quantity" value="1" name="quantity" min="1" max="{{$product->stock}}">
+                                </div>
+                                <div class="col-6 entry-button  justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+                                    style="padding:0">
                                     <button class="btn-entry" type="submit">ADD TO CART</button>
-                                </form>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

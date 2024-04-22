@@ -131,31 +131,31 @@
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example11">Email</label>
                                             <input type="email" name="email" id="form2Example11"
-                                                class="form-control" placeholder="" />
+                                                class="form-control" placeholder="" value="{{ old('email')}}"/>
                                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example11">First Name</label>
-                                            <input type="text" name="firstName" id="form2Example11"
-                                                class="form-control" placeholder="" />
-                                            <x-input-error :messages="$errors->get('firstNama')" class="mt-2" />
+                                            <input type="text" pattern="[a-zA-Z][a-zA-Z ]{2,}" name="firstName" id="form2Example11"
+                                                class="form-control" placeholder=""  value="{{ old('firstName')}}"/>
+                                            <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example11">Last Name</label>
-                                            <input type="text" name="lastName" id="form2Example11"
-                                                class="form-control" placeholder="" />
-                                            <x-input-error :messages="$errors->get('lastNama')" class="mt-2" />
+                                            <input type="text" pattern="[a-zA-Z][a-zA-Z ]{2,}" name="lastName" id="form2Example11"
+                                                class="form-control" placeholder=""  value="{{ old('lastName')}}"/>
+                                            <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example11">Birthdate</label>
                                             <input type="date" name="birthdate" id="form2Example11"
-                                                class="form-control" placeholder="" />
+                                                class="form-control" placeholder=""  value="{{ old('birthdate')}}"/>
                                             <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
                                         </div>
                                     </div>
@@ -166,15 +166,15 @@
                                                 style="background-color: #e9ecef;">+62</span>
                                             <input type="text" name="phone" class="form-control"
                                                 aria-label="Sizing example input"
-                                                aria-describedby="inputGroup-sizing-default">
-                                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                                                aria-describedby="inputGroup-sizing-default" maxlength="11" value="{{ old('phone')}}">
                                         </div>
+                                        <x-input-error :messages="$errors->get('phone')" class="mt-2" />
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example11">Password</label>
                                             <input type="password" name="password" id="form2Example11"
-                                                class="form-control" placeholder="" />
+                                                class="form-control" placeholder="" required/>
                                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                         </div>
                                     </div>
@@ -183,14 +183,14 @@
                                             <label class="form-label" for="form2Example11">Konfirmasi
                                                 Passsword</label>
                                             <input type="password" name="password_confirmation" id="form2Example11"
-                                                class="form-control" placeholder="" />
+                                                class="form-control" placeholder="" required/>
                                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-check form-check-info text-start">
                                     <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefault" checked>
+                                        id="flexCheckDefault" required>
                                     <label class="form-check-label" for="flexCheckDefault">
                                         I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms
                                             and Conditions</a>

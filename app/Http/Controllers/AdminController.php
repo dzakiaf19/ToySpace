@@ -69,18 +69,18 @@ class AdminController extends Controller
      * Remove the specified resource from storage.
      */
 
-    protected $deleteUser;
+    // protected $deleteUser;
 
-    public function __construct(DeleteUser $deleteUser)
-    {
-        $this->deleteUser = $deleteUser;
-    }
+    // public function __construct(DeleteUser $deleteUser)
+    // {
+    //     $this->deleteUser = $deleteUser;
+    // }
 
-    public function destroy(User $admin)
-    {
-        //
-        $this->deleteUser->delete($admin);
+    // public function destroy(User $admin)
+    // {
+    //     //
+    //     $this->deleteUser->delete($admin);
 
-        return redirect()->route('indexAdmin')->with('success', 'Admin deleted successfully');
-    }
+    //     return redirect()->route('indexAdmin')->with('success', 'Admin deleted successfully');
+    // }
 }

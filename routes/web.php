@@ -60,9 +60,13 @@ Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'pr
     })->name('admin.orders');
 });
 
+Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
+    Route::post('/shopCart/{id}', [ProductController::class, 'addCart'])->name(('addCart'));
+    Route::get('/shopCart', [ProductController::class, 'shopCart'])->name('shopCart');
+});
+
 Route::get('/', [ProductController::class, 'home'])->name('home');
 Route::get('/{product}/detail', [ProductController::class, 'single'])->name('singleProduct');
-Route::get('/shopCart', [ProductController::class, 'shopCart'])->name('shopCart');
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkoutProduct');
 
 
@@ -70,10 +74,10 @@ Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkoutP
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 require __DIR__ . '/auth.php';

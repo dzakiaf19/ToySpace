@@ -36,14 +36,15 @@
             <div class="login">
                 @if (Auth::check())
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
-                            class="fa-regular fa-user"></i></a>
+                            class="fa-regular fa-user"></i> {{ Auth::user()->firstName }}</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Edit Profil</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf
                             <li>
-                                <button href="{{ route('logout') }}" class="dropdown-item" @click.prevent="$root.submit();">
+                                <button href="{{ route('logout') }}" class="dropdown-item"
+                                    @click.prevent="$root.submit();">
                                     {{ __('Log Out') }}
                                 </button>
                             </li>
@@ -54,10 +55,12 @@
                 @endif
 
             </div>
-            <div class="cart">
-                <i class="bi bi-cart3"></i>
-                <span class="notification">3</span>
-            </div>
+            @if (Auth::check())
+                <div class="cart">
+                    <i class="bi bi-cart3"></i>
+                    {{-- <span class="notification">3</span> --}}
+                </div>
+            @endif
         </div>
 
     </div>

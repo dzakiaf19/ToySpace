@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
@@ -72,6 +74,16 @@ class ProductController extends Controller
         toast('Your Post as been submited!','success');
 
         return redirect()->route('indexProduct');
+    }
+
+    public function addCart(Request $request, $id)
+    {
+        Cart::create([
+            'user_id' => Auth::user()->id,
+            'product_id' => $id,
+        ]);
+
+        return redirect('shopCart');
     }
 
     /**

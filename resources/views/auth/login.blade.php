@@ -12,15 +12,13 @@
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href="{{ asset ('admin/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
-    <link href="{{ asset ('admin/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="{{ asset ('admin/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle"
-        href="{{ asset ('admin/assets/css/argon-dashboard.css?v=2.0.4') }}"
-        rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('admin/assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -102,45 +100,41 @@
                                     <p class="mb-0">Enter your email and password to sign in</p>
                                 </div>
                                 <div class="card-body px-0">
-                                    <form method="POST" action="{{ route ('login') }}">
+                                    <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="mb-3">
                                             <input type="email" id="email" for="email" name="email"
                                                 class="form-control form-control-lg" placeholder="Email"
                                                 aria-label="Email" required autofocus autocomplete="username">
-                                            @error('email')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <input for="password" id="password" class="form-control form-control-lg"
                                                 placeholder="Password" aria-label="Password" type="password"
                                                 name="password" required autocomplete="current-password">
-                                            @error('password')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                         </div>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="remember_me" name="remember">
+                                            <input class="form-check-input" type="checkbox" id="remember_me"
+                                                name="remember">
                                             <label class="form-check-label" for="remember_me">Remember me</label>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit"
-                                                class="btn btn-lg btn-lg w-100 mt-4 mb-0" style="background-color: #24263D; color: #fff;">Sign
+                                            <button type="submit" class="btn btn-lg btn-lg w-100 mt-4 mb-0"
+                                                style="background-color: #24263D; color: #fff;">Sign
                                                 in</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <p class="mb-1 text-sm mx-auto">
-                                        <a href="{{ route ('password.request') }}"
-                                            class="font-weight-bold" style="color: #24263D">
+                                        <a href="{{ route('password.request') }}" class="font-weight-bold"
+                                            style="color: #24263D">
                                             Forgot Password?</a>
                                     </p>
                                     <p class="mb-4 text-sm mx-auto">
                                         Don't have an account?
-                                        <a href="{{ route ('register') }}"
-                                            class="font-weight-bold" style="color: #24263D">Sign up</a>
+                                        <a href="{{ route('register') }}" class="font-weight-bold"
+                                            style="color: #24263D">Sign up</a>
                                     </p>
                                 </div>
                             </div>
@@ -148,12 +142,14 @@
                         <div
                             class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
                             <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
-                                style="background-image: url('{{asset ('admin/assets/img/login-bg.png')}}');
+                                style="background-image: url('{{ asset('admin/assets/img/login-bg.png') }}');
           background-size: cover;">
                                 <!-- <span class="mask bg-gradient-primary opacity-3"></span> -->
                                 <span class="mask login-bg"></span>
-                                <h4 class="mt-5 text-white font-weight-bolder position-relative">“Your ultimate toy stop”</h4>
-                                <p class="text-white position-relative">The more seamless the toy store experience appears, the greater the effort invested by its creators behind the scenes.</p>
+                                <h4 class="mt-5 text-white font-weight-bolder position-relative">“Your ultimate toy
+                                    stop”</h4>
+                                <p class="text-white position-relative">The more seamless the toy store experience
+                                    appears, the greater the effort invested by its creators behind the scenes.</p>
                             </div>
                         </div>
                     </div>
@@ -162,14 +158,10 @@
         </section>
     </main>
     <!--   Core JS Files   -->
-    <script src="{{ asset ('admin/assets/js/core/popper.min.js') }}">
-    </script>
-    <script src="{{ asset ('admin/assets/js/core/bootstrap.min.js') }}">
-    </script>
-    <script src="{{ asset ('admin/assets/js/plugins/perfect-scrollbar.min.js') }}">
-    </script>
-    <script src="{{ asset ('admin/assets/js/plugins/smooth-scrollbar.min.js') }}">
-    </script>
+    <script src="{{ asset('admin/assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -178,13 +170,11 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
-
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset ('admin/assets/js/argon-dashboard.min.js?v=2.0.4') }}">
-    </script>
+    <script src="{{ asset('admin/assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
 </body>
 
 </html>

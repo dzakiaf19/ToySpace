@@ -10,7 +10,7 @@
             </div>
         </section>
         <section class="detail_cart">
-            <div class="container d-flex">
+            <div class="container">
                 <div id="shop-cart" class="shop-cart" style="padding:0;">
                     <div class="table-responsive">
                         <table class="table table-borderless">
@@ -24,6 +24,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $subtot = 0;
+                                @endphp
                                 @forelse ($carts as $item)
                                     <tr class="">
                                         <td>{{ $item->product->name }}</td>
@@ -42,8 +45,11 @@
                                             </form>
                                         </td>
                                         <td>Rp {{ $item->product->price * $item->quantity }}</td>
+                                        @php
+                                            $subtot = $subtot + $item->product->price * $item->quantity;
+                                        @endphp
                                         <td class="td-actions">
-                                            <form action="{{route('deleteCart', $item->id)}}">
+                                            <form action="{{ route('deleteCart', $item->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" rel="tooltip" class="btn btn-icon btn-simple"
@@ -62,37 +68,118 @@
                 </div>
 
                 <div id="cart-total" class="cart-total">
-                    <div class="col-12 titles sub-tot">
-                        <h4>Cart Total</h4>
-                    </div>
-                    <div class="body sub-tot d-flex">
-                        <!-- <div class="col-4 title">Subtotal</div>
-                                        <div class="col-4 harga">Rp 189.999</div> -->
+                    <div class="col-12 titles sub-tot d-flex">
+                        <h4>Cart Total : Rp {{ $subtot }}</h4>
+                        @if ($alamat != null)
+                            <a href="{{ route('checkoutProduct', [Auth::user()->id, $alamat->id] ) }}" rel="tooltip" class="btn btn-simple">
+                                Check Out
+                            </a>
+                        @else
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-simple" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">
+                                Check Out
+                            </button>
 
-                        <h5>Subtotal</h5>
-                        <h5>Rp 189.999</h5>
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Isi Alamat</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <form action="{{route('address.store')}}" method="POST">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <label for="nama" class="col-form-label">Nama:</label>
+                                                            <input required type="text" name="nama" class="form-control" id="nama"
+                                                                value="{{ Auth::user()->firstName . ' ' . Auth::user()->lastName }}">
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <label for="phone" class="col-form-label">No HP:</label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text"
+                                                                    id="inputGroup-sizing-default"
+                                                                    style="background-color: #e9ecef;">+62</span>
+                                                                <input required type="text" name="phone" class="form-control"
+                                                                    aria-label="Sizing example input"
+                                                                    aria-describedby="inputGroup-sizing-default"
+                                                                    maxlength="11" value="{{ Auth::user()->phone }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <label for="province">Pilith Provinsi</label>
+                                                            <select required name="provinsi" id="provinsi" class="form-control">
+                                                                <option value=""></option>
+                                                                @foreach ($provinces as $province)
+                                                                    <option value="{{ $province['province_id'] }}">
+                                                                        {{ $province['province'] }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <label for="city">Pilith Kota</label>
+                                                            <select required name="kota" id="city" class="form-control">
+                                                                <option value=""></option>
+                                                                @foreach ($cities as $city)
+                                                                    <option value="{{ $city['city_id'] }}">
+                                                                        {{ $city['city_name'] }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <label for="kode-pos">Kode Pos</label>
+                                                            <input required name="kode_pos" type="text" maxlength="6" class="form-control"
+                                                                id="kode-pos" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="alamat" class="col-form-label">Detail Alamat :</label>
+                                                    <textarea required name="alamat_lengkap" id="alamat" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Tutup</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     </div>
-                    <div class="body">
+                    {{-- <div class="body">
                         <div class="shipping">
-                            <h3>Shipping :</h3>
+                            <h3>Isi alamat pengiriman :</h3>
                         </div>
                         <div class="sub-tot d-flex">
-                            <h5>Shipping to Banyuwangi, Jawa Timur</h5>
-                            <h5>Rp 23.000</h5>
+                            <form action="">
+                                <label for="destination">Pilith Kota</label>
+                                <select name="" id="destination" class="form-control">
+                                    <option value=""></option>
+                                </select>
+                            </form>
                         </div>
-                    </div>
-                    <div class="body  sub-tot">
+                    </div> --}}
+                    {{-- <div class="body  sub-tot">
                         <h5>Change Shipping Address</h5>
                     </div>
                     <div class="body  sub-tot d-flex" style="border: none;">
                         <h5 style="font-weight: bold;">Total</h5>
                         <h5>Rp 212.999</h5>
-                    </div>
-                    <div class="">
-                        <button type="button" rel="tooltip" class="btn btn-full" data-original-title="" title="">
-                            Check Out
-                        </button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 

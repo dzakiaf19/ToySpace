@@ -10,20 +10,20 @@
                         <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
                             <!-- slides -->
                             <div class="carousel-inner">
-                                @foreach ($product->getMedia('images') as $key => $image)
+                                @foreach ($product->images as $key => $image)
                                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                        <img src="{{ $image->getUrl() }}" alt="">
+                                        <img style="max-width: 400px" src="{{ Storage::url($image->path) }}" alt="">
                                     </div>
                                 @endforeach
                             </div>
 
                             <!-- Thumbnails -->
                             <ol class="carousel-indicators list-inline">
-                                @foreach ($product->getMedia('images') as $key => $image)
+                                @foreach ($product->images as $key => $image)
                                     <li class="list-inline-item {{ $key == 0 ? 'active' : '' }}">
                                         <a id="{{ 'carousel-selector-' . $key }}" class="selected"
                                             data-slide-to="{{ $key }}" data-target="#custCarousel">
-                                            <img src="{{ $image->getUrl() }}" class="img-fluid">
+                                            <img src="{{ Storage::url($image->path) }}" class="img-fluid">
                                         </a>
                                     </li>
                                 @endforeach
@@ -50,7 +50,7 @@
                                 <p>{{ $product->desc }}</p>
                             </div>
                         </div>
-                        <form action="{{ route('addCart', $product->id) }}" method="POST">
+                        <form action="{{ route('addCart', $product) }}" method="POST">
                             @csrf
                             <div class="add-cart d-flex">
                                 <div class="col-1 qty" style="padding:0">

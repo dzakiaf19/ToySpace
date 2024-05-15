@@ -47,8 +47,8 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        Role::create(['name' => 'admin']);
         Role::create(['name' => 'superadmin']);
+        Role::create(['name' => 'admin']);
         Role::create(['name' => 'user']);
 
         $userOne->assignRole('superadmin');

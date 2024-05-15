@@ -17,8 +17,11 @@ return new class extends Migration
             $table->text('desc');
             $table->decimal('price', 10, 0);
             $table->integer('stock');
+            $table->integer('berat');
             $table->unsignedBigInteger('cat_id');
             $table->string('slug');
+
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('cat_id')->references('id')->on('categories');

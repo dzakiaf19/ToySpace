@@ -12,15 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->ulid('id')->primary();
+            $table->id();
             $table->ulid('user_id')->index();
-            $table->dateTime('order_date');
-            $table->string('address_line1');
-            $table->string('address_line2')->nullable();
-            $table->string('city');
-            $table->string('postal_code', 6);
-            $table->string('telephon', 13);
-            $table->decimal('total', 10, 0);
+            $table->string('name');
+            $table->string('email')->nullable();
+            $table->text('address');
+            $table->string('phone', 12);
+
+            $table->string('courier');
+
+            $table->string('payment')->default('MIDTRANS');
+            $table->string('payment_url')->nullable();
+
+            $table->bigInteger('total_price')->default(0);
+            $table->string('status')->default('Pending');
+            
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

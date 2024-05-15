@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
@@ -34,8 +35,11 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
-        $createAdmin = new CreateNewUser;
-        $createAdmin->create($request->all());
+        $createAdmin = User::create($request->all());
+
+        event(new Registered($createAdmin));
+
+        $createAdmin->assignRole('admin');
 
         return redirect()->route('indexAdmin')->with('success', 'Admin added successfully');
     }

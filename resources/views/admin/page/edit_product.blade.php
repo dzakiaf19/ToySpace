@@ -9,7 +9,7 @@
                         <h6>Edit Products</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2" style="margin: 20px 24px 20px 24px">
-                        <form enctype="multipart/form-data" method="post" action="{{ route('updateProduct', ['product' => $product]) }}">
+                        <form enctype="multipart/form-data" method="post" action="{{ route('product.update', ['product' => $product]) }}">
                             @csrf
                             @method('put')
                             @if ($errors->any())
@@ -22,14 +22,14 @@
                                 </div>
                             @endif
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="name" style="font-size:12px; color: #344767;">Product Name</label>
                                         <input type="text" value="{{$product->name}}" name="name" class="form-control" id="exampleFormControlInput1"
                                             placeholder="">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="category" style="font-size:12px; color: #344767;">Category</label>
                                         <div class="select-category">
@@ -43,17 +43,26 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="name" style="font-size:12px; color: #344767;">Price</label>
                                         <input type="number" value="{{$product->price}}" name="price" class="form-control" id="exampleFormControlInput1"
                                             placeholder="">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name" style="font-size:12px; color: #344767;">Stock</label>
-                                        <input type="number" value="{{$product->stock}}" name="stock" class="form-control" id="exampleFormControlInput1"
+                                        <label for="stock" style="font-size:12px; color: #344767;">Stock</label>
+                                        <input type="number" value="{{$product->stock}}" name="stock" class="form-control" id="stock"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="berat" style="font-size:12px; color: #344767;">Berat (gram)</label>
+                                        <input type="number" value="{{$product->berat}}" name="berat" class="form-control" id="berat"
                                             placeholder="">
                                     </div>
                                 </div>
@@ -76,21 +85,6 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="row">
-                                <!-- <div class="col-md-12 mt-2 mb-3 add-image"
-                                    onclick="document.getElementById('imgUpload').click()" style="cursor: pointer;"> -->
-                                <div class="col-md-12 mt-2 mb-3 add-image">
-                                    <div id="dropBox" class="form-group"
-                                        style="border:1px solid #717E95; border-radius: 10px; border-style: dashed; padding: 20px 20px 0; margin:0;">
-                                        <input type="file" name="images[]" id="imgUpload" multiple accept="image/*"
-                                            onchange="filesManager(this.files)">
-                                        <label class="button" for="imgUpload"><i class="fa-regular fa-image"></i> Add
-                                            Images (0/9)</label>
-                                        <div id="gallery"></div>
-                                    </div>
-                                </div>
-                                <p style="font-size: 12px;">*If you want to update, you have to re-upload the image</p>
-                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <button type="submit"

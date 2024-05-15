@@ -8,7 +8,7 @@
                         <div class="card-header pb-0 font-weight-bolder d-flex justify-content-between">
                             <h6>All Category</h6>
                         </div>
-                        <form action="{{ route('storeCategory') }}" method="post">
+                        <form action="{{ route('category.store') }}" method="post">
                             @csrf
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -94,7 +94,7 @@
                                                                 </div>
 
                                                                 <form
-                                                                    action="{{ route('editCategory', ['category' => $cat]) }}"
+                                                                    action="{{ route('category.edit', ['category' => $cat]) }}"
                                                                     method="post">
                                                                     @csrf
                                                                     @if ($errors->any())
@@ -155,7 +155,7 @@
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close</button>
-                                                                    <a href="{{ route('deleteCategory', ['category' => $cat]) }}"
+                                                                    <a href="{{ route('category.destroy', ['category' => $cat]) }}"
                                                                         class="btn"
                                                                         style="background: #DD322B; color: #fff;">Delete</a>
                                                                 </div>

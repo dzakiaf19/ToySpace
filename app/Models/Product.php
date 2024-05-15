@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\MediaLibrary\HasMedia;
@@ -12,19 +13,20 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Product extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasUlids, InteractsWithMedia;
+    use HasFactory, HasSlug, HasUlids, InteractsWithMedia, SoftDeletes;
 
     protected $fillable = [
         'name',
         'desc',
         'price',
         'stock',
+        'berat',
         'cat_id',
     ];
 
     public function images()
     {
-        return $this->hasMany(ProductImage::class);
+        return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
 
     public function getSlugOptions(): SlugOptions

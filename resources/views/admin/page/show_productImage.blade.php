@@ -6,8 +6,8 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0 font-weight-bolder d-flex justify-content-between">
-                            <h6>All Products</h6>
-                            <button type="button button-add" onclick="location.href='{{ route('product.create') }}'"
+                            <h6>{{$product->name}} Images</h6>
+                            <button type="button button-add" onclick="location.href='{{ route('product.images.create', $product) }}'"
                                 class="btn btn-primary"
                                 style="background: #344767; border: 1px solid #24263D; color: #FFFDF4; shadow: none;">Add
                                 Products</button>
@@ -35,13 +35,10 @@
                                                 No</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Product Name</th>
+                                                Image</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Quantity</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Price</th>
+                                                Is Featured</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                                 Action</th>
@@ -51,7 +48,7 @@
                                         @php
                                             $i =1;
                                         @endphp
-                                        @foreach ($product as $key => $prod)
+                                        @foreach ($images as $image)
                                             <tr>
                                                 <td>
                                                     <div class="d-flex px-3 py-1">
@@ -60,19 +57,14 @@
                                                     </div>
                                                 </td>
                                                 <td>
+                                                    <img style="max-width: 100px" src="{{Storage::url($image->path)}}" alt="">
+                                                </td>
+                                                <td>
                                                     <span
-                                                        class="text-secondary text-xs font-weight-bold">{{ $prod->name }}</span>
+                                                        class="text-secondary text-xs font-weight-bold">{{$image->is_featured? 'Yes' : 'No'}}</span>
                                                 </td>
                                                 <td class="text-sm">
-                                                    <span
-                                                        class="text-secondary text-xs font-weight-bold">{{ $prod->stock }}</span>
-                                                </td>
-                                                <td class="text-sm">
-                                                    <span class="text-secondary text-xs font-weight-bold">Rp
-                                                        {{ $prod->price }}</span>
-                                                </td>
-                                                <td class="text-sm">
-                                                    <a href="{{ route('product.images.index', ['product' => $prod]) }}"
+                                                    {{-- <a href="{{ route('product.images.index', ['product' => $prod]) }}"
                                                         rel="tooltip" class="btn btn-icon btn-simple"
                                                         style="background-color:#3f92ff; color:#fff; padding: 10px 15px;"
                                                         data-original-title="" title="">
@@ -83,8 +75,8 @@
                                                         style="background-color:#FFC93F; color:#fff; padding: 10px 15px;"
                                                         data-original-title="" title="">
                                                         <i class="fa-regular fa-pen-to-square"></i>
-                                                    </a>
-                                                    <a href="{{ route('product.destroy', ['product' => $prod]) }}" rel="tooltip" class="btn btn-icon btn-simple"
+                                                    </a> --}}
+                                                    <a href="{{ route('images.destroy', ['image' => $image]) }}" rel="tooltip" class="btn btn-icon btn-simple"
                                                         style="background-color:#DD322B; color:#fff;padding: 10px 15px;"
                                                         data-confirm-delete="true">
                                                         <i class="fa-regular fa-trash-can" data-confirm-delete="true"></i>

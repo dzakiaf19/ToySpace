@@ -268,14 +268,14 @@
                     <p>Next level poutine in meh ea bruh mlkshk umami microdosing <br>lyft dolore nostrud. In franzen
                         bicycle rights, semiotics shaman.</p>
                 </div>
-                <div class="products row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 g-lg-3 align-items-center justify-content-between"
+                <div class="products row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 g-lg-3 align-items-center"
                     data-aos="fade-up">
                     @foreach ($product as $prod)
                         <div class="product col">
                             <a href="{{ route('singleProduct', ['product' => $prod]) }}">
                                 <div class="card card-product shadow-sm h-10">
                                     <img class="card-img-top"
-                                        src='{{ $prod->getFirstMediaUrl('images') }}' alt=''>
+                                        src='{{Storage::url($prod->images->first()->path)}}' alt=''>
                                     <div class="card-overlay">
                                         <span>See Details</span>
                                     </div>
@@ -288,6 +288,7 @@
                                 </a>
                                 <h4 class="price">Rp {{ $prod->price }}</h4>
                             </div>
+                        </div>
                     @endforeach
                 </div>
             </div>

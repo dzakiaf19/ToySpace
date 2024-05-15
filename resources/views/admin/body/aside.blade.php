@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @if (request()->is('admin/product', 'admin/product/add', 'admin/product/edit/*')) active @endif" href="{{ route('indexProduct') }}">
+                <a class="nav-link @if (request()->is('admin/product', 'admin/product/add', 'admin/product/edit/*')) active @endif" href="{{ route('product.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-regular fa-file text-dark text-sm opacity-10"></i>
@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @if (request()->is('admin/stock', 'admin/product/add', 'admin/product/edit/*')) active @endif" href="{{ route('indexProduct') }}">
+                <a class="nav-link @if (request()->is('admin/stock', 'admin/product/add', 'admin/product/edit/*')) active @endif" href="{{ route('product.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-regular fa-file text-dark text-sm opacity-10"></i>
@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @if (request()->is('admin/stock', 'admin/product/add', 'admin/product/edit/*')) active @endif" href="{{ route('indexProduct') }}">
+                <a class="nav-link @if (request()->is('admin/stock', 'admin/product/add', 'admin/product/edit/*')) active @endif" href="{{ route('product.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-regular fa-file text-dark text-sm opacity-10"></i>
@@ -51,7 +51,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link @if (request()->is('admin/category')) active @endif"
-                    href="{{ route('indexCategory') }}">
+                    href="{{ route('category.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fas fa-book text-dark text-sm opacity-10"></i>

@@ -11,9 +11,10 @@
                     ID Pesanan :# 987629202
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
+                    <img src="..." class="card-img-top" alt="...">
+                    <h5 class="card-title">Red Ferari Coupe Parked Beside Buildings</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="#" class="btn btn-primary-all">Detail Pesanan</a>
                 </div>
             </div>
         </div>

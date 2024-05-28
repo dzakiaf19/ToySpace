@@ -1599,7 +1599,7 @@ section {
 .pesanan-saya .card-body {
     align-items: center;
 }
-.pesanan-saya .card-title{
+.pesanan-saya .nameproduk{
     font-weight: bold;
     font-family: 'Montserrat';
     font-size: 18px;
@@ -1619,16 +1619,125 @@ section {
     font-size: 14px;
     font-family: 'Cabin';
     justify-content: center;
-    position: relative;
     display: flex;
-    
-    margin: auto;
-    float: none;
-    
+}
+.pesanan-saya .btn-primary-all:hover{
+    background-color: var(--secondary-color);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    display: flex;
+}
+/*--------------------------------------------------------------
+# Detail Order History
+--------------------------------------------------------------*/
+.detail-pesanan-saya .card{
+    margin-bottom: 3%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 4px;
 }
 
+.detail-pesanan-saya .card-header{
+    font-size: 18px;
+    font-family: 'Cabin';
+    background-color: var(--t-white);
+    border-radius: 8px 8px 0px 0px;
 
+}
+.detail-pesanan-saya .card-body {
+    align-items: center;
+ border-bottom: 1px solid rgb(235, 235, 235);
+}
+.detail-pesanan-saya .col-md-7 a{
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.detail-pesanan-saya .col-md-3{
+    text-align: end;
+}
+.detail-pesanan-saya .col-md-2{
+    color: var(--primary-color);
+    text-align: end;
+}
+.detail-pesanan-saya .address{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    color: var(--primary-color);
+}
+.detail-pesanan-saya .receive{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Cabin';
+}
+.detail-pesanan-saya .street{
+    font-size: 16px;
+    font-family: 'Cabin';
+}
+.detail-pesanan-saya .col-md-2 .card-nresi{
+    font-family: 'Cabin';
+    font-size: 16px;
+    justify-content: center;
+    color: var(--black);
+}
+.detail-pesanan-saya .card-resi{
+    color: var(--primary-color);
+    font-family: 'Cabin';
+    font-size: 16px;
+    text-align: end;
+}
 
+.detail-pesanan-saya .orders {
+    align-items: center;
+}
+.detail-pesanan-saya .nameproduk{
+    font-weight: bold;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.detail-pesanan-saya .card-qty{
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.detail-pesanan-saya .card-price{
+    color: var(--primary-color);
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.detail-pesanan-saya .btn-primary-all{
+    background-color: var(--primary-color);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    display: flex;
+}
+.detail-pesanan-saya .btn-primary-all:hover{
+    background-color: var(--secondary-color);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    display: flex;
+}
+.detail-pesanan-saya .card-footer{
+    text-align: end;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    color: var(--black);
+    background-color: var(--t-white);
+    border: none;
+    border-radius: 0px 0px 8px 8px;
+}
+.detail-pesanan-saya .card-footer .col-md-2{
+    font-weight: bold;
+}
+.detail-pesanan-saya .h{
+    font-family: 'Cabin';
+    color: var(--black);
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

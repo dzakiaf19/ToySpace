@@ -4,7 +4,7 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Alata&family=DM+Sans:opsz,wght@9..40,300&family=Lilita+One&family=Montserrat+Alternates&family=Overpass&family=Poppins:wght@100;900&family=Rosarivo&family=Rubik:wght@300&display=swap'); */
 
-@import url('https://fonts.googleapis.com/css2?family=Alata&family=DM+Sans:opsz,wght@9..40,300&family=Lato&family=Lilita+One&family=Montserrat+Alternates&family=Overpass&family=Poppins:wght@100;900&family=Rosarivo&family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --primary-color: #CF0008;
@@ -520,6 +520,26 @@ h6 {
     background-position: center top;
 }
 
+#hero1 .carousel-inner .carousel-item img {
+    height: 610px;
+}
+
+#hero1 .carousel-inner .carousel-item .carousel-caption {
+    top: 40%;
+}
+
+#hero1 .carousel-inner .carousel-item .carousel-caption h5{
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+
+#hero1 .carousel-inner .carousel-item .carousel-caption h5,
+#hero1 .carousel-inner .carousel-item .carousel-caption p {
+    color: #0E0E0E;
+}
+
 #hero1 .carousel-inner .carousel-item,
 #hero1 .carousel-inner .active.carousel-item-start,
 #hero1 .carousel-inner .active.carousel-item-end {
@@ -743,7 +763,7 @@ section {
 }
 
 .featured-product2 .sec-title h3 {
-    font-family: 'Montserrat Alternates';
+    font-family: "Montserrat", sans-serif;
     font-size: 28px;
     color: var(--black);
     font-weight: 600
@@ -901,7 +921,7 @@ section {
 }
 
 .wcu .text h3 {
-    font-family: 'Montserrat Alternates';
+    font-family: "Montserrat", sans-serif;
     font-size: 28px;
     font-weight: 600;
     color: #000000;
@@ -1025,7 +1045,7 @@ section {
 }
 
 .featured-product .sec-title h3 {
-    font-family: 'Montserrat Alternates';
+    font-family: "Montserrat", sans-serif;
     font-size: 28px;
     color: var(--black);
     font-weight: 600
@@ -1204,7 +1224,7 @@ section {
 }
 
 .product-detail .product-info .title-product h3 {
-    font-family: 'Montserrat Alternates';
+    font-family: "Montserrat", sans-serif;
     font-size: 28px;
     font-weight: 600;
     color: #000000;

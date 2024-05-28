@@ -154,4 +154,10 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function history ($id){
+        $order = Order::where('user_id', $id)->get();
+
+        return view('toyspace.page.pesanan_saya', compact('order'));
+    }
 }

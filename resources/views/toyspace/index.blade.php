@@ -5,7 +5,41 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero1" class="d-flex align-items-center">
 
-        <div class="container align-items-center">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('toyspace/assets/img/hero.png') }}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('toyspace/assets/img/hero-2.png') }}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('toyspace/assets/img/hero-3.png') }}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- <div class="container align-items-center">
             <div class="row">
                 <div class="row image" style="margin-right: 0;">
                     <div class="col-lg-8" data-aos="fade-right" style="margin: 0; padding:0;">
@@ -75,7 +109,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </section>
     <!-- End Hero -->
@@ -254,8 +288,7 @@
                         <button type="button">Shop Now <i class="bi bi-arrow-right"></i></button>
                     </div>
                     <div class="image col-lg-6">
-                        <img src="{{ asset('toyspace/assets/img/banner.png') }}" class="img-banner"
-                            alt="Floating Image">
+                        <img src="{{ asset('toyspace/assets/img/banner.png') }}" class="img-banner" alt="Floating Image">
                     </div>
                 </div>
             </div>
@@ -274,16 +307,15 @@
                         <div class="product col">
                             <a href="{{ route('singleProduct', ['product' => $prod]) }}">
                                 <div class="card card-product shadow-sm h-10">
-                                    <img class="card-img-top"
-                                        src='{{Storage::url($prod->images->first()->path)}}' alt=''>
+                                    <img class="card-img-top" src='{{ Storage::url($prod->images->first()->path) }}'
+                                        alt=''>
                                     <div class="card-overlay">
                                         <span>See Details</span>
                                     </div>
                                 </div>
                             </a>
                             <div class="card-body">
-                                <a href="{{ route('singleProduct', ['product' => $prod]) }}"
-                                    style="color:black">
+                                <a href="{{ route('singleProduct', ['product' => $prod]) }}" style="color:black">
                                     <h2 class="card-title">{{ $prod->name }}</h2>
                                 </a>
                                 <h4 class="price">Rp {{ $prod->price }}</h4>

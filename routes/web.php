@@ -68,6 +68,7 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
     Route::post('/checkout/payment/{id}-{address}', [OrderController::class, 'store'])->name('paymentProduct');
 
     Route::resource('address', UserAddressController::class);
+    Route::get('/{id}/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
 });
 
 Route::get('/', [ProductController::class, 'home'])->name('home');

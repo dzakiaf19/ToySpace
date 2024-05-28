@@ -1743,13 +1743,14 @@ section {
 --------------------------------------------------------------*/
 #footer {
     font-size: 14px;
-    background: #FAF6F6;
+    background: #FFFCFC;
     margin-top: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 #footer .footer-top {
     padding: 60px 0 60px 0;
-    background: #FAF6F6;
+    background: #FFFCFC;
 }
 
 #footer .footer-top .footer-desc {
@@ -1774,7 +1775,8 @@ section {
 #footer .footer-top .footer-desc p {
     color: var(--t-black);
     margin-bottom: 24px;
-    font-family: 'Poppins';
+    font-size: 16px;
+    font-family: 'Cabin';
 }
 
 #footer .footer-top .footer-contact {
@@ -1796,8 +1798,7 @@ section {
 }
 
 #footer .footer-top .footer-contact p {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 16px;
     margin-bottom: 0;
     font-family: "Jost", sans-serif;
     color: #5e5e5e;
@@ -1808,7 +1809,7 @@ section {
     color: var(--primary-color);
     position: relative;
     padding-bottom: 12px;
-    font-family: 'Poppins';
+    font-family: 'Montserrat';
 }
 
 #footer .footer-top .footer-links {
@@ -1817,7 +1818,7 @@ section {
 }
 
 #footer .footer-top .footer-links p {
-    color: var(--text-textw);
+    color: var(--t-black);
 }
 
 #footer .footer-top .footer-links ul {
@@ -1830,8 +1831,7 @@ section {
 #footer .footer-top .navigasi ul i {
     padding-right: 2px;
     /* color: var(--primary-color); */
-    font-size: 18px;
-    line-height: 1;
+    font-size: 22px;
     margin-left: -5px;
     background: linear-gradient(to right, #CF0008, #FEC42A);
     /* Ganti warna sesuai gradasi yang diinginkan */
@@ -1842,7 +1842,7 @@ section {
 #footer .footer-top .contact ul i {
     padding-right: 2px;
     /* color: var(--primary-color); */
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1;
     background: linear-gradient(to right, #CF0008, #FEC42A);
     /* Ganti warna sesuai gradasi yang diinginkan */
@@ -1851,13 +1851,15 @@ section {
 }
 
 #footer .footer-top .footer-links ul li {
-    padding: 5px 0;
+    padding: 10px 0;
     display: flex;
     align-items: center;
+    font-family: 'Cabin';
+    font-size: 16px;
 }
 
 #footer .footer-top .contact ul li {
-    padding: 8px 0;
+    padding: 10px 0;
 }
 
 #footer .footer-top .footer-links ul li:first-child {
@@ -1910,34 +1912,10 @@ section {
 }
 
 #footer .copyright {
-    float: left;
-    /* text-align: center; */
+    text-align: center;
     position: relative;
     top: 10px;
-}
-
-#footer .credits {
-    float: right;
-    font-size: 13px;
-}
-
-#footer .credits h4 {
-    font-size: 14px;
-    position: relative;
-    top: 10px;
-    margin-right: 5px;
-}
-
-#footer .credits .img-png {
-    background: linear-gradient(to right, #CF0008, #FEC42A);
-    ;
-    margin: 0 10px;
-    padding: 10px 20px;
-    border-radius: 4px;
-}
-
-#footer .credits a {
-    transition: 0.3s;
+    font-family: 'Cabin';
 }
 
 @media (max-width: 768px) {

@@ -19,27 +19,33 @@
                 <img src="{{ asset('toyspace/assets/img/hero.png') }}" class="d-block w-100"
                     alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Temukan Mainan yang<br>Tepat Untuk Anda</h5>
+                    <h5>PRODUK TERBARU</h5>
+                    <h4>Temukan Mainan yang<br>Tepat Untuk Anda</h4>
                     <p>Lorem ipsum dolor si amet, consectetur adipiscing elit, sed do euismod
                         tempor incididunt ut</p>
+                        <button class="btn btn-get-started">Lihat Selengkapnya</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('toyspace/assets/img/hero.png') }}" class="d-block w-100"
                     alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Temukan Mainan yang<br>Tepat Untuk Anda</h5>
+                <h5>PRODUK TERBARU</h5>
+                    <h4>Temukan Mainan yang<br>Tepat Untuk Anda</h4>
                     <p>Lorem ipsum dolor si amet, consectetur adipiscing elit, sed do euismod
                         tempor incididunt ut</p>
+                        <button class="btn btn-get-started">Lihat Selengkapnya</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('toyspace/assets/img/hero.png') }}" class="d-block w-100"
                     alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Temukan Mainan yang<br>Tepat Untuk Anda</h5>
+                <h5>PRODUK TERBARU</h5>
+                    <h4>Temukan Mainan yang<br>Tepat Untuk Anda</h4>
                     <p>Lorem ipsum dolor si amet, consectetur adipiscing elit, sed do euismod
                         tempor incididunt ut</p>
+                        <button class="btn btn-get-started">Lihat Selengkapnya</button>
                 </div>
             </div>
         </div>

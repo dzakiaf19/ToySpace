@@ -8,7 +8,8 @@
 
 :root {
     --primary-color: #EF0003;
-    --secondary-color: #FFAE10;
+    --secondary-color: #FEB929;
+    --t-white: #FFF;
     /* --white-color: #F9FAFF; */
     --black: #0D0C0C;
     --t-black: #343232;
@@ -528,14 +529,24 @@ h6 {
     top: 40%;
 }
 
-#hero1 .carousel-inner .carousel-item .carousel-caption h5{
+#hero1 .carousel-inner .carousel-item .carousel-caption h5 {
+    font-family: "Cabin", sans-serif;
+    font-size: 13px;
+    color: #EF0003;
+}
+
+#hero1 .carousel-inner .carousel-item .carousel-caption h4{
     font-family: "Montserrat", sans-serif;
     font-size: 36px;
     font-weight: bold;
 }
 
+#hero1 .carousel-inner .carousel-item .carousel-caption p {
+    font-family: "Cabin", sans-serif;
+    font-size: 13px;
+}
 
-#hero1 .carousel-inner .carousel-item .carousel-caption h5,
+#hero1 .carousel-inner .carousel-item .carousel-caption h4,
 #hero1 .carousel-inner .carousel-item .carousel-caption p {
     color: #0E0E0E;
 }
@@ -614,12 +625,14 @@ h6 {
     border-radius: 4px;
     transition: 0.5s;
     line-height: 1;
-    color: #fff;
-    background: #FCB941;
+    color: var(--primary-color);
+    background: var(--t-white);
+    border-color: var(--primary-color);
 }
 
 #hero1 .btn-get-started:hover {
-    background: #CC9966;
+    background: var(--primary-color);
+    color: var(--t-white);
 }
 
 @media (min-width: 1024px) {

@@ -8,13 +8,40 @@
         <div class="container">
             <div class="card">
                 <div class="card-header">
-                    ID Pesanan :# 987629202
+                    ID Pesanan : # 987629202
                 </div>
-                <div class="card-body">
-                    <img src="..." class="card-img-top" alt="...">
-                    <h5 class="card-title">Red Ferari Coupe Parked Beside Buildings</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary-all">Detail Pesanan</a>
+                <div class="card-body d-flex">
+                    <div class="col-md-4">
+                        <img src="" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="card-title">Red Ferari Coupe Parked Beside Buildings</h5>
+                        <p class="card-qty">1X</p>
+                        <p class="card-price">Rp80000</p>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#" class="btn btn-primary-all">Detail Pesanan</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    ID Pesanan : # 987629202
+                </div>
+                <div class="card-body d-flex">
+                    <div class="col-md-4">
+                        <img src="" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="card-title">Red Ferari Coupe Parked Beside Buildings</h5>
+                        <p class="card-qty">1X</p>
+                        <p class="card-price">Rp80000</p>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#" class="btn btn-primary-all">Detail Pesanan</a>
+                    </div>
+
                 </div>
             </div>
         </div>

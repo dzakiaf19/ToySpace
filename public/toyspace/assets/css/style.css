@@ -1582,17 +1582,51 @@ section {
 /*--------------------------------------------------------------
 # Pesanan Saya
 --------------------------------------------------------------*/
-.pesanan-saya{
-
+.pesanan-saya .card{
+    margin-bottom: 3%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 4px;
 }
+
 .pesanan-saya .card-header{
     font-weight: 900;
     font-family: 'Montserrat';
+    background-color: var(--t-white);
+    border-radius: 8px 8px 0px 0px;
+
+}
+.pesanan-saya .card-body {
+    align-items: center;
+}
+.pesanan-saya .card-title{
+    font-weight: bold;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.pesanan-saya .card-qty{
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.pesanan-saya .card-price{
+    color: var(--primary-color);
+    font-family: 'Montserrat';
+    font-size: 18px;
 }
 .pesanan-saya .btn-primary-all{
     background-color: var(--primary-color);
-    color: -var(--);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    position: relative;
+    display: flex;
+    
+    margin: auto;
+    float: none;
+    
 }
+
 
 
 /*--------------------------------------------------------------

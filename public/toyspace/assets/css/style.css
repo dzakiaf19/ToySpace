@@ -154,7 +154,7 @@ h6 {
 }
 
 #header .logo a {
-    color: #24263D;
+    color: var(--primary-color);
     /* font-size: 20px; */
 }
 
@@ -526,7 +526,7 @@ h6 {
 }
 
 #hero1 .carousel-inner .carousel-item .carousel-caption {
-    top: 40%;
+    top: 35%;
 }
 
 #hero1 .carousel-inner .carousel-item .carousel-caption h5 {
@@ -622,7 +622,7 @@ h6 {
     letter-spacing: 1px;
     display: inline-block;
     padding: 14px 32px;
-    border-radius: 4px;
+    border-radius: 8px;
     transition: 0.5s;
     line-height: 1;
     color: var(--primary-color);

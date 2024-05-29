@@ -31,7 +31,7 @@ Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'pr
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('admin.dashboard');
-    
+
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('product.images', ProductImageController::class)->shallow()->only([
@@ -69,6 +69,8 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
 
     Route::resource('address', UserAddressController::class);
     Route::get('/{id}/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
+    //detail order history
+    Route::get('/{id}/ohdetails', [OrderController::class, 'historyDetails'])->name('psDetails');
 });
 
 Route::get('/', [ProductController::class, 'home'])->name('home');

@@ -8,12 +8,59 @@
         <div class="container">
             <div class="card">
                 <div class="card-header">
-                    ID Pesanan :# 987629202
+                    ID Pesanan : # 987629202
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="card-body d-flex">
+                    <div class="col-md-4">
+                        <img src="" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="nameproduk">Red Ferari Coupe Parked Beside Buildings</div>
+                        <div class="card-qty">X2</div>
+                        <div class="card-price">Rp80000</div>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{route('psDetails', Auth::user()->id)}}" class="btn btn-primary-all">Detail Pesanan</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    ID Pesanan : # 987629202
+                </div>
+                <div class="card-body d-flex">
+                    <div class="col-md-4">
+                        <img src="" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="nameproduk">Red Ferari Coupe Parked Beside Buildings</div>
+                        <div class="card-qty">X2</div>
+                        <div class="card-price">Rp80000</div>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{route('psDetails', Auth::user()->id)}}" class="btn btn-primary-all">Detail Pesanan</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    ID Pesanan : # 987629202
+                </div>
+                <div class="card-body d-flex">
+                    <div class="col-md-4">
+                        <img src="" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="nameproduk">Red Ferari Coupe Parked Beside Buildings</div>
+                        <div class="card-qty">X2</div>
+                        <div class="card-price">Rp80000</div>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{route('psDetails', Auth::user()->id)}}" class="btn btn-primary-all">Detail Pesanan</a>
+                    </div>
+
                 </div>
             </div>
         </div>

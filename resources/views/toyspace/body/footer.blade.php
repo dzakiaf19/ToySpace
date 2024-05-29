@@ -4,7 +4,7 @@
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 footer-desc">
+                <div class="col-lg-5 col-md-6 footer-desc">
                     <h3>TOYSPACE.INC</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua.</p>
@@ -17,33 +17,32 @@
                 </div>
 
                 <div class="col-lg-2 col-md-6 footer-links navigasi">
-                    <h4>Menu</h4>
+                    <h4>Jelajahi Toyspace</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">About</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Products</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">News</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Contact Us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Kontak Kami</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Produk Kami</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Masuk Akun</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Daftar Akun</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 footer-links navigasi">
-                    <h4>Category Product</h4>
+                <div class="col-lg-2 col-md-6 footer-links navigasi">
+                    <h4>Kategori Produk</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Puzzles</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Vechicle</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Dolls</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Buildings</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Teka Teki</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Kendaraan</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Boneka</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Bangunan</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 footer-links contact">
-                    <h4>Contact Us</h4>
+                <div class="col-lg-2 col-md-6 footer-links contact">
+                    <h4>Kontak Kami</h4>
                     <ul>
                         <li><i class="bi bi-telephone"></i> <a href="#" style="margin-left: 8px;">+6281-2345-6789</a>
                         </li>
-                        <li><i class="bi bi-envelope"></i> <a href="#"
-                                style="margin-left: 8px;">toyspaceinc@gmail.com</a>
+                        <li><i class="bi bi-envelope"></i> <a href="#" style="margin-left: 8px;">toyspaceinc@gmail.com</a>
                         </li>
                         <li><i class="bi bi-geo-alt"></i> <a href="#" style="margin-left: 8px;">Surabaya, Jawa Timur</a>
                         </li>
@@ -58,11 +57,6 @@
     <div class="container footer-bottom clearfix">
         <div class="copyright">Copyright
             &copy; 2023 <a href="">Toyspace.Inc</a> - Powered by <a href="https://jasterweb.com/">JasterWeb</a>
-        </div>
-        <div class="credits d-flex">
-            <h4>Payment Support</h4>
-            <div class="img-png"><img src="{{asset ('toyspace/assets/img/bca.png')}}" alt=""></div>
-            <div class="img-png"><img src="{{asset ('toyspace/assets/img/mandiri.png')}}" alt=""></div>
         </div>
     </div>
 </footer><!-- End Footer -->

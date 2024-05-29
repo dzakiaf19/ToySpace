@@ -1582,27 +1582,175 @@ section {
 /*--------------------------------------------------------------
 # Pesanan Saya
 --------------------------------------------------------------*/
-.pesanan-saya{
-
+.pesanan-saya .card{
+    margin-bottom: 3%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 4px;
 }
+
 .pesanan-saya .card-header{
     font-weight: 900;
-    font-family: monts;
+    font-family: 'Montserrat';
+    background-color: var(--t-white);
+    border-radius: 8px 8px 0px 0px;
+
+}
+.pesanan-saya .card-body {
+    align-items: center;
+}
+.pesanan-saya .nameproduk{
+    font-weight: bold;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.pesanan-saya .card-qty{
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.pesanan-saya .card-price{
+    color: var(--primary-color);
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.pesanan-saya .btn-primary-all{
+    background-color: var(--primary-color);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    display: flex;
+}
+.pesanan-saya .btn-primary-all:hover{
+    background-color: var(--secondary-color);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    display: flex;
+}
+/*--------------------------------------------------------------
+# Detail Order History
+--------------------------------------------------------------*/
+.detail-pesanan-saya .card{
+    margin-bottom: 3%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 4px;
 }
 
+.detail-pesanan-saya .card-header{
+    font-size: 18px;
+    font-family: 'Cabin';
+    background-color: var(--t-white);
+    border-radius: 8px 8px 0px 0px;
 
+}
+.detail-pesanan-saya .card-body {
+    align-items: center;
+ border-bottom: 1px solid rgb(235, 235, 235);
+}
+.detail-pesanan-saya .col-md-7 a{
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.detail-pesanan-saya .col-md-3{
+    text-align: end;
+}
+.detail-pesanan-saya .col-md-2{
+    color: var(--primary-color);
+    text-align: end;
+}
+.detail-pesanan-saya .address{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    color: var(--primary-color);
+}
+.detail-pesanan-saya .receive{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Cabin';
+}
+.detail-pesanan-saya .street{
+    font-size: 16px;
+    font-family: 'Cabin';
+}
+.detail-pesanan-saya .col-md-2 .card-nresi{
+    font-family: 'Cabin';
+    font-size: 16px;
+    justify-content: center;
+    color: var(--black);
+}
+.detail-pesanan-saya .card-resi{
+    color: var(--primary-color);
+    font-family: 'Cabin';
+    font-size: 16px;
+    text-align: end;
+}
+
+.detail-pesanan-saya .orders {
+    align-items: center;
+}
+.detail-pesanan-saya .nameproduk{
+    font-weight: bold;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.detail-pesanan-saya .card-qty{
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.detail-pesanan-saya .card-price{
+    color: var(--primary-color);
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+.detail-pesanan-saya .btn-primary-all{
+    background-color: var(--primary-color);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    display: flex;
+}
+.detail-pesanan-saya .btn-primary-all:hover{
+    background-color: var(--secondary-color);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    display: flex;
+}
+.detail-pesanan-saya .card-footer{
+    text-align: end;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    color: var(--black);
+    background-color: var(--t-white);
+    border: none;
+    border-radius: 0px 0px 8px 8px;
+}
+.detail-pesanan-saya .card-footer .col-md-2{
+    font-weight: bold;
+}
+.detail-pesanan-saya .h{
+    font-family: 'Cabin';
+    color: var(--black);
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
     font-size: 14px;
-    background: #FAF6F6;
+    background: #FFFCFC;
     margin-top: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 #footer .footer-top {
     padding: 60px 0 60px 0;
-    background: #FAF6F6;
+    background: #FFFCFC;
 }
 
 #footer .footer-top .footer-desc {
@@ -1627,7 +1775,8 @@ section {
 #footer .footer-top .footer-desc p {
     color: var(--t-black);
     margin-bottom: 24px;
-    font-family: 'Poppins';
+    font-size: 16px;
+    font-family: 'Cabin';
 }
 
 #footer .footer-top .footer-contact {
@@ -1649,8 +1798,7 @@ section {
 }
 
 #footer .footer-top .footer-contact p {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 16px;
     margin-bottom: 0;
     font-family: "Jost", sans-serif;
     color: #5e5e5e;
@@ -1661,7 +1809,7 @@ section {
     color: var(--primary-color);
     position: relative;
     padding-bottom: 12px;
-    font-family: 'Poppins';
+    font-family: 'Montserrat';
 }
 
 #footer .footer-top .footer-links {
@@ -1670,7 +1818,7 @@ section {
 }
 
 #footer .footer-top .footer-links p {
-    color: var(--text-textw);
+    color: var(--t-black);
 }
 
 #footer .footer-top .footer-links ul {
@@ -1683,8 +1831,7 @@ section {
 #footer .footer-top .navigasi ul i {
     padding-right: 2px;
     /* color: var(--primary-color); */
-    font-size: 18px;
-    line-height: 1;
+    font-size: 22px;
     margin-left: -5px;
     background: linear-gradient(to right, #CF0008, #FEC42A);
     /* Ganti warna sesuai gradasi yang diinginkan */
@@ -1695,7 +1842,7 @@ section {
 #footer .footer-top .contact ul i {
     padding-right: 2px;
     /* color: var(--primary-color); */
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1;
     background: linear-gradient(to right, #CF0008, #FEC42A);
     /* Ganti warna sesuai gradasi yang diinginkan */
@@ -1704,13 +1851,15 @@ section {
 }
 
 #footer .footer-top .footer-links ul li {
-    padding: 5px 0;
+    padding: 10px 0;
     display: flex;
     align-items: center;
+    font-family: 'Cabin';
+    font-size: 16px;
 }
 
 #footer .footer-top .contact ul li {
-    padding: 8px 0;
+    padding: 10px 0;
 }
 
 #footer .footer-top .footer-links ul li:first-child {
@@ -1763,34 +1912,10 @@ section {
 }
 
 #footer .copyright {
-    float: left;
-    /* text-align: center; */
+    text-align: center;
     position: relative;
     top: 10px;
-}
-
-#footer .credits {
-    float: right;
-    font-size: 13px;
-}
-
-#footer .credits h4 {
-    font-size: 14px;
-    position: relative;
-    top: 10px;
-    margin-right: 5px;
-}
-
-#footer .credits .img-png {
-    background: linear-gradient(to right, #CF0008, #FEC42A);
-    ;
-    margin: 0 10px;
-    padding: 10px 20px;
-    border-radius: 4px;
-}
-
-#footer .credits a {
-    transition: 0.3s;
+    font-family: 'Cabin';
 }
 
 @media (max-width: 768px) {

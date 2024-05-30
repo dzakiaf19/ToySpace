@@ -8,7 +8,7 @@
 
 :root {
     --primary-color: #EF0003;
-    --secondary-color: #FEB929;
+    --secondary-color: #FFAE10;
     --t-white: #FFF;
     /* --white-color: #F9FAFF; */
     --black: #0D0C0C;
@@ -218,87 +218,86 @@ h6 {
 
 .navbar .getstarted,
 .navbar .getstarted:focus {
-    padding: 8px 20px;
+    /* padding: 8px 20px; */
     margin-left: 30px;
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--primary-color);
     font-size: 14px;
-    /* border: 2px solid #47b2e4; */
-    font-weight: 600;
+    border: 1px solid var(--primary-color);
     background-color: var(--white-color);
 }
 
 .navbar .getstarted:hover,
 .navbar .getstarted:focus:hover {
-    color: var(--black-color);
-    background: var(--secondary-color);
+    color: var(--t-white);
+    background: var(--primary-color);
 }
 
 .navbar .dropdown ul {
-  display: block;
-  position: absolute;
-  left: 14px;
-  top: calc(100% + 30px);
-  margin: 0;
-  padding: 10px 0;
-  z-index: 99;
-  opacity: 0;
-  visibility: hidden;
-  background: #fff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-  transition: 0.3s;
-  border-radius: 4px;
+    display: block;
+    position: absolute;
+    left: 14px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+    border-radius: 4px;
 }
 
 .navbar .dropdown ul li {
-  min-width: 200px;
+    min-width: 200px;
 }
 
 .navbar .dropdown ul a {
-  padding: 10px 20px;
-  font-size: 14px;
-  text-transform: none;
-  font-weight: 500;
-  color: #0c3c53;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: none;
+    font-weight: 500;
+    color: #0c3c53;
 }
 
 .navbar .dropdown ul a i {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #47b2e4;
+    color: #47b2e4;
 }
 
 .navbar .dropdown:hover>ul {
-  opacity: 1;
-  top: 100%;
-  visibility: visible;
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
 }
 
 .navbar .dropdown .dropdown ul {
-  top: 0;
-  left: calc(100% - 30px);
-  visibility: hidden;
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
 }
 
 .navbar .dropdown .dropdown:hover>ul {
-  opacity: 1;
-  top: 0;
-  left: 100%;
-  visibility: visible;
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
 }
 
 @media (max-width: 1366px) {
-  .navbar .dropdown .dropdown ul {
-    left: -90%;
-  }
+    .navbar .dropdown .dropdown ul {
+        left: -90%;
+    }
 
-  .navbar .dropdown .dropdown:hover>ul {
-    left: -100%;
-  }
+    .navbar .dropdown .dropdown:hover>ul {
+        left: -100%;
+    }
 }
 
 /**
@@ -535,7 +534,7 @@ h6 {
     color: #EF0003;
 }
 
-#hero1 .carousel-inner .carousel-item .carousel-caption h4{
+#hero1 .carousel-inner .carousel-item .carousel-caption h4 {
     font-family: "Montserrat", sans-serif;
     font-size: 36px;
     font-weight: bold;
@@ -709,64 +708,239 @@ section {
     overflow: hidden;
 }
 
-.section-bg {
-    background-color: var(--white-color);
-}
-
-.section-title {
-    text-align: center;
-    padding-bottom: 30px;
-}
-
-.section-title h2 {
-    font-size: 30px;
+.section-title h3 {
+    font-size: 24px;
     font-weight: bold;
-    /* text-transform: uppercase; */
-    /* margin-bottom: 20px; */
-    /* padding-bottom: 20px; */
-    position: relative;
-    color: var(--primary-color);
-    /* line-height: 2; */
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
 }
 
-.section-title h4 {
-    font-size: 18px;
+.section-title a {
+    font-size: 13px;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section-title a:hover {
+    color: var(--secondary-color);
+}
+
+/*--------------------------------------------------------------
+# Produk Terlaris
+--------------------------------------------------------------*/
+.produk-terlaris {
+    background-color: #F5F5F5;
+}
+
+.all-produk {
+    margin: 30px 0;
+}
+
+.all-produk .product {
+    margin-top: 30px;
+}
+
+/*** Cards ***/
+.all-produk .card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 6px rgba(128, 128, 128, 0.3),
+        -3px -3px 6px rgba(255, 255, 255, 0.3);
+}
+
+.all-produk .card-title {
+    color: #000;
+    /* Text color for card titles */
     /* font-weight: bold; */
     /* text-transform: uppercase; */
-    /* margin-bottom: 20px;
-  padding-bottom: 20px; */
+    font-size: var(--bs-h4-font-size);
+}
+
+.all-produk .card-text {
+    font-size: 0.85rem;
+}
+
+.all-produk .card-product {
+    padding: 0;
+    /* margin: 10px; */
+    border: none;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 6px rgba(128, 128, 128, 0.3),
+        -3px -3px 6px rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+
+.all-produk .card-product:hover {
+    background-color: #eaeaea;
+    box-shadow: 3px 3px 6px rgba(128, 128, 128, 0.5),
+        -3px -3px 6px rgba(255, 255, 255, 0.5);
+}
+
+/* Menggantikan gambar dengan img-fluid, dan menambahkan transisi efek */
+.all-produk .card-product img {
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+/* Efek hover untuk card-product */
+.all-produk .card-product:hover {
+    background-color: #eaeaea;
+    box-shadow: 3px 3px 6px rgba(128, 128, 128, 0.5),
+        -3px -3px 6px rgba(255, 255, 255, 0.5);
+}
+
+/* Efek hover untuk gambar di card-product */
+.all-produk .card-product:hover img {
+    opacity: 1;
+}
+
+.all-produk .card-body {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+}
+
+.all-produk .card-body h3{
+    color: var(--primary-color);
+    font-size: 18px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin: 0;
+}
+
+.all-produk .card-body h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 14px 0;
+}
+
+.all-produk .card-body .stok h4 {
+    font-family: 'Montserrat';
+    font-size: 12px;
+    color: #525252;
+}
+
+.all-produk .homecar-button {
     position: relative;
-    color: var(--secondary-color);
-    font-family: 'Plus Jakarta Sans';
+    align-self: center;
+    font-family: 'DM Sans';
+    text-align: center;
 }
 
-/* .section-title h2::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 120px;
-  height: 1px;
-  background: #ddd;
-  bottom: 1px;
-  left: calc(50% - 60px);
-}
-
-.section-title h2::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: #47b2e4;
-  bottom: 0;
-  left: calc(50% - 20px);
-} */
-
-.section-title p {
-    margin-bottom: 0;
+.all-produk .btn-beli {
+    background-color: var(--primary-color);
+    /* Hijau */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 14px;
-    font-family: 'Plus Jakarta Sans';
+    margin: 15px 10px 15px 0px;
+    cursor: pointer;
+    border-radius: 6px;
 }
+
+.all-produk .btn-beli:hover {
+    opacity: 0.9;
+    background-color: var(--secondary-color);
+    color: var(--black-color);
+}
+
+.all-produk .homecar-button .btn-beli {
+    width: 100%;
+}
+
+.all-produk .btn-keranjang {
+    border: 1px solid var(--primary-color);
+    color: white;
+    padding: 10px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 15px 0;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.all-produk .btn-keranjang .fa-solid {
+    color: var(--primary-color);
+}
+
+.all-produk .btn-keranjang:hover {
+    opacity: 0.9;
+    border-color: var(--secondary-color);
+}
+
+.all-produk .btn-keranjang .fa-solid:hover {
+    color: var(--secondary-color);
+}
+
+.all-produk table,
+.all-produk th,
+.all-produk td {
+    border-collapse: collapse;
+    font-family: 'Plus Jakarta Sans';
+    font-size: 12px;
+}
+
+.all-produk table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .all-produk .product {
+        margin-bottom: 20px;
+    }
+}
+
+/*--------------------------------------------------------------
+# Kategori Kendaraan
+--------------------------------------------------------------*/
+.kategori-unggulan .kategori {
+    margin-top: 40px;
+}
+
+.img-background {
+    background-color: red;
+    padding: 10px;
+    /* Tambahkan padding untuk memastikan gambar tidak terlalu menempel pada tepi */
+    transition: background-color 0.3s;
+    /* Animasi transisi untuk efek hover */
+    width: 46px;
+    /* Sesuaikan dengan ukuran yang diinginkan */
+    height: 46px;
+    /* Sesuaikan dengan ukuran yang diinginkan */
+    border-radius: 8px;
+}
+
+.img-background:hover {
+    background-color: var(--secondary-color);
+}
+
+.kategori-unggulan .kategori h4 {
+    font-size: 16px;
+    font-family: 'Montserrat';
+    color: #000;
+    font-weight: bold;
+}
+
+.kategori-unggulan .kategori h5 {
+    font-size: 13px;
+    font-family: 'Cabin';
+    color: #525252;
+}
+
+.kategori-unggulan .kategori img {
+    margin-right: 10px;
+}
+
+@media (max-width: 992px) {}
 
 /*--------------------------------------------------------------
 # Featured Product 2
@@ -1536,7 +1710,8 @@ section {
     margin-bottom: 40px;
 }
 
-.checkout .billings-det, .checkout .order-det {
+.checkout .billings-det,
+.checkout .order-det {
     padding: 28px;
     background-color: #fff;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
@@ -1544,13 +1719,15 @@ section {
     border-bottom: 1px solid rgb(0, 0, 0, 6%);
 }
 
-.checkout .billings-det .title, .checkout .order-det .title {
+.checkout .billings-det .title,
+.checkout .order-det .title {
     padding-bottom: 16px;
 }
 
 .checkout .billings-det {
     width: 100%;
 }
+
 .checkout .billings-det h4 {
     font-family: 'Poppins';
     font-size: 14px;
@@ -1582,38 +1759,43 @@ section {
 /*--------------------------------------------------------------
 # Pesanan Saya
 --------------------------------------------------------------*/
-.pesanan-saya .card{
+.pesanan-saya .card {
     margin-bottom: 3%;
     border: none;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 4px;
 }
 
-.pesanan-saya .card-header{
+.pesanan-saya .card-header {
     font-weight: 900;
     font-family: 'Montserrat';
     background-color: var(--t-white);
     border-radius: 8px 8px 0px 0px;
 
 }
+
 .pesanan-saya .card-body {
     align-items: center;
 }
-.pesanan-saya .nameproduk{
+
+.pesanan-saya .nameproduk {
     font-weight: bold;
     font-family: 'Montserrat';
     font-size: 18px;
 }
-.pesanan-saya .card-qty{
+
+.pesanan-saya .card-qty {
     font-family: 'Montserrat';
     font-size: 18px;
 }
-.pesanan-saya .card-price{
+
+.pesanan-saya .card-price {
     color: var(--primary-color);
     font-family: 'Montserrat';
     font-size: 18px;
 }
-.pesanan-saya .btn-primary-all{
+
+.pesanan-saya .btn-primary-all {
     background-color: var(--primary-color);
     color: var(--t-white);
     font-size: 14px;
@@ -1621,7 +1803,8 @@ section {
     justify-content: center;
     display: flex;
 }
-.pesanan-saya .btn-primary-all:hover{
+
+.pesanan-saya .btn-primary-all:hover {
     background-color: var(--secondary-color);
     color: var(--t-white);
     font-size: 14px;
@@ -1629,60 +1812,70 @@ section {
     justify-content: center;
     display: flex;
 }
+
 /*--------------------------------------------------------------
 # Detail Order History
 --------------------------------------------------------------*/
-.detail-pesanan-saya .card{
+.detail-pesanan-saya .card {
     margin-bottom: 3%;
     border: none;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 4px;
 }
 
-.detail-pesanan-saya .card-header{
+.detail-pesanan-saya .card-header {
     font-size: 18px;
     font-family: 'Cabin';
     background-color: var(--t-white);
     border-radius: 8px 8px 0px 0px;
 
 }
+
 .detail-pesanan-saya .card-body {
     align-items: center;
- border-bottom: 1px solid rgb(235, 235, 235);
+    border-bottom: 1px solid rgb(235, 235, 235);
 }
-.detail-pesanan-saya .col-md-7 a{
+
+.detail-pesanan-saya .col-md-7 a {
     color: var(--primary-color);
     font-weight: bold;
 }
-.detail-pesanan-saya .col-md-3{
+
+.detail-pesanan-saya .col-md-3 {
     text-align: end;
 }
-.detail-pesanan-saya .col-md-2{
+
+.detail-pesanan-saya .col-md-2 {
     color: var(--primary-color);
     text-align: end;
 }
-.detail-pesanan-saya .address{
+
+.detail-pesanan-saya .address {
     font-size: 16px;
     font-weight: bold;
     font-family: 'Montserrat';
     color: var(--primary-color);
 }
-.detail-pesanan-saya .receive{
+
+.detail-pesanan-saya .receive {
     font-size: 16px;
     font-weight: bold;
     font-family: 'Cabin';
 }
-.detail-pesanan-saya .street{
+
+.detail-pesanan-saya .street {
     font-size: 16px;
     font-family: 'Cabin';
 }
-.detail-pesanan-saya .col-md-2 .card-nresi{
+
+.detail-pesanan-saya .col-md-2 .card-nresi {
     font-family: 'Cabin';
     font-size: 16px;
     justify-content: center;
     color: var(--black);
 }
-.detail-pesanan-saya .card-resi{
+
+.detail-pesanan-saya .card-resi {
     color: var(--primary-color);
     font-family: 'Cabin';
     font-size: 16px;
@@ -1692,21 +1885,25 @@ section {
 .detail-pesanan-saya .orders {
     align-items: center;
 }
-.detail-pesanan-saya .nameproduk{
+
+.detail-pesanan-saya .nameproduk {
     font-weight: bold;
     font-family: 'Montserrat';
     font-size: 18px;
 }
-.detail-pesanan-saya .card-qty{
+
+.detail-pesanan-saya .card-qty {
     font-family: 'Montserrat';
     font-size: 18px;
 }
-.detail-pesanan-saya .card-price{
+
+.detail-pesanan-saya .card-price {
     color: var(--primary-color);
     font-family: 'Montserrat';
     font-size: 18px;
 }
-.detail-pesanan-saya .btn-primary-all{
+
+.detail-pesanan-saya .btn-primary-all {
     background-color: var(--primary-color);
     color: var(--t-white);
     font-size: 14px;
@@ -1714,7 +1911,8 @@ section {
     justify-content: center;
     display: flex;
 }
-.detail-pesanan-saya .btn-primary-all:hover{
+
+.detail-pesanan-saya .btn-primary-all:hover {
     background-color: var(--secondary-color);
     color: var(--t-white);
     font-size: 14px;
@@ -1722,7 +1920,8 @@ section {
     justify-content: center;
     display: flex;
 }
-.detail-pesanan-saya .card-footer{
+
+.detail-pesanan-saya .card-footer {
     text-align: end;
     font-size: 16px;
     font-family: 'Montserrat';
@@ -1731,13 +1930,16 @@ section {
     border: none;
     border-radius: 0px 0px 8px 8px;
 }
-.detail-pesanan-saya .card-footer .col-md-2{
+
+.detail-pesanan-saya .card-footer .col-md-2 {
     font-weight: bold;
 }
-.detail-pesanan-saya .h{
+
+.detail-pesanan-saya .h {
     font-family: 'Cabin';
     color: var(--black);
 }
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -1805,16 +2007,11 @@ section {
 }
 
 #footer .footer-top h4 {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--primary-color);
     position: relative;
     padding-bottom: 12px;
     font-family: 'Montserrat';
-}
-
-#footer .footer-top .footer-links {
-    /* margin-bottom: 30px; */
-    /* margin-top: 10px; */
 }
 
 #footer .footer-top .footer-links p {

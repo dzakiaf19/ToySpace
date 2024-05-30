@@ -48,7 +48,7 @@
                             </ul>
                         @else
                             <div class="row">
-                                <a href="{{ route('login') }}">Login</a>
+                                <a class="getstarted scrollto" href="{{ route('login') }}">Masuk</a>
                             </div>
                         @endif
                     </li>
@@ -64,9 +64,6 @@
                 @endif
             </div>
         </nav>
-
-        
-
     </div>
 </header>
 <!-- End Header -->

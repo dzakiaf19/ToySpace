@@ -4,7 +4,7 @@
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-6 footer-desc">
+                <div class="col-lg-6 col-md-6 footer-desc">
                     <h3>TOYSPACE.INC</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua.</p>

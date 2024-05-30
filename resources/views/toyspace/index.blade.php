@@ -23,29 +23,29 @@
                     <h4>Temukan Mainan yang<br>Tepat Untuk Anda</h4>
                     <p>Lorem ipsum dolor si amet, consectetur adipiscing elit, sed do euismod
                         tempor incididunt ut</p>
-                        <button class="btn btn-get-started">Lihat Selengkapnya</button>
+                    <button class="btn btn-get-started">Lihat Selengkapnya</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('toyspace/assets/img/hero.png') }}" class="d-block w-100"
                     alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                <h5>PRODUK TERBARU</h5>
+                    <h5>PRODUK TERBARU</h5>
                     <h4>Temukan Mainan yang<br>Tepat Untuk Anda</h4>
                     <p>Lorem ipsum dolor si amet, consectetur adipiscing elit, sed do euismod
                         tempor incididunt ut</p>
-                        <button class="btn btn-get-started">Lihat Selengkapnya</button>
+                    <button class="btn btn-get-started">Lihat Selengkapnya</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('toyspace/assets/img/hero.png') }}" class="d-block w-100"
                     alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                <h5>PRODUK TERBARU</h5>
+                    <h5>PRODUK TERBARU</h5>
                     <h4>Temukan Mainan yang<br>Tepat Untuk Anda</h4>
                     <p>Lorem ipsum dolor si amet, consectetur adipiscing elit, sed do euismod
                         tempor incididunt ut</p>
-                        <button class="btn btn-get-started">Lihat Selengkapnya</button>
+                    <button class="btn btn-get-started">Lihat Selengkapnya</button>
                 </div>
             </div>
         </div>
@@ -127,6 +127,351 @@
 <!-- End Hero -->
 
 <main id="main">
+    <section id="kategori-unggulan" class="kategori-unggulan">
+        <div class="container">
+            <div class="section-title d-flex justify-content-between">
+                <h3>Kategori unggulan</h3>
+                <a href="">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="kategori">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/bangunan.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Bangunan</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/hewan.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Hewan</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/boneka.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Boneka</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/tekateki.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Teka-teki</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/kendaraan.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Kendaraan</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-between mt-4">
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/bangunan.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Bangunan</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/hewan.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Hewan</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/boneka.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Boneka</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/tekateki.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Teka-teki</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex">
+                        <div>
+                            <img src="{{ asset('toyspace/assets/img/vector/kendaraan.png') }}"
+                                alt="" class="img-background">
+                        </div>
+                        <div>
+                            <h4>Kendaraan</h4>
+                            <h5>24 produk</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="produk-terlaris" class="produk-terlaris">
+        <div class="container">
+            <div class="section-title d-flex justify-content-between">
+                <h3>10 Produk Terlaris Teratas</h3>
+                <a href="">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="all-produk products row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-2 g-lg-3"
+                data-aos="fade-up" data-aos-delay="200">
+                <div class="product col">
+                    <div class="card card-product shadow-sm h-100">
+                        <img class="card-img-top"
+                            src="{{ asset('toyspace/assets/img/products/product-1.png') }}"
+                            alt=''>
+                        <div class="card-body h-100">
+                            <h3 class="card-title">Rp. 89.000</h3>
+                            <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
+                            <div class="stok d-flex justify-content-between">
+                                <h4>Sisa Stok</h4>
+                                <h4>489</h4>
+                            </div>
+                            <div class="button-kendaraan">
+                                <div class="homecar-button d-flex justify-content-between">
+                                    <button class="btn-beli"
+                                        onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
+                                    <button class="btn-keranjang"
+                                        onclick="window.location.href = 'keranjang.html';"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product col">
+                    <div class="card card-product shadow-sm h-100">
+                        <img class="card-img-top"
+                            src="{{ asset('toyspace/assets/img/products/product-2.png') }}"
+                            alt=''>
+                        <div class="card-body h-100">
+                            <h3 class="card-title">Rp. 89.000</h3>
+                            <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
+                            <div class="stok d-flex justify-content-between">
+                                <h4>Sisa Stok</h4>
+                                <h4>489</h4>
+                            </div>
+                            <div class="button-kendaraan">
+                                <div class="homecar-button d-flex justify-content-between">
+                                    <button class="btn-beli"
+                                        onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
+                                    <button class="btn-keranjang"
+                                        onclick="window.location.href = 'keranjang.html';"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product col">
+                    <div class="card card-product shadow-sm h-100">
+                        <img class="card-img-top"
+                            src="{{ asset('toyspace/assets/img/products/product-3.png') }}"
+                            alt=''>
+                        <div class="card-body h-100">
+                            <h3 class="card-title">Rp. 89.000</h3>
+                            <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
+                            <div class="stok d-flex justify-content-between">
+                                <h4>Sisa Stok</h4>
+                                <h4>489</h4>
+                            </div>
+                            <div class="button-kendaraan">
+                                <div class="homecar-button d-flex justify-content-between">
+                                    <button class="btn-beli"
+                                        onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
+                                    <button class="btn-keranjang"
+                                        onclick="window.location.href = 'keranjang.html';"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="penawaran-produk" class="penawaran-produk">
+        <div class="container">
+            <div class="section-title d-flex justify-content-between">
+                <h3>Penawaran Terbaik</h3>
+            </div>
+            <div class="all-produk products row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-2 g-lg-3"
+                data-aos="fade-up" data-aos-delay="200">
+                <div class="product col">
+                    <div class="card card-product shadow-sm h-100">
+                        <img class="card-img-top"
+                            src="{{ asset('toyspace/assets/img/products/product-4.png') }}"
+                            alt=''>
+                        <div class="card-body h-100">
+                            <h3 class="card-title">Rp. 89.000</h3>
+                            <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
+                            <div class="stok d-flex justify-content-between">
+                                <h4>Sisa Stok</h4>
+                                <h4>489</h4>
+                            </div>
+                            <div class="button-kendaraan">
+                                <div class="homecar-button d-flex justify-content-between">
+                                    <button class="btn-beli"
+                                        onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
+                                    <button class="btn-keranjang"
+                                        onclick="window.location.href = 'keranjang.html';"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product col">
+                    <div class="card card-product shadow-sm h-100">
+                        <img class="card-img-top"
+                            src="{{ asset('toyspace/assets/img/products/product-5.png') }}"
+                            alt=''>
+                        <div class="card-body h-100">
+                            <h3 class="card-title">Rp. 89.000</h3>
+                            <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
+                            <div class="stok d-flex justify-content-between">
+                                <h4>Sisa Stok</h4>
+                                <h4>489</h4>
+                            </div>
+                            <div class="button-kendaraan">
+                                <div class="homecar-button d-flex justify-content-between">
+                                    <button class="btn-beli"
+                                        onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
+                                    <button class="btn-keranjang"
+                                        onclick="window.location.href = 'keranjang.html';"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product col">
+                    <div class="card card-product shadow-sm h-100">
+                        <img class="card-img-top"
+                            src="{{ asset('toyspace/assets/img/products/product-6.png') }}"
+                            alt=''>
+                        <div class="card-body h-100">
+                            <h3 class="card-title">Rp. 89.000</h3>
+                            <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
+                            <div class="stok d-flex justify-content-between">
+                                <h4>Sisa Stok</h4>
+                                <h4>489</h4>
+                            </div>
+                            <div class="button-kendaraan">
+                                <div class="homecar-button d-flex justify-content-between">
+                                    <button class="btn-beli"
+                                        onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
+                                    <button class="btn-keranjang"
+                                        onclick="window.location.href = 'keranjang.html';"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product col">
+                    <div class="card card-product shadow-sm h-100">
+                        <img class="card-img-top"
+                            src="{{ asset('toyspace/assets/img/products/product-7.png') }}"
+                            alt=''>
+                        <div class="card-body h-100">
+                            <h3 class="card-title">Rp. 89.000</h3>
+                            <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
+                            <div class="stok d-flex justify-content-between">
+                                <h4>Sisa Stok</h4>
+                                <h4>489</h4>
+                            </div>
+                            <div class="button-kendaraan">
+                                <div class="homecar-button d-flex justify-content-between">
+                                    <button class="btn-beli"
+                                        onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
+                                    <button class="btn-keranjang"
+                                        onclick="window.location.href = 'keranjang.html';"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product col">
+                    <div class="card card-product shadow-sm h-100">
+                        <img class="card-img-top"
+                            src="{{ asset('toyspace/assets/img/products/product-8.png') }}"
+                            alt=''>
+                        <div class="card-body h-100">
+                            <h3 class="card-title">Rp. 89.000</h3>
+                            <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
+                            <div class="stok d-flex justify-content-between">
+                                <h4>Sisa Stok</h4>
+                                <h4>489</h4>
+                            </div>
+                            <div class="button-kendaraan">
+                                <div class="homecar-button d-flex justify-content-between">
+                                    <button class="btn-beli"
+                                        onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
+                                    <button class="btn-keranjang"
+                                        onclick="window.location.href = 'keranjang.html';"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product col">
+                    <div class="card card-product shadow-sm h-100">
+                        <img class="card-img-top"
+                            src="{{ asset('toyspace/assets/img/products/product-9.png') }}"
+                            alt=''>
+                        <div class="card-body h-100">
+                            <h3 class="card-title">Rp. 89.000</h3>
+                            <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
+                            <div class="stok d-flex justify-content-between">
+                                <h4>Sisa Stok</h4>
+                                <h4>489</h4>
+                            </div>
+                            <div class="button-kendaraan">
+                                <div class="homecar-button d-flex justify-content-between">
+                                    <button class="btn-beli"
+                                        onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
+                                    <button class="btn-keranjang"
+                                        onclick="window.location.href = 'keranjang.html';"><i class="fa-solid fa-cart-shopping"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="featured-product2" class="featured-product2">
         <div class="container">
 

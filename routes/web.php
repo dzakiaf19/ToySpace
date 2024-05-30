@@ -72,6 +72,8 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
     Route::get('/{id}/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
     //detail order history
     Route::get('/{id}/ohdetails', [OrderController::class, 'historyDetails'])->name('psDetails');
+    //kotak kami
+    Route::get('/aboutUs', [OrderController::class, 'aboutUs'])->name('aboutUs');
 });
 
 Route::get('/', [ProductController::class, 'home'])->name('home');

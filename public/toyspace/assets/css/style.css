@@ -1941,6 +1941,51 @@ section {
 }
 
 /*--------------------------------------------------------------
+# About Us
+--------------------------------------------------------------*/
+.about-us {
+    font-family: 'Cabin';
+}
+.about-us h2{
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+.about-us .btn-primary-all {
+    background-color: var(--primary-color);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    display: flex;
+}
+.about-us .form-control{
+    border-color: var(--primary-color);
+    font-family: 'Cabin';
+    font-size: 14px;
+}
+
+.about-us .btn-primary-all:hover {
+    background-color: var(--secondary-color);
+    color: var(--t-white);
+    font-size: 14px;
+    font-family: 'Cabin';
+    justify-content: center;
+    display: flex;
+}
+.cta-chatNow .container{
+    background-color: var(--secondary-color);
+    font-family: 'Cabin';
+    align-items: center;
+    border-radius: 8px;
+    padding: 4%;
+    display: flex;
+}
+.cta-chatNow h4{
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {

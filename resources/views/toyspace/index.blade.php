@@ -674,8 +674,13 @@
                         <a
                             href="{{ route('singleProduct', ['product' => $prod]) }}">
                             <div class="card card-product shadow-sm h-10">
+                                @if ($prod->images->first()->path)
                                 <img class="card-img-top"
                                     src='{{ Storage::url($prod->images->first()->path) }}' alt=''>
+                                @else
+                                <img class="card-img-top"
+                                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb3LPIbvXOeDITM8ikG13rfDNUvQBodEnF7Q&s' alt=''>
+                                @endif
                                 <div class="card-overlay">
                                     <span>See Details</span>
                                 </div>

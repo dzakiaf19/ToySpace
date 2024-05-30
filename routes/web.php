@@ -75,7 +75,7 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
 
 Route::get('/', [ProductController::class, 'home'])->name('home');
 Route::get('/{product}/detail', [ProductController::class, 'single'])->name('singleProduct');
-
+Route::get('/pageProducts', [ProductController::class, 'pageProducts'])->name('pageProducts');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

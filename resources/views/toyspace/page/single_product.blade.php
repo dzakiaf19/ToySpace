@@ -12,7 +12,8 @@
                             <div class="carousel-inner">
                                 @foreach ($product->images as $key => $image)
                                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                        <img style="max-width: 400px" src="{{ Storage::url($image->path) }}" alt="">
+                                        <img style="width: 100%;
+                                        max-height: 400px; object-fit: scale-down;" src="{{ Storage::url($image->path) }}" alt="">
                                     </div>
                                 @endforeach
                             </div>
@@ -23,7 +24,7 @@
                                     <li class="list-inline-item {{ $key == 0 ? 'active' : '' }}">
                                         <a id="{{ 'carousel-selector-' . $key }}" class="selected"
                                             data-slide-to="{{ $key }}" data-target="#custCarousel">
-                                            <img src="{{ Storage::url($image->path) }}" class="img-fluid">
+                                            <img style="object-fit: scale-down;" src="{{ Storage::url($image->path) }}" class="img-fluid">
                                         </a>
                                     </li>
                                 @endforeach

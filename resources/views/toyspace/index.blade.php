@@ -675,7 +675,7 @@
                             href="{{ route('singleProduct', ['product' => $prod]) }}">
                             <div class="card card-product shadow-sm h-10">
                                 <img class="card-img-top"
-                                    src='{{ Storage::url($prod->images->first()->path) }}' alt=''>
+                                    src='{{ $prod->images()->exists()  ? Storage::url($prod->images->first()->path) : 'https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30538.jpg?w=740&t=st=1717040880~exp=1717041480~hmac=48d946a95d70e6d9bdcaf19b81aaf4e71dce68fc0d9ab5a3109b75929f23c4d8' }}' alt=''>
                                 <div class="card-overlay">
                                     <span>See Details</span>
                                 </div>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\API\MidtransController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
@@ -71,6 +72,8 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
     Route::get('/{id}/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
     //detail order history
     Route::get('/{id}/ohdetails', [OrderController::class, 'historyDetails'])->name('psDetails');
+    //kotak kami
+    Route::get('/aboutUs', [OrderController::class, 'aboutUs'])->name('aboutUs');
 });
 
 Route::get('/', [ProductController::class, 'home'])->name('home');
@@ -86,5 +89,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::post('midtrans/callback', [MidtransController::class, 'callback']);
 
 require __DIR__ . '/auth.php';

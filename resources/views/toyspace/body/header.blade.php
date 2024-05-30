@@ -9,7 +9,7 @@
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png"
         alt="" class="img-fluid"></a>-->
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"

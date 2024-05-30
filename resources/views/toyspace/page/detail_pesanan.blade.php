@@ -24,12 +24,12 @@
                 </div>
                 <div class="card-body">
                     <div class="d-flex shipping">
-                        <div class="col-md-10">
+                        <div class="col-md-9">
                             <div class="address">Alamat Pengiriman :</div>
                             <div class="receive">Moch Surya (+62)89605279876</div>
                             <div class="street">Jalan Mahakam No 18, RT03/Rw03, Lingk.Mojoroto</div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <div class="card-nresi">Nomor Resi :</div>
                             <div class="card-resi">ID7899654808277080</div>
                         </div>

@@ -169,8 +169,8 @@ class OrderController extends Controller
         return view('toyspace.page.detail_pesanan', compact('order'));
     }
     //About Us
-    public function aboutUs()
+    public function contactUs()
     {
-        return view('toyspace.page.about_us');
+        return view('toyspace.page.contact_us');
     }
 }

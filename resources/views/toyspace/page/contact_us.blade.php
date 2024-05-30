@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="col-md-12 mb-3">
-            <label for="inputPassword5" class="form-label">Subjek</label>
+            <label for="subjek" class="form-label">Subjek</label>
             <input class="form-control" type="text" placeholder="cth. Pembayaran gagal" aria-label="default input example">
           </div>
           <div class="col-md-12 mb-3">

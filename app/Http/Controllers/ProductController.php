@@ -120,5 +120,10 @@ class ProductController extends Controller
         return view('toyspace.page.single_product', compact('product'));
     }
 
+    public function pageProducts()
+    {
+        return view('toyspace.page.products');
+    }
+
     
 }

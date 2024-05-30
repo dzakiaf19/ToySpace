@@ -704,7 +704,6 @@ h6 {
 --------------------------------------------------------------*/
 section {
     padding: 60px 0;
-    /* margin: 60px 0; */
     overflow: hidden;
 }
 
@@ -724,6 +723,61 @@ section {
 
 .section-title a:hover {
     color: var(--secondary-color);
+}
+
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs {
+    min-height: 171px;
+    padding-bottom: 40px;
+}
+
+#breadcrumbs .container {
+    padding-top: 30px;
+    font-size: 30px;
+    /* font-weight: bold; */
+}
+
+.breadcrumbs li a {
+    color: #0E0E0E;
+}
+
+.breadcrumbs li a:hover {
+    color: var(--primary-color);
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 30px 0 0 0;
+    font-size: 14px;
+    color: #0E0E0E;
+    line-height: 18px;
+    font-family: 'Cabin';
+}
+
+.breadcrumbs ol li+li {
+    padding-left: 10px;
+}
+
+.breadcrumbs ol li+li::before {
+    display: inline-block;
+    padding-right: 10px;
+    color: #0E0E0E;
+    content: ">";
+}
+
+@media (max-width: 992px) {
+    .breadcrumbs {
+        margin-top: 60px;
+    }
+
+    .breadcrumbs .konten-detail {
+        padding-left: 30px;
+        margin-top: 20px;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -951,284 +1005,7 @@ section {
 
 @media (max-width: 992px) {}
 
-/*--------------------------------------------------------------
-# Featured Product 2
---------------------------------------------------------------*/
-.featured-product2 {
-    padding: 80px 0 60px 0;
-}
 
-.featured-product2 .sec-title h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 28px;
-    color: var(--black);
-    font-weight: 600
-}
-
-.featured-product2 .sec-title p {
-    font-family: 'Poppins';
-    font-size: 14px;
-    color: var(--t-black);
-    margin-top: 18px;
-    /* line-height: 2; */
-}
-
-/* .featured-product2 .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.featured-product2 .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #FCB941;
-}
-
-.featured-product2 .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #FCB941;
-} */
-
-.featured-product2 .product-slider {
-    width: 1116px;
-    margin-left: 2px;
-}
-
-.featured-product2 .swiper-slide {
-    /* margin: 0; */
-    padding: 0 5px;
-}
-
-.featured-product2 .swiper-slide-active {
-    text-align: center;
-}
-
-.featured-product2 .product {
-    margin-top: 50px;
-    width: 255px;
-}
-
-.featured-product2 .card {
-    position: relative;
-}
-
-.featured-product2 .card-product {
-    /* padding: 0 0 50px 0; */
-    border: none;
-    background-color: transparent;
-    border-radius: 8px;
-    box-shadow: 3px 3px 6px rgba(128, 128, 128, 0.3),
-        -3px -3px 6px rgba(255, 255, 255, 0.3);
-    overflow: hidden;
-}
-
-.featured-product2 .card-product:hover {
-    background-color: transparent;
-    box-shadow: 3px 3px 6px rgba(128, 128, 128, 0.5),
-        -3px -3px 6px rgba(255, 255, 255, 0.5);
-}
-
-/* Menggantikan gambar dengan img-fluid, dan menambahkan transisi efek */
-.featured-product2 .card-product img {
-    opacity: 0.9;
-    transition: opacity 0.3s;
-}
-
-/* Efek hover untuk gambar di card-product */
-.featured-product2 .card-product:hover img {
-    opacity: 1;
-}
-
-.featured-product2 .card-overlay {
-    position: absolute;
-    font-family: 'Poppins';
-    font-size: 14px;
-    font-weight: normal;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    width: 100%;
-    text-align: center;
-}
-
-.featured-product2 .card:hover .card-overlay {
-    opacity: 1;
-}
-
-.featured-product2 .card-body {
-    display: flex;
-    flex-flow: column;
-    align-items: stretch;
-    /* padding-left: 0; */
-    padding: 20px 20px 20px 0;
-}
-
-.featured-product2 .card-body h2 {
-    font-size: 18px;
-    font-family: 'Poppins';
-    font-weight: normal;
-    margin-bottom: 4px;
-}
-
-.featured-product2 .card-body h4 {
-    font-family: 'Poppins';
-    font-size: 18px;
-    font-weight: bold;
-    color: #000000;
-    /* line-height: 20px; */
-}
-
-/* @media (max-width: 768px) {
-  .featured-product2 .product {
-    margin-bottom: 20px;
-  }
-} */
-
-
-@media (min-width: 992px) {
-    .featured-product2 .swiper-wrapper {
-        padding: 40px 0;
-    }
-
-    /* .featured-product2 .swiper-slide-active {
-    border: 6px solid #FCB941;
-    padding: 4px;
-    background: #fff;
-    z-index: 1;
-    transform: scale(1.2);
-    margin-top: 10px;
-  } */
-
-}
-
-
-/*--------------------------------------------------------------
-# Why Choose Us
---------------------------------------------------------------*/
-#wcu {
-    background-color: #F3F3F3;
-    margin-bottom: 80px;
-}
-
-.wcu .text h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: #000000;
-    margin-bottom: 20px;
-}
-
-.wcu .text p {
-    font-family: 'Poppins';
-    font-size: 14px;
-    font-weight: normal;
-    color: var(--t-black);
-}
-
-.wcu .circle {
-    background: linear-gradient(to right, #CF0008, #FEC42A);
-    /* padding: 50px 0; */
-    padding: 40px 0;
-    border-radius: 100%;
-    width: 50%;
-    height: 50%;
-    margin-bottom: 15px;
-    margin-left: 25%;
-}
-
-.wcu .shipping h4,
-.wcu .gift h4,
-.wcu .return h4 {
-    font-size: 14px;
-    text-align: center;
-    color: #000000;
-    font-family: 'Poppins';
-    font-weight: normal;
-}
-
-
-/*--------------------------------------------------------------
-# Banner
---------------------------------------------------------------*/
-#banner {
-    padding-top: 120px;
-}
-
-.banner-con {
-    border-radius: 8px;
-}
-
-.banner .content {
-    background-color: var(--primary-color);
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 50px;
-}
-
-.banner .content h4 {
-    font-family: 'Poppins';
-    font-size: 18px;
-    font-weight: normal;
-    color: #FFFFFF;
-}
-
-.banner .content h3 {
-    font-family: 'Lilita One';
-    font-size: 50px;
-    color: #FFFFFF;
-    text-transform: uppercase;
-}
-
-.banner .content p {
-    font-family: 'Poppins';
-    font-size: 14px;
-    font-weight: normal;
-    color: #FFFFFF;
-}
-
-.banner .content button {
-    padding: 12px 14px;
-    border: 1px solid #FFFFFF;
-    background-color: transparent;
-    border-radius: 8px;
-    width: 120px;
-    color: #fff;
-    font-family: 'Poppins';
-    font-size: 12px;
-    font-weight: normal;
-}
-
-.banner .content button i {
-    margin-left: 4px;
-}
-
-.banner .content button:hover {
-    background-color: #FEB929;
-    border-color: #FEB929;
-}
-
-.banner .image {
-    padding: 0;
-    background-color: #FEB929;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.banner .img-banner {
-    position: absolute;
-    top: -129px;
-    right: 40px;
-    z-index: 1;
-}
 
 
 /*--------------------------------------------------------------

@@ -19,7 +19,7 @@
                 <div class="col-lg-2 col-md-6 footer-links navigasi">
                     <h4>Jelajahi Toyspace</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('aboutUs')}}">Tentang Kami</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="{{route('contactUs')}}">Kontak Kami</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Produk Kami</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Masuk Akun</a></li>

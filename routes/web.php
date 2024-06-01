@@ -72,25 +72,24 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
     Route::get('/{id}/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
     //detail order history
     Route::get('/{id}/ohdetails', [OrderController::class, 'historyDetails'])->name('psDetails');
-    //contactUs
-    Route::get('/contactUs', [OrderController::class, 'contactUs'])->name('contactUs');
-    //aboutUs
-    Route::get('/aboutUs', [OrderController::class, 'aboutUs'])->name('aboutUs');
+    
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::get('/', [ProductController::class, 'home'])->name('home');
 Route::get('/{product}/detail', [ProductController::class, 'single'])->name('singleProduct');
 Route::get('/pageProducts', [ProductController::class, 'pageProducts'])->name('pageProducts');
+//contactUs
+Route::get('/contact', [OrderController::class, 'contactUs'])->name('contactUs');
+//aboutUs
+Route::get('/about', [OrderController::class, 'aboutUs'])->name('aboutUs');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 Route::post('midtrans/callback', [MidtransController::class, 'callback']);
 

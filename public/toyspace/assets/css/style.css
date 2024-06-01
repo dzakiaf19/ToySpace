@@ -218,8 +218,8 @@ h6 {
 
 .navbar .getstarted,
 .navbar .getstarted:focus {
-    /* padding: 8px 20px; */
-    margin-left: 30px;
+    padding: 8px 20px;
+    /* margin-left: 30px; */
     border-radius: 8px;
     color: var(--primary-color);
     font-size: 14px;

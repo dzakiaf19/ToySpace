@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\UserAddress;
+use Illuminate\Support\Facades\Http;
 
 class ProfileController extends Controller
 {
@@ -16,9 +18,26 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $cityResponse = Http::withHeaders([
+            'key' => 'ad16d62acd291a4aabb9694414cad4f3'
+        ])->get('https://api.rajaongkir.com/starter/city');
+
+        $provinceResponse = Http::withHeaders([
+            'key' => 'ad16d62acd291a4aabb9694414cad4f3'
+        ])->get('https://api.rajaongkir.com/starter/province');
+
+        $cities = $cityResponse['rajaongkir']['results'];
+        $provinces = $provinceResponse['rajaongkir']['results'];
+
+        $user =  $request->user();
+
+        $alamat = UserAddress::all()->where('user_id', $user->id);
+
+        $title = 'Hapus Alamat?';
+        $text = "Anda yakin ingin menghapus alamat?";
+        confirmDelete($title, $text);
+
+        return view('toyspace.page.edit_profile', compact('user', 'alamat', 'cities', 'provinces'));
     }
 
     /**

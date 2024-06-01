@@ -36,6 +36,8 @@ class UserAddressController extends Controller
             'key' => 'ad16d62acd291a4aabb9694414cad4f3'
         ])->get('https://api.rajaongkir.com/starter/city?id=' . $request->input('kota'));
 
+        $url = $request->input('url');
+
         $address = UserAddress::create([
             'user_id' => Auth::user()->id,
             'nama' => $request->input('nama'),
@@ -48,7 +50,7 @@ class UserAddressController extends Controller
             'alamat_lengkap' => $request->input('alamat_lengkap'),
         ]);
 
-        return redirect()->route('checkoutProduct', [$address->user_id, $address->id]);
+        return back();
     }
 
     /**
@@ -70,16 +72,33 @@ class UserAddressController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, UserAddress $userAddress)
+    public function update(UserAddressRequest $request, UserAddress $address)
     {
-        //
+        $apiRajaOngkir = Http::withHeaders([
+            'key' => 'ad16d62acd291a4aabb9694414cad4f3'
+        ])->get('https://api.rajaongkir.com/starter/city?id=' . $request->input('kota'));
+
+        $address->update([
+            'nama' => $request->input('nama'),
+            'phone' => $request->input('phone'),
+            'provinsi' => $apiRajaOngkir['rajaongkir']['results']['province'],
+            'provinsi_id' => $apiRajaOngkir['rajaongkir']['results']['province_id'],
+            'kota' => $apiRajaOngkir['rajaongkir']['results']['city_name'],
+            'kota_id' => $apiRajaOngkir['rajaongkir']['results']['city_id'],
+            'kode_pos' => $request->input('kode_pos'),
+            'alamat_lengkap' => $request->input('alamat_lengkap'),
+        ]);
+
+        return redirect()->route('profile.edit');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(UserAddress $userAddress)
+    public function destroy(UserAddress $address)
     {
-        //
+        $address->delete();
+
+        return redirect()->route('profile.edit');
     }
 }

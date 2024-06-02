@@ -50,6 +50,8 @@ class UserAddressController extends Controller
             'alamat_lengkap' => $request->input('alamat_lengkap'),
         ]);
 
+        toast('Berhasil menambahkan alamat baru!', 'success');
+
         return back();
     }
 
@@ -89,6 +91,8 @@ class UserAddressController extends Controller
             'alamat_lengkap' => $request->input('alamat_lengkap'),
         ]);
 
+        toast('Berhasil merubah data alamat!', 'success');
+
         return redirect()->route('profile.edit');
     }
 
@@ -98,6 +102,8 @@ class UserAddressController extends Controller
     public function destroy(UserAddress $address)
     {
         $address->delete();
+
+        toast('Berhasil menghapus alamat!', 'success');
 
         return redirect()->route('profile.edit');
     }

@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-2" style="margin: auto">
                                     <button type="button" class="btn btn-simple form-control" data-bs-toggle="modal"
-                                        data-bs-target="#editalamat{{ $key }}">Edit / Hapus</button>
+                                        data-bs-target="#editalamat{{ $key }}">Edit | Hapus</button>
                                 </div>
                                 <div class="modal fade" id="editalamat{{ $key }}" aria-hidden="true"
                                     aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
@@ -145,7 +145,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <a href="{{ route('address.update', ['address' => $pilih]) }}"
-                                                        class="btn btn-danger" data-confirm-delete="true">Delete</a>
+                                                        class="btn btn-secondary" data-confirm-delete="true">Hapus</a>
                                                     <button type="submit" class="btn btn-primary-all">Simpan</button>
                                                 </div>
                                             </form>
@@ -154,86 +154,83 @@
                                 </div>
                             </div>
                         @endforeach
-                        <div class="row mb-3">
-                            <button type="button" class="btn btn-primary-all" data-bs-target="#formtambahalamat"
-                                data-bs-toggle="modal" data-bs-dismiss="modal">Tambah Alamat Baru</button>
-                            <div class="modal fade" id="formtambahalamat" aria-hidden="true"
-                                aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalToggleLabel2">Isi Alamat Baru</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <form action="{{ route('address.store') }}" method="POST">
-                                            @csrf
-                                            <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <label for="nama" class="col-form-label">Nama:</label>
-                                                            <input required type="text" name="nama"
-                                                                class="form-control" id="nama"
-                                                                value="{{ Auth::user()->firstName . ' ' . Auth::user()->lastName }}">
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <label for="phone" class="col-form-label">No HP:</label>
-                                                            <div class="input-group">
-                                                                <span class="input-group-text"
-                                                                    id="inputGroup-sizing-default"
-                                                                    style="background-color: #e9ecef;">+62</span>
-                                                                <input required type="text" name="phone"
-                                                                    class="form-control" aria-label="Sizing example input"
-                                                                    aria-describedby="inputGroup-sizing-default"
-                                                                    maxlength="11" value="{{ Auth::user()->phone }}">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <label for="province">Pilith Provinsi</label>
-                                                            <select required name="provinsi" id="provinsi"
-                                                                class="form-control">
-                                                                <option value=""></option>
-                                                                @foreach ($provinces as $province)
-                                                                    <option value="{{ $province['province_id'] }}">
-                                                                        {{ $province['province'] }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-4">
-                                                            <label for="city">Pilith Kota</label>
-                                                            <select required name="kota" id="city"
-                                                                class="form-control">
-                                                                <option value=""></option>
-                                                                @foreach ($cities as $city)
-                                                                    <option value="{{ $city['city_id'] }}">
-                                                                        {{ $city['city_name'] }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-4">
-                                                            <label for="kode-pos">Kode Pos</label>
-                                                            <input required name="kode_pos" type="text" maxlength="6"
-                                                                class="form-control" id="kode-pos" value="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="alamat" class="col-form-label">Detail Alamat :</label>
-                                                    <textarea required name="alamat_lengkap" id="alamat" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Tutup</button>
-                                                <button type="submit" class="btn btn-primary">Simpan</button>
-                                            </div>
-                                        </form>
+                        <button type="button" class="btn btn-primary-all col-md-12" data-bs-target="#formtambahalamat"
+                            data-bs-toggle="modal" data-bs-dismiss="modal">Tambah Alamat Baru</button>
+                        <div class="modal fade" id="formtambahalamat" aria-hidden="true"
+                            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalToggleLabel2">Isi Alamat Baru</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
+                                    <form action="{{ route('address.store') }}" method="POST">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="nama" class="col-form-label">Nama:</label>
+                                                        <input required type="text" name="nama"
+                                                            class="form-control" id="nama"
+                                                            value="{{ Auth::user()->firstName . ' ' . Auth::user()->lastName }}">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="phone" class="col-form-label">No HP:</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-text" id="inputGroup-sizing-default"
+                                                                style="background-color: #e9ecef;">+62</span>
+                                                            <input required type="text" name="phone"
+                                                                class="form-control" aria-label="Sizing example input"
+                                                                aria-describedby="inputGroup-sizing-default"
+                                                                maxlength="11" value="{{ Auth::user()->phone }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <label for="province">Pilith Provinsi</label>
+                                                        <select required name="provinsi" id="provinsi"
+                                                            class="form-control">
+                                                            <option value=""></option>
+                                                            @foreach ($provinces as $province)
+                                                                <option value="{{ $province['province_id'] }}">
+                                                                    {{ $province['province'] }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="city">Pilith Kota</label>
+                                                        <select required name="kota" id="city"
+                                                            class="form-control">
+                                                            <option value=""></option>
+                                                            @foreach ($cities as $city)
+                                                                <option value="{{ $city['city_id'] }}">
+                                                                    {{ $city['city_name'] }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="kode-pos">Kode Pos</label>
+                                                        <input required name="kode_pos" type="text" maxlength="6"
+                                                            class="form-control" id="kode-pos" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="alamat" class="col-form-label">Detail Alamat :</label>
+                                                <textarea required name="alamat_lengkap" id="alamat" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Tutup</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -245,36 +242,78 @@
             <div class="container">
                 <div class="card">
                     <div class="card-body p-5">
-                        <h2>Data Pribadi</h2>
-                        <p>Kelola informasi profil Anda untuk mengontrol, melindungi dan mengamankan akun</p>
-                        <div class="d-flex mb-3">
-                            <div class="col-md-6">
-                                <label for="inputPassword5" class="form-label">Nama Lengkap</label>
-                                <input class="form-control" type="text" placeholder="cth. Moch Surya"
-                                    aria-label="default input example">
+                        <h2>Ubah Password</h2>
+                        <p>Kelola informasi password Anda untuk mengontrol, melindungi dan mengamankan akun</p>
+                        <form method="post" action="{{ route('password.update') }}">
+                            @csrf
+                            @method('put')
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="update_password_current_password" class="form-label">Password Lama</label>
+                                    <input class="form-control" id="update_password_current_password"
+                                        name="current_password" type="password" aria-label="default input example">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="update_password_password" class="form-label">Password Baru</label>
+                                    <input class="form-control" id="update_password_password" name="password"
+                                        type="password" aria-label="default input example">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="update_password_password_confirmation" class="form-label">Konfirmasi
+                                        Password Baru</label>
+                                    <input class="form-control" id="update_password_password_confirmation"
+                                        name="password_confirmation" type="password" aria-label="default input example">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="inputPassword5" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="cth.name@example.com">
-                            </div>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="subjek" class="form-label">Subjek</label>
-                            <input class="form-control" type="text" placeholder="cth. Pembayaran gagal"
-                                aria-label="default input example">
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Pesan</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Tuliskan pesan anda disini"
-                                rows="3"></textarea>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <a href="#" class="btn btn-primary-all">Kirim Pesan</a>
-                        </div>
+                            <button type="submit" class="btn btn-primary-all col-md-12 mb-3">Ubah Password</button>
+                        </form>
                     </div>
                 </div>
             </div>
+        </section>
+        <section id="title-cart" class="title-cart" style="margin-top: -20px;">
+            <div class="container">
+                <div class="card">
+                    <div class="card-body p-5">
+                        <h2>Hapus Akun</h2>
+                        <p>Akun Anda akan dihapus secara permanen. Semua data terkait akan hilang.</p>
+                        <button type="button" class="btn btn-primary-all col-md-12 mb-3" data-bs-target="#formhapusakun"
+                            data-bs-toggle="modal" data-bs-dismiss="modal">Hapus
+                            Akun</button>
+                        <div class="modal fade" id="formhapusakun" aria-hidden="true"
+                            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalToggleLabel2">Apakah Anda yakin ingin menghapus akun Anda?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form action="{{ route('profile.destroy') }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="hapus" class="col-form-label">Tindakan ini tidak dapat dibatalkan dan semua data Anda akan hilang secara permanen.</label>
+                                                        <input required type="password" name="password"
+                                                            class="form-control" id="hapus" placeholder="Masukkan Password">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Tutup</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
     </main>
 

@@ -971,8 +971,6 @@ section {
 
 .img-background {
     background-color: red;
-    padding: 10px;
-    /* Tambahkan padding untuk memastikan gambar tidak terlalu menempel pada tepi */
     transition: background-color 0.3s;
     /* Animasi transisi untuk efek hover */
     width: 46px;

@@ -24,7 +24,8 @@ class CategoryRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required|max:15|min:3'
+            'name' => 'required|max:15|min:3',
+            'fontawesome' => 'max:100'
         ];
     }
 

@@ -20,10 +20,16 @@
                                 </div>
                             @endif
                             <div class="row" style="margin: 16px 0 16px 12px">
-                                <div class="col-lg-10">
+                                <div class="col-lg-5">
                                     <div class="form-group">
                                         <input name="name" type="text" class="form-control"
                                             id="exampleFormControlInput1" placeholder="Add Category Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <input name="fontawesome" type="text" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Add Logo From Font Awesome E.G 'fa-solid fa-cube'">
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -36,11 +42,6 @@
                         </form>
                         <div class="card-body px-1 pt-0 pb-2 mb-2">
                             <div class="table-responsive p-0">
-                                @if (Session::has('success'))
-                                    <div class="alert alert-success" role="alert" id="success-alert">
-                                        {{ Session::get('success') }}
-                                    </div>
-                                @endif
                                 <table class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
@@ -50,6 +51,12 @@
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
                                                 style="padding-right:0">
                                                 Category Name</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                                                style="padding-right:0">
+                                                Font Awesome Code</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                                                style="padding-right:0">
+                                                Font Awesome Display</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
                                                 style="padding-right:0">
                                                 Action</th>
@@ -70,6 +77,13 @@
                                                 <td>
                                                     <span
                                                         class="text-secondary text-xs font-weight-bold">{{ $cat->name }}</span>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="text-secondary text-xs font-weight-bold">{{ $cat->fontawesome }}</span>
+                                                </td>
+                                                <td>
+                                                    <i class="{{ $cat->fontawesome }} fa-2xl"></i>
                                                 </td>
                                                 <td class="text-sm">
                                                     <button type="button" rel="tooltip" class="btn btn-icon btn-simple"
@@ -94,9 +108,10 @@
                                                                 </div>
 
                                                                 <form
-                                                                    action="{{ route('category.edit', ['category' => $cat]) }}"
+                                                                    action="{{ route('category.update', ['category' => $cat]) }}"
                                                                     method="post">
                                                                     @csrf
+                                                                    @method('put')
                                                                     @if ($errors->any())
                                                                         <div class="alert alert-danger">
                                                                             <ul>
@@ -114,6 +129,13 @@
                                                                                 placeholder="Category Name"
                                                                                 value="{{ $cat->name }}">
                                                                         </div>
+                                                                        <div class="form-group">
+                                                                            <input name="fontawesome" type="text"
+                                                                                class="form-control"
+                                                                                id="exampleFormControlInput1"
+                                                                                placeholder="Category Name"
+                                                                                value="{{ $cat->fontawesome }}">
+                                                                        </div>
                                                                     </div>
 
 
@@ -128,40 +150,11 @@
                                                         </div>
                                                     </div>
 
-                                                    <button type="button" rel="tooltip" class="btn btn-icon btn-simple"
+                                                    <a href="{{ route('category.destroy', ['category' => $cat]) }}"
+                                                        rel="tooltip" class="btn btn-icon btn-simple"
                                                         style="background-color:#DD322B; color:#fff;padding: 10px 15px;"
-                                                        data-toggle="modal" data-target="#deleteModal{{ $cat->id }}">
-                                                        <i class="fa-regular fa-trash-can"></i>
-                                                    </button>
-
-                                                    <div class="modal fade" id="deleteModal{{ $cat->id }}"
-                                                        tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="deleteModalLabel">Delete
-                                                                        Category
-                                                                    </h5>
-                                                                    <button type="button" class="close"
-                                                                        style="border:none; font-size:24px; background: transparent;"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    Are you sure?
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-                                                                    <a href="{{ route('category.destroy', ['category' => $cat]) }}"
-                                                                        class="btn"
-                                                                        style="background: #DD322B; color: #fff;">Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        data-confirm-delete="true">
+                                                        <i class="fa-regular fa-trash-can" data-confirm-delete="true"></i>
                                                 </td>
                                             </tr>
                                         @endforeach

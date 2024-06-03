@@ -14,6 +14,7 @@ class Category extends Model
 
     protected $fillable = [
         'name',
+        'fontawesome',
     ];
 
     public function getSlugOptions(): SlugOptions
@@ -21,6 +22,11 @@ class Category extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 
     public function getRouteKeyName()

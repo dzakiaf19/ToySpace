@@ -19,8 +19,9 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul class="navbar-nav me-auto mb-lg-0">
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" action="" method="POST">
+                        @csrf
+                        <input class="form-control me-2" type="search" name="search" placeholder="Cari produk" aria-label="Search">
                         <button class="btn btn-danger" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                     <ul class="navbar-nav me-auto mb-lg-0">

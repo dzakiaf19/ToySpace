@@ -29,7 +29,12 @@ class ProductController extends Controller
         //
         $product = Product::all();
         // dd($product->getFirstMediaUrl('images'));
-        return view('toyspace.index', compact('product'));
+
+        $categories = Category::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->get();
+
+        return view('toyspace.index', compact('product', 'categories'));
     }
 
     /**
@@ -55,7 +60,7 @@ class ProductController extends Controller
             'price' => $request->input('price'),
             'berat' => $request->input('berat'),
             'desc' => $request->input('desc'),
-            'cat_id' => $request->input('category_id'),
+            'category_id' => $request->input('category_id'),
         ]);
 
         toast('Your Post as been submited!', 'success');
@@ -88,9 +93,6 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        //
-        // dd($request->file('images'));
-
         $product->update([
             'name' => $request->input('name'),
             'stock' => $request->input('stock'),
@@ -98,6 +100,8 @@ class ProductController extends Controller
             'desc' => $request->input('desc'),
             'cat_id' => $request->input('category_id'),
         ]);
+
+        toast('Your Post as been submited!', 'success');
 
         return redirect()->route('product.index');
     }
@@ -124,6 +128,4 @@ class ProductController extends Controller
     {
         return view('toyspace.page.products');
     }
-
-    
 }

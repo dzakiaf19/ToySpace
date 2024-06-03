@@ -16,6 +16,11 @@ class CategoryController extends Controller
     {
         //
         $category = Category::all()->reverse();
+
+        $title = 'Delete Category!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+
         return view('admin.page.show_category', compact('category'));
     }
 
@@ -34,6 +39,8 @@ class CategoryController extends Controller
     {
         //
         Category::create($request->all());
+
+        toast('Your Post as been submited!', 'success');
 
         return redirect('admin/category')->with(['success' => 'Category data create successfully']);
     }

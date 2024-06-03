@@ -21,7 +21,7 @@ class Product extends Model implements HasMedia
         'price',
         'stock',
         'berat',
-        'cat_id',
+        'category_id',
     ];
 
     public function images()
@@ -34,6 +34,11 @@ class Product extends Model implements HasMedia
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
     public function getRouteKeyName()

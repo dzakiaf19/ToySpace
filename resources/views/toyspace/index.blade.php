@@ -339,7 +339,7 @@
             </div>
         </section>
 
-        <section id="featured-product" class="featured-product">
+        {{-- <section id="featured-product" class="featured-product">
             <div class="container">
                 <div class="sec-title">
                     <h3>Featured Product</h3>
@@ -370,7 +370,7 @@
                     @endforeach
                 </div>
             </div>
-        </section>
+        </section> --}}
 
     </main>
     <!-- End #main -->

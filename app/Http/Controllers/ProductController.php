@@ -135,15 +135,19 @@ class ProductController extends Controller
 
     public function pageProducts()
     {
-        $products = Product::query();
+        $products = Product::withSum('order_details', 'qty');
 
-        if (!empty(request('search'))) {
-            $products->where('name', 'like', '%' . request('search') . '%')
-            ->orWhere('desc', 'like', '%' . request('search') . '%')
-            ->paginate(12);
+        $search = request('search');
+        $category_id = request('category');
+
+
+        if (!empty($search)) {
+            $products->where('name', 'like', '%' . $search . '%')
+                ->orWhere('desc', 'like', '%' . $search . '%')
+                ->paginate(12);
         }
-        if (!empty(request('category'))) {
-            $products->where('category_id', request('category'));
+        if (!empty($category_id)) {
+            $products->where('category_id', $category_id);
         }
 
         $product = $products->paginate(12);
@@ -152,6 +156,26 @@ class ProductController extends Controller
             ->orderBy('products_count', 'desc')
             ->get();
 
-        return view('toyspace.page.products', compact('categories', 'product'));
+        $breadcrumbs = [
+            ['name' => 'Beranda', 'link' => url('/')],
+            ['name' => 'Produk', 'link' => url('/pageProducts')]
+        ];
+
+        if (!empty($category_id)) {
+            $category = Category::find($category_id);
+            if ($category) {
+                $breadcrumbs[] = ['name' => $category->name, 'link' => url('/pageProducts?category=' . $category_id)];
+            }
+        }
+
+        if (!empty($search)) {
+            $searchBreadcrumbLink = url('/pageProducts?search=' . $search);
+            if (!empty($category_id)) {
+                $searchBreadcrumbLink .= '&category=' . $category_id;
+            }
+            $breadcrumbs[] = ['name' => $search, 'link' => $searchBreadcrumbLink];
+        }
+
+        return view('toyspace.page.products', compact('categories', 'product', 'breadcrumbs'));
     }
 }

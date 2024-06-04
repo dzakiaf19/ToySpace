@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Midtrans\Config;
 use Midtrans\Snap;
 use Exception;
+use App\Models\Category;
 
 class OrderController extends Controller
 {
@@ -171,11 +172,28 @@ class OrderController extends Controller
     //contact Us
     public function contactUs()
     {
-        return view('toyspace.page.contact_us');
+        $categories = Category::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->get();
+
+        return view('toyspace.page.contact_us', compact('categories'));
     }
     //About Us
     public function aboutUs()
     {
-        return view('toyspace.page.about_us');
+        $categories = Category::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->get();
+
+        return view('toyspace.page.about_us', compact('categories'));
+    }
+    
+    public function dashboard()
+    {
+        $totalProductsSold = OrderDetail::sum('qty');
+
+        $productsOutOfStock = Product::where('stock', 0)->count();
+
+        return view('admin.index', compact('totalProductsSold', 'productsOutOfStock'));
     }
 }

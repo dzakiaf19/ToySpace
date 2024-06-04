@@ -2691,7 +2691,7 @@ progress {
   margin-bottom: 0.5rem;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #344767;
+  color: #EF0003;
 }
 
 .col-form-label {
@@ -2701,7 +2701,7 @@ progress {
   font-size: inherit;
   font-weight: 700;
   line-height: 1.4rem;
-  color: #344767;
+  color: #EF0003;
 }
 
 .col-form-label-lg {
@@ -2732,7 +2732,7 @@ progress {
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #d2d6da;
+  border: 1px solid #EF0003;
   appearance: none;
   border-radius: 0.5rem;
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
@@ -2755,7 +2755,7 @@ progress {
 .form-control:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #5e72e4;
+  border-color: #FFAE10;
   outline: 0;
   box-shadow: 0 3px 9px rgba(50, 50, 9, 0), 3px 4px 8px rgba(94, 114, 228, 0.1);
 }
@@ -3009,11 +3009,11 @@ textarea.form-control-lg {
 }
 
 .form-check-input:checked[type="checkbox"] {
-  background-image: linear-gradient(310deg, #5e72e4 0%, #825ee4 100%);
+  background-image: linear-gradient(310deg, #EF0003 0%, #EF0003 100%);
 }
 
 .form-check-input:checked[type="radio"] {
-  background-image: linear-gradient(310deg, #5e72e4 0%, #825ee4 100%);
+  background-image: linear-gradient(310deg, #EF0003 0%, #EF0003 100%);
 }
 
 .form-check-input[type="checkbox"]:indeterminate {
@@ -21617,8 +21617,8 @@ fieldset:disabled .btn {
 .form-switch .form-check-input:checked {
   /* border-color: rgba(94, 114, 228, 0.95); */
   /* background-color: rgba(94, 114, 228, 0.95); */
-  border-color: #24263D;
-  background-color: #24263D;
+  border-color: #EF0003;
+  background-color: #EF0003;
 }
 
 .form-switch .form-check-label {

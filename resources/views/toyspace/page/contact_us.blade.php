@@ -3,7 +3,7 @@
 
 @section('content')
 
-<main id="about-us" class="about-us">
+<main id="contact-us" class="contact-us">
   <section id="title-cart" class="title-cart">
     <div class="container">
       <h2>Kontak Kami</h2>

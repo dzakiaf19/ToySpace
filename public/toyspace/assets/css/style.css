@@ -1725,16 +1725,16 @@ section {
 }
 
 /*--------------------------------------------------------------
-# About Us
+# Contact Us
 --------------------------------------------------------------*/
-.about-us {
+.contact-us {
     font-family: 'Cabin';
 }
-.about-us h2{
+.contact-us h2{
     font-family: 'Montserrat';
     font-weight: bold;
 }
-.about-us .btn-primary-all {
+.contact-us .btn-primary-all {
     background-color: var(--primary-color);
     color: var(--t-white);
     font-size: 14px;
@@ -1742,13 +1742,12 @@ section {
     justify-content: center;
     display: flex;
 }
-.about-us .form-control{
+.contact-us .form-control{
     border-color: var(--primary-color);
     font-family: 'Cabin';
     font-size: 14px;
 }
-
-.about-us .btn-primary-all:hover {
+.contact-us .btn-primary-all:hover {
     background-color: var(--secondary-color);
     color: var(--t-white);
     font-size: 14px;
@@ -1768,12 +1767,81 @@ section {
     font-family: 'Montserrat';
     font-weight: bold;
 }
-.vs-ms .col-md-6{
+/*--------------------------------------------------------------
+# About-Us
+--------------------------------------------------------------*/
+.about-us .img-fluid{
+    background-size: cover;
+}
+.image-visi{
+    width: auto;
+    height: 398px;
+    background-position: center;
     background-image: url(../img/misi.png);
-    padding: 5%;
     color: var(--t-white);
     border-radius: 8px;
 }
+.overlay-visi{
+    width: 560px;
+    height: 398px;
+    border-radius: 8px;
+    background-color: rgba(239, 0, 3, 90%);
+    padding: 8%;
+}
+.image-misi{
+    margin: 0;
+    width: auto;
+    height: 398px;
+    background-position: center;
+    background-image: url(../img/misi.png);
+    color: var(--t-black);
+    border-radius: 8px;
+}
+.overlay-misi{
+    width: 560px;
+    height: 398px;
+    border-radius: 8px;
+    background-color: rgba(255, 174, 16, 90%);
+    padding: 8%;
+}
+.about-us h4{
+    font-weight: bold;
+    font-family: 'Montserrat';
+}
+.about-us li{
+    font-family: 'Cabin';
+}
+.cta-aboutUs{
+    min-height:100%;
+    background-image: url(../img/ctaabus.png);
+    background-color:  rgba(239, 0, 3, 80%);
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: var(--t-white);
+    text-align: center;
+    padding: 7%;
+}
+.cta-aboutUs h5{
+    font-weight: bold;
+    font-family: 'Montserrat';
+}
+.cta-aboutUs {
+    font-family: 'Cabin';
+}.cta-aboutUs .btn-primary-all {
+    background-color: var(--secondary-color);
+    color: var(--t-black);
+    font-size: 14px;
+    font-family: 'Cabin';
+    width: auto;
+}
+.cta-aboutUs .btn-primary-all:hover {
+    background-color: var(--t-white);
+    color: var(--t-black);
+    font-size: 14px;
+    font-family: 'Cabin';
+    width: auto;
+}
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

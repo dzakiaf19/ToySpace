@@ -41,6 +41,11 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(Category::class);
     }
 
+    public function order_details()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';

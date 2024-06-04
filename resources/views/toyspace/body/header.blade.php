@@ -19,10 +19,23 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul class="navbar-nav me-auto mb-lg-0">
                     </ul>
-                    <form class="d-flex" action="" method="POST">
+                    <form class="d-flex" action="/pageProducts" method="get">
                         @csrf
-                        <input class="form-control me-2" type="search" name="search" placeholder="Cari produk" aria-label="Search">
-                        <button class="btn btn-danger" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <div class="input-group">
+                            <input type="text" value="{{ request('search') }}" name="search" class="form-control"
+                                placeholder="Cari Produk" aria-label="Search" aria-describedby="button-search">
+                            <select class="form-select" name="category" aria-label="Category select">
+                                <option value="" selected>Pilih Kategori</option>
+                                @foreach ($categories as $cat)
+                                    <option value="{{ $cat->id }}"
+                                        {{ old('category', request('category')) == $cat->id ? 'selected' : '' }}>
+                                        {{ $cat->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <button class="btn btn-danger" type="submit" id="button-search"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
                     </form>
                     <ul class="navbar-nav me-auto mb-lg-0">
                     </ul>
@@ -36,7 +49,8 @@
                                     class="fa-regular fa-user"></i> {{ Auth::user()->firstName }}</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profil</a></li>
-                                <li><a class="dropdown-item" href="{{route('pesananSaya', Auth::user()->id)}}">Pesanan Saya</a></li>
+                                <li><a class="dropdown-item" href="{{ route('pesananSaya', Auth::user()->id) }}">Pesanan
+                                        Saya</a></li>
                                 <form method="POST" action="{{ route('logout') }}" x-data>
                                     @csrf
                                     <li>

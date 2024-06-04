@@ -34,7 +34,12 @@ class ProductController extends Controller
             ->orderBy('products_count', 'desc')
             ->get();
 
-        return view('toyspace.index', compact('product', 'categories'));
+        $topProducts = Product::withSum('order_details', 'qty')
+            ->orderBy('order_details_sum_qty', 'desc')
+            ->take(3)
+            ->get();
+
+        return view('toyspace.index', compact('product', 'categories', 'topProducts'));
     }
 
     /**
@@ -121,11 +126,32 @@ class ProductController extends Controller
     public function single(Product $product)
     {
         // dd($product->name);
-        return view('toyspace.page.single_product', compact('product'));
+        $categories = Category::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->get();
+
+        return view('toyspace.page.single_product', compact('product', 'categories'));
     }
 
     public function pageProducts()
     {
-        return view('toyspace.page.products');
+        $products = Product::query();
+
+        if (!empty(request('search'))) {
+            $products->where('name', 'like', '%' . request('search') . '%')
+            ->orWhere('desc', 'like', '%' . request('search') . '%')
+            ->paginate(12);
+        }
+        if (!empty(request('category'))) {
+            $products->where('category_id', request('category'));
+        }
+
+        $product = $products->paginate(12);
+
+        $categories = Category::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->get();
+
+        return view('toyspace.page.products', compact('categories', 'product'));
     }
 }

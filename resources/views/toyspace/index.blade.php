@@ -128,12 +128,13 @@
             <div class="container">
                 <div class="section-title d-flex justify-content-between">
                     <h3>Kategori unggulan</h3>
-                    <a href="">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    {{-- <a href="">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a> --}}
                 </div>
                 <div class="kategori">
                     <div class="row d-flex justify-content-between">
                         @foreach ($categories as $cat)
-                            <div class="col-sm-2 d-flex">
+                            <a href="#" class="col-sm-2 d-flex">
+
                                 <div class="img-background d-flex" style="margin-right: 10px">
                                     <i class="{{ $cat->fontawesome }} fa-2xl" style="color: #ffffff; margin:auto;"></i>
                                 </div>
@@ -141,7 +142,7 @@
                                     <h4>{{ $cat->name }}</h4>
                                     <h5>{{ $cat->products_count }} Produk</h5>
                                 </div>
-                            </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
@@ -151,79 +152,41 @@
         <section id="produk-terlaris" class="produk-terlaris">
             <div class="container">
                 <div class="section-title d-flex justify-content-between">
-                    <h3>10 Produk Terlaris Teratas</h3>
-                    <a href="{{ route('pageProducts') }}">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    <h3>Produk Terlaris</h3>
+                    <a href="{{ route('pageProducts') }}">Lihat Semua Produk <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 <div class="all-produk products row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-2 g-lg-3"
                     data-aos="fade-up" data-aos-delay="200">
-                    <div class="product col">
-                        <div class="card card-product shadow-sm h-100">
-                            <img class="card-img-top" src="{{ asset('toyspace/assets/img/products/product-1.png') }}"
-                                alt=''>
-                            <div class="card-body h-100">
-                                <h3 class="card-title">Rp. 89.000</h3>
-                                <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
-                                <div class="stok d-flex justify-content-between">
-                                    <h4>Sisa Stok</h4>
-                                    <h4>489</h4>
-                                </div>
-                                <div class="button-kendaraan">
-                                    <div class="homecar-button d-flex justify-content-between">
-                                        <button class="btn-beli"
-                                            onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
-                                        <button class="btn-keranjang" onclick="window.location.href = 'keranjang.html';"><i
-                                                class="fa-solid fa-cart-shopping"></i></button>
+                    @foreach ($topProducts as $top)
+                        <div class="product col">
+                            <div class="card card-product shadow-sm h-100">
+                                <img class="card-img-top"
+                                    src='{{ $top->images()->exists() ? Storage::url($top->images->first()->path) : 'https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30538.jpg?w=740&t=st=1717040880~exp=1717041480~hmac=48d946a95d70e6d9bdcaf19b81aaf4e71dce68fc0d9ab5a3109b75929f23c4d8' }}'
+                                    alt=''>
+                                <div class="card-body h-100">
+                                    <h3 class="card-title">Rp. {{ $top->price }}</h3>
+                                    <h2 class="card-title">{{ $top->name }}</h2>
+                                    <div class="stok d-flex justify-content-between">
+                                        <h4>Sisa Stok</h4>
+                                        <h4>{{ $top->stock }}</h4>
+                                    </div>
+                                    <div class="button-kendaraan">
+                                        <div class="homecar-button d-flex justify-content-between">
+                                            <a class="btn-beli"
+                                                href="{{ route('singleProduct', ['product' => $top]) }}">Beli
+                                                Sekarang</a>
+                                            <form action="{{ route('addCart', $top) }}"" method="post">
+                                                @csrf
+                                                <input type="hidden" name="quantity" value="1">
+                                                <button class="btn-keranjang" type="{{ $top->stock > 0 ? 'submit' : 'button' }}"><i
+                                                        class="fa-solid fa-cart-shopping"></i></button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product col">
-                        <div class="card card-product shadow-sm h-100">
-                            <img class="card-img-top" src="{{ asset('toyspace/assets/img/products/product-2.png') }}"
-                                alt=''>
-                            <div class="card-body h-100">
-                                <h3 class="card-title">Rp. 89.000</h3>
-                                <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
-                                <div class="stok d-flex justify-content-between">
-                                    <h4>Sisa Stok</h4>
-                                    <h4>489</h4>
-                                </div>
-                                <div class="button-kendaraan">
-                                    <div class="homecar-button d-flex justify-content-between">
-                                        <button class="btn-beli"
-                                            onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
-                                        <button class="btn-keranjang"
-                                            onclick="window.location.href = 'keranjang.html';"><i
-                                                class="fa-solid fa-cart-shopping"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product col">
-                        <div class="card card-product shadow-sm h-100">
-                            <img class="card-img-top" src="{{ asset('toyspace/assets/img/products/product-3.png') }}"
-                                alt=''>
-                            <div class="card-body h-100">
-                                <h3 class="card-title">Rp. 89.000</h3>
-                                <h2 class="card-title">Red Ferrari Coupe Parked Beside Buildings</h2>
-                                <div class="stok d-flex justify-content-between">
-                                    <h4>Sisa Stok</h4>
-                                    <h4>489</h4>
-                                </div>
-                                <div class="button-kendaraan">
-                                    <div class="homecar-button d-flex justify-content-between">
-                                        <button class="btn-beli"
-                                            onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
-                                        <button class="btn-keranjang"
-                                            onclick="window.location.href = 'keranjang.html';"><i
-                                                class="fa-solid fa-cart-shopping"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -250,8 +213,7 @@
                                     <div class="homecar-button d-flex justify-content-between">
                                         <button class="btn-beli"
                                             onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
-                                        <button class="btn-keranjang"
-                                            onclick="window.location.href = 'keranjang.html';"><i
+                                        <button class="btn-keranjang" onclick="window.location.href = 'keranjang.html';"><i
                                                 class="fa-solid fa-cart-shopping"></i></button>
                                     </div>
                                 </div>

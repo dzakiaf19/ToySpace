@@ -133,7 +133,7 @@
                 <div class="kategori">
                     <div class="row d-flex justify-content-between">
                         @foreach ($categories as $cat)
-                            <a href="#" class="col-sm-2 d-flex">
+                            <a href="/pageProducts?category={{ $cat->id }}" class="col-sm-2 d-flex">
 
                                 <div class="img-background d-flex" style="margin-right: 10px">
                                     <i class="{{ $cat->fontawesome }} fa-2xl" style="color: #ffffff; margin:auto;"></i>

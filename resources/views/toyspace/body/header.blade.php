@@ -25,7 +25,7 @@
                             <input type="text" value="{{ request('search') }}" name="search" class="form-control"
                                 placeholder="Cari Produk" aria-label="Search" aria-describedby="button-search">
                             <select class="form-select" name="category" aria-label="Category select">
-                                <option value="" selected>Pilih Kategori</option>
+                                <option value="" selected>Semua Kategori</option>
                                 @foreach ($categories as $cat)
                                     <option value="{{ $cat->id }}"
                                         {{ old('category', request('category')) == $cat->id ? 'selected' : '' }}>

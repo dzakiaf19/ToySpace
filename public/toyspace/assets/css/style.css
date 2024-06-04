@@ -1768,7 +1768,12 @@ section {
     font-family: 'Montserrat';
     font-weight: bold;
 }
-
+.vs-ms .col-md-6{
+    background-image: url(../img/misi.png);
+    padding: 5%;
+    color: var(--t-white);
+    border-radius: 8px;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

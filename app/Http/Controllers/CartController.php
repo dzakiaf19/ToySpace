@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Http;
 use Alert;
 use App\Models\Product;
 use App\Models\UserAddress;
+use App\Models\Category;
 
 class CartController extends Controller
 {
@@ -143,7 +144,11 @@ class CartController extends Controller
 
         $carts = Cart::with(['product'])->where('user_id', Auth::user()->id)->get();
 
-        return view('toyspace.page.shop_cart', compact('carts', 'alamat', 'cities', 'provinces'));
+        $categories = Category::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->get();
+
+        return view('toyspace.page.shop_cart', compact('carts', 'alamat', 'cities', 'provinces', 'categories'));
     }
 
     public function checkout($id, UserAddress $address)
@@ -164,8 +169,8 @@ class CartController extends Controller
                 $carts = Cart::with(['product'])->where('user_id', $id)->get();
 
                 $berat = 0;
-                foreach($carts as $cart) {
-                    for ($i=1; $i <= $cart->quantity; $i++) { 
+                foreach ($carts as $cart) {
+                    for ($i = 1; $i <= $cart->quantity; $i++) {
                         $berat = $berat + $cart->product->berat;
                     }
                 }
@@ -185,7 +190,11 @@ class CartController extends Controller
 
                 $alamat = UserAddress::all()->where('user_id', $id);
 
-                return view('toyspace.page.checkout', compact('address', 'carts', 'costs', 'alamat', 'cities', 'provinces',));
+                $categories = Category::withCount('products')
+                    ->orderBy('products_count', 'desc')
+                    ->get();
+
+                return view('toyspace.page.checkout', compact('address', 'carts', 'costs', 'alamat', 'cities', 'provinces','categories'));
             } else {
                 return redirect()->route('shopCart');
             }

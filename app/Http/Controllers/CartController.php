@@ -143,7 +143,11 @@ class CartController extends Controller
 
         $carts = Cart::with(['product'])->where('user_id', Auth::user()->id)->get();
 
-        return view('toyspace.page.shop_cart', compact('carts', 'alamat', 'cities', 'provinces'));
+        $categories = Category::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->get();
+
+        return view('toyspace.page.shop_cart', compact('carts', 'alamat', 'cities', 'provinces', 'categories'));
     }
 
     public function checkout($id, UserAddress $address)

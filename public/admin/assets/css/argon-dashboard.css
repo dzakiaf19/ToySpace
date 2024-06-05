@@ -2890,7 +2890,7 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 16px 12px;
-  border: 1px solid #d2d6da;
+  border: 1px solid #EF0003;
   border-radius: 0.5rem;
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
   appearance: none;
@@ -2903,7 +2903,7 @@ textarea.form-control-lg {
 }
 
 .form-select:focus {
-  border-color: #5e72e4;
+  border-color: #FFAE10;
   outline: 0;
   box-shadow: 0 3px 9px rgba(50, 50, 9, 0), 3px 4px 8px rgba(94, 114, 228, 0.1);
 }
@@ -2945,10 +2945,10 @@ textarea.form-control-lg {
   min-height: 1.5rem;
   padding-left: 1.73em;
   margin-bottom: 0.125rem;
+  align-content: center;
 }
 
 .form-check .form-check-input {
-  float: left;
   margin-left: -1.73em;
 }
 
@@ -10457,7 +10457,7 @@ fieldset:disabled .btn {
 }
 
 .text-start {
-  text-align: left !important;
+  text-align: center !important;
 }
 
 .text-end {
@@ -10536,7 +10536,7 @@ fieldset:disabled .btn {
 }
 
 .text-dark {
-  color: #344767 !important;
+  color: #EF0003 !important;
 }
 
 .text-white {
@@ -21689,7 +21689,7 @@ label,
 }
 
 .bg-gradient-dark {
-  background-image: linear-gradient(310deg, #212229 0%, #212529 100%);
+  background-image: linear-gradient(310deg, #EF0003 0%, #EF0003 100%);
 }
 
 .bg-gradient-faded-primary {
@@ -22226,6 +22226,8 @@ hr.horizontal.gray-light {
   width: 100%;
   height: 100%;
   opacity: 0.8;
+  background-color:  rgba(255, 0, 3, 82%);
+  background-blend-mode: overlay;
 }
 
 .cursor-pointer {
@@ -24875,7 +24877,8 @@ h5,
 h6,
 .h6,
 .h6 {
-  font-weight: 600;
+  font-weight: bold;
+
 }
 
 h1,
@@ -24921,6 +24924,7 @@ p,
 
 .text-sm {
   font-size: 0.875rem !important;
+  text-align: center;
 }
 
 .text-xs {

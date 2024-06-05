@@ -29,9 +29,7 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'prefix' => '/admin'], function () {
-    Route::get('/dashboard', function () {
-        return view('admin.index');
-    })->name('admin.dashboard');
+    Route::get('/dashboard', [OrderController::class, 'dashboard'])->name('admin.dashboard');
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
@@ -39,12 +37,12 @@ Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'pr
         'index', 'create', 'store', 'destroy',
     ]);
 
-    Route::get('/banner', [BannerController::class, 'index'])->name('indexBanner');
-    Route::get('/banner/add', [BannerController::class, 'create'])->name('addBanner');
-    Route::post('/banner/add', [BannerController::class, 'store'])->name('storeBanner');
-    Route::get('/banner/edit/{id}', [BannerController::class, 'edit'])->name('editBanner');
-    Route::put('/banner/edit/{id}', [BannerController::class, 'update'])->name('updateBanner');
-    Route::get('/deleteBanner/{id}', [BannerController::class, 'destroy'])->name('deleteBanner');
+    // Route::get('/banner', [BannerController::class, 'index'])->name('indexBanner');
+    // Route::get('/banner/add', [BannerController::class, 'create'])->name('addBanner');
+    // Route::post('/banner/add', [BannerController::class, 'store'])->name('storeBanner');
+    // Route::get('/banner/edit/{id}', [BannerController::class, 'edit'])->name('editBanner');
+    // Route::put('/banner/edit/{id}', [BannerController::class, 'update'])->name('updateBanner');
+    // Route::get('/deleteBanner/{id}', [BannerController::class, 'destroy'])->name('deleteBanner');
 
     Route::group(['middleware' => ['role:superadmin']], function () {
         Route::get('/indexAdmin', [AdminController::class, 'index'])->name('indexAdmin');
@@ -69,6 +67,7 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
     Route::post('/checkout/payment/{id}-{address}', [OrderController::class, 'store'])->name('paymentProduct');
 
     Route::resource('address', UserAddressController::class);
+    
     Route::get('/{id}/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
     //detail order history
     Route::get('/{id}/ohdetails', [OrderController::class, 'historyDetails'])->name('psDetails');

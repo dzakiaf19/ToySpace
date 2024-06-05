@@ -34,69 +34,6 @@
 </head>
 
 <body class="">
-    <div class="container position-sticky z-index-sticky top-0">
-        <div class="row">
-            <div class="col-12">
-                <!-- Navbar -->
-                <nav id="navbar-register" class="navbar navbar-expand-lg border-radius-lg top-0 z-index-3 position-absolute mt-4 py-2 start-0 end-0 mx-4" style="background: transparent; box-shadow: none;">
-                    <div class="container-fluid">
-                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{ route('register') }}">
-                            <!-- Argon Dashboard 2 -->
-                            <img src="{{ asset('admin/assets/img/logo-transparent.png') }}" alt="">
-                        </a>
-                        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon mt-2">
-                                <span class="navbar-toggler-bar bar1"></span>
-                                <span class="navbar-toggler-bar bar2"></span>
-                                <span class="navbar-toggler-bar bar3"></span>
-                            </span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navigation">
-                            <ul class="navbar-nav mx-6">
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html" style="color: #fff;">
-                                        <!-- <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i> -->
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link me-2" href="../pages/profile.html" style="color: #fff;">
-                                        <!-- <i class="fa fa-user opacity-6 text-dark me-1"></i> -->
-                                        Product
-                                    </a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link me-2" href="../pages/sign-up.html" style="color: #fff;">
-                                        <!-- <i class="fas fa-user-circle opacity-6 text-dark me-1"></i> -->
-                                        Category
-                                    </a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link me-2" href="../pages/sign-in.html" style="color: #fff;">
-                                        <!-- <i class="fas fa-key opacity-6 text-dark me-1"></i> -->
-                                        Orders
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="../pages/sign-in.html" style="color: #fff;">
-                                        <!-- <i class="fas fa-key opacity-6 text-dark me-1"></i> -->
-                                        Users
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- <ul class="navbar-nav d-lg-block d-none">
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/product/argon-dashboard"
-                                        class="btn btn-sm mb-0 me-1 btn-primary">Free Download</a>
-                                </li>
-                            </ul> -->
-                        </div>
-                    </div>
-                </nav>
-                <!-- End Navbar -->
-            </div>
-        </div>
-    </div>
     <main class="main-content  mt-0">
         <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('{{ asset('admin/assets/img/register.png') }}'); background-position: top;">
             <span class="mask bg-gradient-dark opacity-6"></span>

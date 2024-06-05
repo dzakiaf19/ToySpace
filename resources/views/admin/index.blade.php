@@ -9,7 +9,7 @@
                         <div class="numbers">
                             <p class="text-sm mb-0 font-weight-bold">Product Sold</p>
                             <h5 class="font-weight-bolder" style="font-size: 35px;">
-                                12
+                                {{ $totalProductsSold }}
                             </h5>
                             <!-- <p class="mb-0">
                                 <span class="text-success text-sm font-weight-bolder">+55%</span>
@@ -34,7 +34,7 @@
                         <div class="numbers">
                             <p class="text-sm mb-0 font-weight-bold">Out of Stock</p>
                             <h5 class="font-weight-bolder" style="font-size: 35px;">
-                                5
+                                {{ $productsOutOfStock }}
                             </h5>
                         </div>
                     </div>

@@ -160,14 +160,22 @@ class OrderController extends Controller
     {
         $order = Order::where('user_id', $id)->get();
 
-        return view('toyspace.page.pesanan_saya', compact('order'));
+        $categories = Category::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->get();
+
+        return view('toyspace.page.pesanan_saya', compact('order', 'categories'));
     }
     //detail order history
     public function historyDetails($id)
     {
         $order = Order::where('user_id', $id)->get();
 
-        return view('toyspace.page.detail_pesanan', compact('order'));
+        $categories = Category::withCount('products')
+            ->orderBy('products_count', 'desc')
+            ->get();
+
+        return view('toyspace.page.detail_pesanan', compact('order', 'categories'));
     }
     //contact Us
     public function contactUs()

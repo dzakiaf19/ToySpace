@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="col-6 entry-button  justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                                     style="padding:0">
-                                    <button class="btn-entry" type="submit">ADD TO CART</button>
+                                    <button class="btn-entry" type="submit">Tambahkan Ke Keranjang</button>
                                 </div>
                             </div>
                         </form>

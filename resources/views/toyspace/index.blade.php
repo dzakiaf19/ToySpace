@@ -131,15 +131,15 @@
                     {{-- <a href="">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a> --}}
                 </div>
                 <div class="kategori">
-                    <div class="row d-flex justify-content-between">
+                    <div class="row d-flex justify-content-start">
                         @foreach ($categories as $cat)
-                            <a href="/pageProducts?category={{ $cat->id }}" class="col-sm-2 d-flex">
+                            <a href="/pageProducts?category={{ $cat->id }}" class="col-sm-2 d-flex mb-2">
 
                                 <div class="img-background d-flex" style="margin-right: 10px">
                                     <i class="{{ $cat->fontawesome }} fa-2xl" style="color: #ffffff; margin:auto;"></i>
                                 </div>
                                 <div>
-                                    <h4>{{ $cat->name }}</h4>
+                                    <h4 style="font-size: 13.6px">{{ $cat->name }}</h4>
                                     <h5>{{ $cat->products_count }} Produk</h5>
                                 </div>
                             </a>

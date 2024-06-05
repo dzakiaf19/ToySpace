@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary-all col-md-12 mb-3">Simpan Perubahan</button>
+                            <button type="submit" class="btn btn-simple col-md-12 mb-3">Simpan Perubahan</button>
                         </form>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                         @endforeach
-                        <button type="button" class="btn btn-primary-all col-md-12" data-bs-target="#formtambahalamat"
+                        <button type="button" class="btn btn-simple col-md-12" data-bs-target="#formtambahalamat"
                             data-bs-toggle="modal" data-bs-dismiss="modal">Tambah Alamat Baru</button>
                         <div class="modal fade" id="formtambahalamat" aria-hidden="true"
                             aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
@@ -265,7 +265,7 @@
                                         name="password_confirmation" type="password" aria-label="default input example">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary-all col-md-12 mb-3">Ubah Password</button>
+                            <button type="submit" class="btn btn-simple col-md-12 mb-3">Ubah Password</button>
                         </form>
                     </div>
                 </div>
@@ -277,7 +277,7 @@
                     <div class="card-body p-5">
                         <h2>Hapus Akun</h2>
                         <p>Akun Anda akan dihapus secara permanen. Semua data terkait akan hilang.</p>
-                        <button type="button" class="btn btn-primary-all col-md-12 mb-3" data-bs-target="#formhapusakun"
+                        <button type="button" class="btn btn-simple col-md-12 mb-3" data-bs-target="#formhapusakun"
                             data-bs-toggle="modal" data-bs-dismiss="modal">Hapus
                             Akun</button>
                         <div class="modal fade" id="formhapusakun" aria-hidden="true"
@@ -306,7 +306,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                            <button type="submit" class="btn btn-simple">Hapus</button>
                                         </div>
                                     </form>
                                 </div>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\UserAddress;
+use App\Models\Category;
 use Illuminate\Support\Facades\Http;
 
 class ProfileController extends Controller
@@ -33,11 +34,15 @@ class ProfileController extends Controller
 
         $alamat = UserAddress::all()->where('user_id', $user->id);
 
+        $categories = Category::withCount('products')
+                    ->orderBy('products_count', 'desc')
+                    ->get();
+
         $title = 'Hapus Alamat?';
         $text = "Anda yakin ingin menghapus alamat?";
         confirmDelete($title, $text);
 
-        return view('toyspace.page.edit_profile', compact('user', 'alamat', 'cities', 'provinces'));
+        return view('toyspace.page.edit_profile', compact('user', 'alamat', 'cities', 'provinces', 'categories'));
     }
 
     /**

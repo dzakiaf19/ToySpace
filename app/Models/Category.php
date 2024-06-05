@@ -14,7 +14,7 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'fontawesome',
+        'fontawesome' => 'default_value',
     ];
 
     public function getSlugOptions(): SlugOptions

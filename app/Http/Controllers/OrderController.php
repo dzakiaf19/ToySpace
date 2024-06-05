@@ -108,7 +108,7 @@ class OrderController extends Controller
                         'first_name' => $transaksi->name,
                         'email' => $transaksi->email,
                     ],
-                    'enabled_payments' => ['gopay', 'bank_transfer'],
+                    'enabled_payments' => ['gopay', 'bank_transfer', 'bca_va'],
                     'vtweb' => [],
                 ];
 

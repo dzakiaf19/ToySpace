@@ -178,6 +178,7 @@
                                             {{ $cost['description'] . ' (' . $cost['service'] . ') ' . $cost['cost'][0]['etd'] . ' hari' }}
                                             - RP. {{ $cost['cost'][0]['value'] }} </option>
                                     @endforeach
+                                    <option value="0">Test cuma 0 rupiah</option>
                                 </select>
                             </div>
                         </div>

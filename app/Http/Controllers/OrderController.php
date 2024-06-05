@@ -76,7 +76,7 @@ class OrderController extends Controller
                     'phone' => $address->phone,
                     'courier' => "JNE (" . $ongkir['nama'] . ")",
                     'total_price' => $total + $ongkir['harga'],
-                    'ongkos_kirim' => $ongkir['harga'],
+                    'ongkos_price' => $ongkir['harga'],
                 ]);
 
                 //list transaksi

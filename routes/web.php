@@ -90,6 +90,6 @@ Route::get('/about', [OrderController::class, 'aboutUs'])->name('aboutUs');
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('/api/midtrans/callback', [MidtransController::class, 'callback']);
+
 
 require __DIR__ . '/auth.php';

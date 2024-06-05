@@ -69,7 +69,7 @@ class MidtransController extends Controller
             }
         } else if ($status == 'settlement') {
             $transaction->status = 'SUCCESS';
-            if ($type == 'gopay') {
+            if ($type == 'qris') {
                 $transaction->payment_type = 'Gopay/Qris';
             } else if ($type == 'bank_transfer') {
                 $transaction->payment_type = 'Bank Transfer';

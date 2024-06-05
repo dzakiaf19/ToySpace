@@ -158,7 +158,7 @@ class OrderController extends Controller
 
     public function history($id)
     {
-        $order = Order::where('user_id', $id)->get();
+        $order = Order::where('user_id', $id)->orderBy('created_at', 'desc')->get();
 
         $categories = Category::withCount('products')
             ->orderBy('products_count', 'desc')
@@ -167,16 +167,21 @@ class OrderController extends Controller
         return view('toyspace.page.pesanan_saya', compact('order', 'categories'));
     }
     //detail order history
-    public function historyDetails($id)
+    public function historyDetails(Order $order)
     {
-        $order = Order::where('user_id', $id)->get();
-
         $categories = Category::withCount('products')
             ->orderBy('products_count', 'desc')
             ->get();
 
-        return view('toyspace.page.detail_pesanan', compact('order', 'categories'));
+        $orderDetails = $order->order_details()->with('product')->get();
+
+        // foreach ($orderDetails as $key => $detail) {
+        //     dd($detail->product->name);
+        // }
+
+        return view('toyspace.page.detail_pesanan', compact('order', 'categories', 'orderDetails'));
     }
+
     //contact Us
     public function contactUs()
     {
@@ -195,7 +200,7 @@ class OrderController extends Controller
 
         return view('toyspace.page.about_us', compact('categories'));
     }
-    
+
     public function dashboard()
     {
         $totalProductsSold = OrderDetail::sum('qty');

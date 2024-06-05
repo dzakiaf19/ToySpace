@@ -70,7 +70,7 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
     
     Route::get('/{id}/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
     //detail order history
-    Route::get('/{id}/ohdetails', [OrderController::class, 'historyDetails'])->name('psDetails');
+    Route::get('/{order}/ohdetails', [OrderController::class, 'historyDetails'])->name('psDetails');
     
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -90,6 +90,6 @@ Route::get('/about', [OrderController::class, 'aboutUs'])->name('aboutUs');
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('midtrans/callback', [MidtransController::class, 'callback']);
+Route::post('/api/midtrans/callback', [MidtransController::class, 'callback']);
 
 require __DIR__ . '/auth.php';

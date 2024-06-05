@@ -9,7 +9,7 @@
                 @foreach ($order as $pesanan)
                     <div class="card">
                         <div class="card-header">
-                            ID Pesanan : # 987629202
+                            ID Pesanan : ToySpace-{{ $pesanan->id }}
                         </div>
                         <div class="card-body d-flex">
                             <div class="col-md-4">
@@ -21,7 +21,7 @@
                                 <div class="card-price">Rp80000</div>
                             </div>
                             <div class="col-md-2">
-                                <a href="{{ route('psDetails', Auth::user()->id) }}" class="btn btn-primary-all">Detail
+                                <a href="{{ route('psDetails', $pesanan) }}" class="btn btn-primary-all">Detail
                                     Pesanan</a>
                             </div>
 

@@ -60,7 +60,11 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    <tr>Kosong</tr>
+                                    <tr>
+                                        <td>
+                                            Kosong
+                                        </td>
+                                    </tr>
                                 @endforelse
                             </tbody>
                         </table>
@@ -71,9 +75,16 @@
                     <div class="col-12 titles sub-tot d-flex">
                         <h4>Cart Total : Rp {{ $subtot }}</h4>
                         @if ($alamat != null)
-                            <a href="{{ route('checkoutProduct', [Auth::user()->id, $alamat->id] ) }}" rel="tooltip" class="btn btn-simple">
-                                Check Out
-                            </a>
+                            @if ($carts->isEmpty())
+                                <a rel="tooltip" class="btn btn-simple">
+                                    Check Out
+                                </a>
+                            @else
+                                <a href="{{ route('checkoutProduct', [Auth::user()->id, $alamat->id]) }}" rel="tooltip"
+                                    class="btn btn-simple">
+                                    Check Out
+                                </a>
+                            @endif
                         @else
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-simple" data-bs-toggle="modal"
@@ -91,14 +102,15 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{route('address.store')}}" method="POST">
+                                        <form action="{{ route('address.store') }}" method="POST">
                                             @csrf
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <label for="nama" class="col-form-label">Nama:</label>
-                                                            <input required type="text" name="nama" class="form-control" id="nama"
+                                                            <input required type="text" name="nama"
+                                                                class="form-control" id="nama"
                                                                 value="{{ Auth::user()->firstName . ' ' . Auth::user()->lastName }}">
                                                         </div>
                                                         <div class="col-6">
@@ -107,8 +119,8 @@
                                                                 <span class="input-group-text"
                                                                     id="inputGroup-sizing-default"
                                                                     style="background-color: #e9ecef;">+62</span>
-                                                                <input required type="text" name="phone" class="form-control"
-                                                                    aria-label="Sizing example input"
+                                                                <input required type="text" name="phone"
+                                                                    class="form-control" aria-label="Sizing example input"
                                                                     aria-describedby="inputGroup-sizing-default"
                                                                     maxlength="11" value="{{ Auth::user()->phone }}">
                                                             </div>
@@ -119,7 +131,8 @@
                                                     <div class="row">
                                                         <div class="col-4">
                                                             <label for="province">Pilith Provinsi</label>
-                                                            <select required name="provinsi" id="provinsi" class="form-control">
+                                                            <select required name="provinsi" id="provinsi"
+                                                                class="form-control">
                                                                 <option value=""></option>
                                                                 @foreach ($provinces as $province)
                                                                     <option value="{{ $province['province_id'] }}">
@@ -129,7 +142,8 @@
                                                         </div>
                                                         <div class="col-4">
                                                             <label for="city">Pilith Kota</label>
-                                                            <select required name="kota" id="city" class="form-control">
+                                                            <select required name="kota" id="city"
+                                                                class="form-control">
                                                                 <option value=""></option>
                                                                 @foreach ($cities as $city)
                                                                     <option value="{{ $city['city_id'] }}">
@@ -139,8 +153,8 @@
                                                         </div>
                                                         <div class="col-4">
                                                             <label for="kode-pos">Kode Pos</label>
-                                                            <input required name="kode_pos" type="text" maxlength="6" class="form-control"
-                                                                id="kode-pos" value="">
+                                                            <input required name="kode_pos" type="text" maxlength="6"
+                                                                class="form-control" id="kode-pos" value="">
                                                         </div>
                                                     </div>
                                                 </div>

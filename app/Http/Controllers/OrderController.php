@@ -42,82 +42,89 @@ class OrderController extends Controller
 
             //get carts data
             $carts = Cart::with(['product'])->where('user_id', Auth::user()->id)->get();
-            $ongkir = json_decode($request->ongkir, true);
-            $total = 0;
+            if ($carts->isEmpty()) {
+                toast('Keranjang kosong', 'error');
 
-            foreach ($carts as $cart) {
-                $total = $total + ($cart->quantity * $cart->product->price);
-            }
+                return redirect()->route('home');
+            } else {
+                $ongkir = json_decode($request->ongkir, true);
+                $total = 0;
 
-            foreach ($carts as $cart) {
-                $stock = $cart->product->stock - $cart->quantity;
-                if ($stock < 0) {
-                    $cart->update(['quantity' => $cart->product->stock]);
+                foreach ($carts as $cart) {
+                    $total = $total + ($cart->quantity * $cart->product->price);
+                }
 
-                    return redirect('shopCart');
-                } else {
-                    Product::where('id', $cart->product_id)->update([
-                        'stock' => $stock,
+                foreach ($carts as $cart) {
+                    $stock = $cart->product->stock - $cart->quantity;
+                    if ($stock < 0) {
+                        $cart->update(['quantity' => $cart->product->stock]);
+
+                        return redirect('shopCart');
+                    } else {
+                        Product::where('id', $cart->product_id)->update([
+                            'stock' => $stock,
+                        ]);
+                    }
+                }
+
+                //membuat transaksi
+                $transaksi = Order::create([
+                    'user_id' => Auth::user()->id,
+                    'name' => $address->nama,
+                    'email' => Auth::user()->email,
+                    'address' => $address->provinsi . ", " . $address->kota . ", " . $address->alamat_lengkap . " (" . $address->kode_pos . ")",
+                    'phone' => $address->phone,
+                    'courier' => "JNE (" . $ongkir['nama'] . ")",
+                    'total_price' => $total + $ongkir['harga'],
+                    'ongkos_kirim' => $ongkir['harga'],
+                ]);
+
+                //list transaksi
+                foreach ($carts as $cart) {
+                    OrderDetail::create([
+                        'user_id' => $cart->user_id,
+                        'order_id' => $transaksi->id,
+                        'product_id' => $cart->product_id,
+                        'qty' => $cart->quantity,
                     ]);
                 }
-            }
 
-            //membuat transaksi
-            $transaksi = Order::create([
-                'user_id' => Auth::user()->id,
-                'name' => $address->nama,
-                'email' => Auth::user()->email,
-                'address' => $address->provinsi . ", " . $address->kota . ", " . $address->alamat_lengkap . " (" . $address->kode_pos . ")",
-                'phone' => $address->phone,
-                'courier' => "JNE (" . $ongkir['nama'] . ")",
-                'total_price' => $total + $ongkir['harga'],
-            ]);
+                //delete cart
+                Cart::where('user_id', Auth::user()->id)->delete();
 
-            //list transaksi
-            foreach ($carts as $cart) {
-                $items[] = OrderDetail::create([
-                    'user_id' => $cart->user_id,
-                    'order_id' => $transaksi->id,
-                    'product_id' => $cart->product_id,
-                    'qty' => $cart->quantity,
-                ]);
-            }
+                //konfigurasi midtrans
+                Config::$serverKey = config('services.midtrans.serverKey');
+                Config::$isProduction = config('services.midtrans.isProduction');
+                Config::$isSanitized = config('services.midtrans.isSanitized');
+                Config::$is3ds = config('services.midtrans.is3ds');
 
-            //delete cart
-            Cart::where('user_id', Auth::user()->id)->delete();
+                //setup variable midtrans
+                $midtrans = [
+                    'transaction_details' => [
+                        'order_id' => 'Tes-' . $transaksi->id,
+                        'gross_amount' => (int) $transaksi->total_price,
+                    ],
+                    'customer_details' => [
+                        'first_name' => $transaksi->name,
+                        'email' => $transaksi->email,
+                    ],
+                    'enabled_payments' => ['gopay', 'bank_transfer'],
+                    'vtweb' => [],
+                ];
 
-            //konfigurasi midtrans
-            Config::$serverKey = config('services.midtrans.serverKey');
-            Config::$isProduction = config('services.midtrans.isProduction');
-            Config::$isSanitized = config('services.midtrans.isSanitized');
-            Config::$is3ds = config('services.midtrans.is3ds');
+                //Payment Proccess
+                try {
+                    // Get Snap Payment Page URL
+                    $paymentUrl = Snap::createTransaction($midtrans)->redirect_url;
 
-            //setup variable midtrans
-            $midtrans = [
-                'transaction_details' => [
-                    'order_id' => 'Tes-' . $transaksi->id,
-                    'gross_amount' => (int) $transaksi->total_price,
-                ],
-                'customer_details' => [
-                    'first_name' => $transaksi->name,
-                    'email' => $transaksi->email,
-                ],
-                'enabled_payments' => ['gopay', 'bank_transfer', 'bca_va'],
-                'vtweb' => [],
-            ];
+                    $transaksi->payment_url = $paymentUrl;
+                    $transaksi->save();
 
-            //Payment Proccess
-            try {
-                // Get Snap Payment Page URL
-                $paymentUrl = Snap::createTransaction($midtrans)->redirect_url;
-
-                $transaksi->payment_url = $paymentUrl;
-                $transaksi->save();
-
-                // Redirect to Snap Payment Page
-                return redirect($paymentUrl);
-            } catch (Exception $e) {
-                echo $e->getMessage();
+                    // Redirect to Snap Payment Page
+                    return redirect($paymentUrl);
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
             }
         } else {
             return redirect('shopCart');

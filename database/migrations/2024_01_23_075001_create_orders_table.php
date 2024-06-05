@@ -24,10 +24,11 @@ return new class extends Migration
             $table->string('payment')->default('MIDTRANS');
             $table->string('payment_url')->nullable();
 
-            // $table->bigInteger('ongkir  _price')->default(0);
-            // $table->string('no_resi')->nullable();
+            $table->bigInteger('ongkir_price')->default(0);
+            $table->string('no_resi')->nullable();
+
             $table->bigInteger('total_price')->default(0);
-            $table->string('status')->default('Pending');
+            $table->string('status')->default('PENDING');
             
             $table->softDeletes();
             $table->timestamps();

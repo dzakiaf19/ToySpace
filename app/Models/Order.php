@@ -10,18 +10,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'name',
-        'email',
-        'address',
-        'phone',
-        'courier',
-        'payment',
-        'payment_url',
-        'total_price',
-        'status',
-    ];
+    protected $guarded = [];
 
     public function order_details()
     {

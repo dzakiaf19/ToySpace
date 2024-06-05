@@ -4,12 +4,27 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\Product;
 use Midtrans\Config;
 use Illuminate\Http\Request;
 use Midtrans\Notification;
 
 class MidtransController extends Controller
 {
+    public function updateqty(Order $transaction)
+    {
+        $OrderDetails = OrderDetail::where('order_id', $transaction->id);
+
+        foreach ($OrderDetails as $orderitem) {
+            $quantity = $orderitem->qty;
+            $product = Product::findOrFail($orderitem->product_id);
+
+            $product_quantity = $product->stock + $quantity;
+            $product->update(['stock' => $product_quantity]);
+        }
+    }
+
     public function callback()
     {
         //kofigurasi midtrans
@@ -36,34 +51,35 @@ class MidtransController extends Controller
         //handle notif
         if ($status == 'capture') {
             if ($type == 'gopay') {
-                if ($fraud == 'challange') {
-                    $transaction->status = 'PENDING';
-                }else{
+                if ($fraud == 'deny') {
+                    $this->updateqty($transaction);
+                    $transaction->status = 'CANCELLED';
+                } else {
                     $transaction->status = 'SUCCESS';
+                    $transaction->payment_type = 'Gopay/Qris';
                 }
-            }else if ($type == 'bank_transfer') {
-                if ($fraud == 'challange') {
-                    $transaction->status = 'PENDING';
-                }else{
+            } else if ($type == 'bank_transfer') {
+                if ($fraud == 'deny') {
+                    $this->updateqty($transaction);
+                    $transaction->status = 'CANCELLED';
+                } else {
                     $transaction->status = 'SUCCESS';
-                }
-            }else if ($type == 'bca_va') {
-                if ($fraud == 'challange') {
-                    $transaction->status = 'PENDING';
-                }else{
-                    $transaction->status = 'SUCCESS';
+                    $transaction->payment_type = 'Bank Transfer';
                 }
             }
-        }else if($status == 'settlement'){
+        } else if ($status == 'settlement') {
             $transaction->status = 'SUCCESS';
-        }else if($status == 'pending'){
+        } else if ($status == 'pending') {
             $transaction->status = 'PENDING';
-        }else if($status == 'deny'){
-            $transaction->status = 'PENDING';
-        }else if($status == 'expired'){
+        } else if ($status == 'deny') {
+            $this->updateqty($transaction);
             $transaction->status = 'CANCELLED';
-        }else if($status == 'cancel'){
-            $transaction->status = 'PENDING';
+        } else if ($status == 'expired') {
+            $this->updateqty($transaction);
+            $transaction->status = 'CANCELLED';
+        } else if ($status == 'cancel') {
+            $this->updateqty($transaction);
+            $transaction->status = 'CANCELLED';
         }
 
         //simpan transaksi

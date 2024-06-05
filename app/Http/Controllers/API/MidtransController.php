@@ -14,7 +14,7 @@ class MidtransController extends Controller
 {
     public function updateqty(Order $transaction)
     {
-        $OrderDetails = OrderDetail::where('order_id', $transaction->id);
+        $OrderDetails = OrderDetail::where('order_id', $transaction->id)->get();
 
         foreach ($OrderDetails as $orderitem) {
             $quantity = $orderitem->qty;

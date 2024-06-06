@@ -121,6 +121,29 @@ h6 {
     opacity: 1;
 }
 
+/* BUTTON SEMUA */
+.btn-outline {
+    background-color: var(--primary-color);
+    font-family: 'Cabin';
+    border: none;
+    color: white;
+    padding: 8px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    /* margin: 15px 2px; */
+    cursor: pointer;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.btn-outline:hover {
+    opacity: 0.9;
+    background-color: var(--secondary-color);
+    color: var(--black-color);
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -894,6 +917,7 @@ section {
 
 .all-produk .btn-beli {
     background-color: var(--primary-color);
+    font-family: 'Montserrat';
     /* Hijau */
     border: none;
     color: white;
@@ -1130,7 +1154,8 @@ section {
 } */
 
 #product-detail {
-    margin: 70px 0 60px 0;
+    margin: 0 0 60px 0;
+    padding-top: 0;
 }
 
 .product-detail .gambar {
@@ -1306,6 +1331,7 @@ section {
 
 .product-detail .btn-entry {
     background-color: var(--primary-color);
+    font-family: 'Cabin';
     border: none;
     color: white;
     padding: 8px 0;
@@ -1329,8 +1355,8 @@ section {
 # Shop Cart Page
 --------------------------------------------------------------*/
 #title-cart {
-    margin-top: 60px;
-    padding-bottom: 20px;
+    /* margin-top: 60px; */
+    padding: 20px 0;
 }
 
 .title-cart h3 {
@@ -1341,7 +1367,7 @@ section {
 }
 
 .detail_cart {
-    padding-top: 20px;
+    padding-top: 0;
     margin-bottom: 40px;
 }
 
@@ -1355,6 +1381,65 @@ section {
     width: 100%;
 }
 
+.shop_cart_page .head-cart{
+    border-radius: 8px;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    background-color: #fff;
+    padding: 10px 28px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.shop_cart_page .head-cart h4 {
+    font-family: 'Cabin';
+    font-size: 14px;
+}
+
+.shop_cart_page .body-cart {
+    border-radius: 8px;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    background-color: #fff;
+    padding: 10px 28px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.card-body .col-md-4, .card-body .col-md-3, .card-body .col-md-1, .card-body h4 {
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--black);
+}
+.card-body .quantity {
+    justify-content: center;
+}
+
+
+.shop_cart_page .body-cart .quantity .decrease {
+    padding-left: 0;
+}
+
+.shop_cart_page .body-cart .quantity .decrease,
+.shop_cart_page .body-cart .quantity .increase {
+    border: none;
+    background-color: transparent;
+}
+
+.shop_cart_page .body-cart .quantity span {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.shop_cart_page .head-cart .table thead th {
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--black);
+    padding-bottom: 14px;
+}
+
 .shop_cart_page .shop-cart .table-responsive {
     padding: 20px;
     background-color: #fff;
@@ -1365,14 +1450,6 @@ section {
 .shop_cart_page .shop-cart .table thead {
     border-bottom: 1px solid rgb(0, 0, 0, 6%);
     /* padding-bottom: 10px; */
-}
-
-.shop_cart_page .shop-cart .table thead th {
-    font-family: 'Poppins';
-    font-size: 14px;
-    font-weight: normal;
-    color: var(--black);
-    padding-bottom: 14px;
 }
 
 .shop_cart_page .shop-cart .table tbody td {

@@ -98,9 +98,10 @@ class CartController extends Controller
 
         if ($item->quantity <= 0) {
             $item->delete();
+            return response()->json(['message' => 'Item removed', 'status' => 'success'], 200);
         };
 
-        return redirect('shopCart');
+        return response()->json(['message' => 'Quantity decreased', 'status' => 'success', 'item' => $item], 200);
     }
 
     public function increase(Request $request, $id)
@@ -108,12 +109,11 @@ class CartController extends Controller
         $item = Cart::findOrFail($id);
 
         if ($item->quantity + 1 > $item->product->stock) {
-            toast('Max quantity', 'error');
+            return response()->json(['message' => 'Max quantity reached', 'status' => 'error'], 400);
         } else {
             $item->update(['quantity' => $item->quantity + 1]);
+            return response()->json(['message' => 'Quantity increased', 'status' => 'success', 'item' => $item], 200);
         }
-
-        return redirect('shopCart');
     }
 
     public function deleteCart(Request $request, $id)
@@ -122,9 +122,7 @@ class CartController extends Controller
 
         $item->delete();
 
-        toast('Item deleted successfully', 'success');
-
-        return redirect('shopCart');
+        return response()->json(['message' => 'Item deleted successfully', 'status' => 'success'], 200);
     }
 
     public function shopCart()
@@ -151,9 +149,19 @@ class CartController extends Controller
         return view('toyspace.page.shop_cart', compact('carts', 'alamat', 'cities', 'provinces', 'categories'));
     }
 
-    public function checkout($id, UserAddress $address)
+    public function checkout(Request $request, $id, UserAddress $address)
     {
         if (Auth::user()->id == $id) {
+            $selectedItems = $request->input('selected_items', []);
+
+            // Fetch the selected cart items with the products
+            $carts = Cart::with(['product'])
+                ->whereIn('id', $selectedItems)
+                ->where('user_id', $id)
+                ->get();
+
+            // dd($selectedItems);
+
             if ($address != null) {
                 $cityResponse = Http::withHeaders([
                     'key' => 'ad16d62acd291a4aabb9694414cad4f3'
@@ -166,7 +174,7 @@ class CartController extends Controller
                 $cities = $cityResponse['rajaongkir']['results'];
                 $provinces = $provinceResponse['rajaongkir']['results'];
 
-                $carts = Cart::with(['product'])->where('user_id', $id)->get();
+                // $carts = Cart::with(['product'])->where('user_id', $id)->get();
 
                 $berat = 0;
                 foreach ($carts as $cart) {
@@ -194,7 +202,7 @@ class CartController extends Controller
                     ->orderBy('products_count', 'desc')
                     ->get();
 
-                return view('toyspace.page.checkout', compact('address', 'carts', 'costs', 'alamat', 'cities', 'provinces','categories'));
+                return view('toyspace.page.checkout', compact('address', 'carts', 'costs', 'alamat', 'cities', 'provinces', 'categories'));
             } else {
                 return redirect()->route('shopCart');
             }

@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        Argon Dashboard 2 by Creative Tim
+        Login | ToySpace
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -19,6 +19,27 @@
     <link href="{{ asset('admin/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('admin/assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
+
+    <style>
+        .password-container {
+            position: relative;
+            /* width: fit-content; */
+        }
+
+        .password-container input {
+            padding-right: 30px;
+            /* space for the eye icon */
+        }
+
+        .password-container .fa-eye {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #aaa;
+        }
+    </style>
 </head>
 
 <body class="">
@@ -81,9 +102,9 @@
                 </div>
             </div>
             </nav> --}}
-            <!-- End Navbar -->
+                <!-- End Navbar -->
+            </div>
         </div>
-    </div>
     </div>
     <main class="main-content  mt-0">
         <section>
@@ -100,36 +121,50 @@
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="mb-3">
-                                            <input type="email" id="email" for="email" name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" required autofocus autocomplete="username">
+                                            <input type="email" id="email" for="email" name="email"
+                                                class="form-control form-control-lg" placeholder="Email"
+                                                aria-label="Email" required autofocus autocomplete="username">
                                         </div>
                                         <div class="mb-3">
-                                            <input for="password" id="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" type="password" name="password" required autocomplete="current-password">
+                                            <div class="password-container">
+                                                <input for="password" id="password"
+                                                    class="form-control form-control-lg" placeholder="Password"
+                                                    aria-label="Password" type="password" name="password" required
+                                                    autocomplete="current-password">
+                                                <i class="fa fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+                                            </div>
                                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                         </div>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="remember_me" name="remember">
+                                            <input class="form-check-input" type="checkbox" id="remember_me"
+                                                name="remember">
                                             <label class="form-check-label" for="remember_me">Ingat akun saya</label>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-lg btn-lg w-100 mt-4 mb-0" style="background-color: #EF0003; color: #fff;">Sign
+                                            <button type="submit" class="btn btn-lg btn-lg w-100 mt-4 mb-0"
+                                                style="background-color: #EF0003; color: #fff;">Sign
                                                 in</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <p class="mb-1 text-sm mx-auto">
-                                        <a href="{{ route('password.request') }}" class="font-weight-bold" style="color: #EF0003">
+                                        <a href="{{ route('password.request') }}" class="font-weight-bold"
+                                            style="color: #EF0003">
                                             Lupa kata sandi?</a>
                                     </p>
                                     <p class="mb-4 text-sm mx-auto">
                                         Belum punya akun ?
-                                        <a href="{{ route('register') }}" class="font-weight-bold" style="color: #EF0003">Daftar Sekarang</a>
+                                        <a href="{{ route('register') }}" class="font-weight-bold"
+                                            style="color: #EF0003">Daftar Sekarang</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-                            <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('{{ asset('admin/assets/img/login-bg.png') }}');
+                        <div
+                            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+                            <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
+                                style="background-image: url('{{ asset('admin/assets/img/login-bg.png') }}');
           background-size: cover;">
                                 <!-- <span class="mask bg-gradient-primary opacity-3"></span> -->
                                 <span class="mask login-bg"></span>
@@ -157,6 +192,17 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
+    </script>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function(e) {
+            // toggle the type attribute
+            const password = document.getElementById('password');
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            // toggle the eye icon
+            this.classList.toggle('fa-eye-slash');
+        });
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

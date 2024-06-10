@@ -40,8 +40,15 @@ class OrderController extends Controller
     {
         if ($id->id == Auth::user()->id) {
 
+            $cartsArray = json_decode($request->input('carts'));
+
+            $cartIds = array_column($cartsArray, 'id');
+            $carts = Cart::with('product')
+                ->whereIn('id', $cartIds)
+                ->get();
+
             //get carts data
-            $carts = Cart::with(['product'])->where('user_id', Auth::user()->id)->get();
+            // $carts = Cart::with(['product'])->where('user_id', Auth::user()->id)->get();
             if ($carts->isEmpty()) {
                 toast('Keranjang kosong', 'error');
 
@@ -90,7 +97,9 @@ class OrderController extends Controller
                 }
 
                 //delete cart
-                Cart::where('user_id', Auth::user()->id)->delete();
+                $carts->each(function($cart) {
+                    $cart->delete();
+                });
 
                 //konfigurasi midtrans
                 Config::$serverKey = config('services.midtrans.serverKey');
@@ -163,9 +172,9 @@ class OrderController extends Controller
         //
     }
 
-    public function history($id)
+    public function history()
     {
-        $order = Order::where('user_id', $id)->orderBy('created_at', 'desc')->get();
+        $order = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
 
         $categories = Category::withCount('products')
             ->orderBy('products_count', 'desc')

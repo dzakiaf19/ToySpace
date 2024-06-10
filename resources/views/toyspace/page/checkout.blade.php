@@ -135,7 +135,7 @@
                         @csrf
                         <div class="col-12 titles sub-tot">
                             <h4>Order Detail</h4>
-                            <input type="hidden" name="dsad" value="dsak">
+                            {{-- <input type="hidden" name="dsad" value="dsak"> --}}
                         </div>
                         <div class="body">
                             <div class="shipping">
@@ -144,6 +144,7 @@
                             @php
                                 $subtot = 0;
                             @endphp
+                            <input type="hidden" name="carts" value="{{ $carts }}">
                             @foreach ($carts as $key => $item)
                                 <div class="sub-tot d-flex">
                                     <div class="col-6" style="padding:0">
@@ -162,7 +163,7 @@
                         </div>
                         <div class="body sub-tot d-flex">
                             <!-- <div class="col-4 title">Subtotal</div>
-                                                                    <div class="col-4 harga">Rp 189.999</div> -->
+                                                                        <div class="col-4 harga">Rp 189.999</div> -->
 
                             <h5>Subtotal</h5>
                             <h5>Rp {{ $subtot }}</h5>
@@ -174,7 +175,8 @@
                                 <select required id="ongkir" class="form-control" name="ongkir" id="">
                                     <option value=""></option>
                                     @foreach ($costs as $cost)
-                                        <option value='{"nama":"{{$cost['description']}}","harga":{{ $cost['cost'][0]['value']}}}'>
+                                        <option
+                                            value='{"nama":"{{ $cost['description'] }}","harga":{{ $cost['cost'][0]['value'] }}}'>
                                             {{ $cost['description'] . ' (' . $cost['service'] . ') ' . $cost['cost'][0]['etd'] . ' hari' }}
                                             - RP. {{ $cost['cost'][0]['value'] }} </option>
                                     @endforeach
@@ -183,9 +185,9 @@
                             </div>
                         </div>
                         {{-- <div class="body  sub-tot d-flex" style="border: none;">
-                        <h5 style="font-weight:bold;">Total</h5>
-                        <h5>Rp 212.999</h5>
-                    </div> --}}
+                            <h5 style="font-weight:bold;">Total</h5>
+                            <h5>Rp 212.999</h5>
+                        </div> --}}
                         <div class="">
                             <button type="submit" rel="tooltip" class="btn btn-full" data-original-title=""
                                 title="">

@@ -870,6 +870,15 @@ section {
     max-height: 250px;
 }
 
+.cart-img-top {
+    object-fit: scale-down;
+    /* Do not scale the image */
+    object-position: center;
+    /* Center the image within the element */
+    width: 100%;
+    max-height: 100px;
+}
+
 /* Efek hover untuk card-product */
 .all-produk .card-product:hover {
     background-color: #eaeaea;
@@ -1381,7 +1390,7 @@ section {
     width: 100%;
 }
 
-.shop_cart_page .head-cart{
+.shop_cart_page .head-cart {
     border-radius: 8px;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
     background-color: #fff;
@@ -1404,7 +1413,10 @@ section {
     margin-bottom: 30px;
 }
 
-.card-body .col-md-4, .card-body .col-md-3, .card-body .col-md-1, .card-body h4 {
+.card-body .col-md-4,
+.card-body .col-md-3,
+.card-body .col-md-1,
+.card-body h4 {
     display: flex;
     align-items: center;
     font-family: 'Poppins';
@@ -1412,6 +1424,7 @@ section {
     font-weight: normal;
     color: var(--black);
 }
+
 .card-body .quantity {
     justify-content: center;
 }
@@ -1807,10 +1820,12 @@ section {
 .contact-us {
     font-family: 'Cabin';
 }
-.contact-us h2{
+
+.contact-us h2 {
     font-family: 'Montserrat';
     font-weight: bold;
 }
+
 .contact-us .btn-primary-all {
     background-color: var(--primary-color);
     color: var(--t-white);
@@ -1819,11 +1834,13 @@ section {
     justify-content: center;
     display: flex;
 }
-.contact-us .form-control{
+
+.contact-us .form-control {
     border-color: var(--primary-color);
     font-family: 'Cabin';
     font-size: 14px;
 }
+
 .contact-us .btn-primary-all:hover {
     background-color: var(--secondary-color);
     color: var(--t-white);
@@ -1832,7 +1849,8 @@ section {
     justify-content: center;
     display: flex;
 }
-.cta-chatNow .container{
+
+.cta-chatNow .container {
     background-color: var(--secondary-color);
     font-family: 'Cabin';
     align-items: center;
@@ -1840,17 +1858,20 @@ section {
     padding: 4%;
     display: flex;
 }
-.cta-chatNow h4{
+
+.cta-chatNow h4 {
     font-family: 'Montserrat';
     font-weight: bold;
 }
+
 /*--------------------------------------------------------------
 # About-Us
 --------------------------------------------------------------*/
-.about-us .img-fluid{
+.about-us .img-fluid {
     background-size: cover;
 }
-.image-visi{
+
+.image-visi {
     width: auto;
     height: 398px;
     background-position: center;
@@ -1858,14 +1879,16 @@ section {
     color: var(--t-white);
     border-radius: 8px;
 }
-.overlay-visi{
+
+.overlay-visi {
     width: 560px;
     height: 398px;
     border-radius: 8px;
     background-color: rgba(239, 0, 3, 90%);
     padding: 8%;
 }
-.image-misi{
+
+.image-misi {
     margin: 0;
     width: auto;
     height: 398px;
@@ -1874,43 +1897,52 @@ section {
     color: var(--t-black);
     border-radius: 8px;
 }
-.overlay-misi{
+
+.overlay-misi {
     width: 560px;
     height: 398px;
     border-radius: 8px;
     background-color: rgba(255, 174, 16, 90%);
     padding: 8%;
 }
-.about-us h4{
+
+.about-us h4 {
     font-weight: bold;
     font-family: 'Montserrat';
 }
-.about-us li{
+
+.about-us li {
     font-family: 'Cabin';
 }
-.cta-aboutUs{
-    min-height:100%;
+
+.cta-aboutUs {
+    min-height: 100%;
     background-image: url(../img/ctaabus.png);
-    background-color:  rgba(239, 0, 3, 80%);
+    background-color: rgba(239, 0, 3, 80%);
     background-size: cover;
     background-blend-mode: overlay;
     color: var(--t-white);
     text-align: center;
     padding: 7%;
 }
-.cta-aboutUs h5{
+
+.cta-aboutUs h5 {
     font-weight: bold;
     font-family: 'Montserrat';
 }
+
 .cta-aboutUs {
     font-family: 'Cabin';
-}.cta-aboutUs .btn-primary-all {
+}
+
+.cta-aboutUs .btn-primary-all {
     background-color: var(--secondary-color);
     color: var(--t-black);
     font-size: 14px;
     font-family: 'Cabin';
     width: auto;
 }
+
 .cta-aboutUs .btn-primary-all:hover {
     background-color: var(--t-white);
     color: var(--t-black);

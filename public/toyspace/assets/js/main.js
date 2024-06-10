@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -103,7 +103,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -112,7 +112,7 @@
   /**
    * Mobile nav dropdowns activate
    */
-  on('click', '.navbar .dropdown > a', function(e) {
+  on('click', '.navbar .dropdown > a', function (e) {
     if (select('#navbar').classList.contains('navbar-mobile')) {
       e.preventDefault()
       this.nextElementSibling.classList.toggle('dropdown-active')
@@ -122,7 +122,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '.scrollto', function(e) {
+  on('click', '.scrollto', function (e) {
     if (select(this.hash)) {
       e.preventDefault()
 
@@ -166,7 +166,7 @@
 
   heroCarouselItems.forEach((item, index) => {
     (index === 0) ?
-    heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
+      heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>" :
       heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
   });
 
@@ -195,7 +195,7 @@
   //   })
   // }
 
-  
+
   /**
    * Products Slider
    */
@@ -237,27 +237,27 @@
   });
 
   // mengatur count quantity pada Single Product
-  document.addEventListener('DOMContentLoaded', function () {
-    const decreaseBtn = document.querySelector('.decrease');
-    const increaseBtn = document.querySelector('.increase');
-    const countSpan = document.querySelector('.count');
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   const decreaseBtn = document.querySelector('.decrease');
+  //   const increaseBtn = document.querySelector('.increase');
+  //   const countSpan = document.querySelector('.count');
 
-    // Fungsi untuk mengurangi kuantitas
-    decreaseBtn.addEventListener('click', function () {
-        let count = parseInt(countSpan.textContent);
-        if (count > 1) {
-            count--;
-            countSpan.textContent = count;
-        }
-    });
+  //   // Fungsi untuk mengurangi kuantitas
+  //   decreaseBtn.addEventListener('click', function () {
+  //     let count = parseInt(countSpan.textContent);
+  //     if (count > 1) {
+  //       count--;
+  //       countSpan.textContent = count;
+  //     }
+  //   });
 
-    // Fungsi untuk menambah kuantitas
-    increaseBtn.addEventListener('click', function () {
-        let count = parseInt(countSpan.textContent);
-        count++;
-        countSpan.textContent = count;
-    });
-});
+  //   // Fungsi untuk menambah kuantitas
+  //   increaseBtn.addEventListener('click', function () {
+  //     let count = parseInt(countSpan.textContent);
+  //     count++;
+  //     countSpan.textContent = count;
+  //   });
+  // });
 
   /**
    * Animation on scroll

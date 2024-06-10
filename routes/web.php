@@ -60,7 +60,7 @@ Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'pr
 Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
     Route::post('/decreaseCart/{id}', [CartController::class, 'decrease'])->name(('decreaseCart'));
     Route::post('/increaseCart/{id}', [CartController::class, 'increase'])->name(('increaseCart'));
-    Route::get('/shopCart/{id}', [CartController::class, 'deleteCart'])->name(('deleteCart'));
+    Route::delete('/deleteCart/{id}', [CartController::class, 'deleteCart'])->name(('deleteCart'));
     Route::post('/shopCart/{product}', [CartController::class, 'addCart'])->name(('addCart'));
     Route::get('/shopCart', [CartController::class, 'shopCart'])->name('shopCart');
     Route::get('/checkout/{id}-{address}', [CartController::class, 'checkout'])->name('checkoutProduct');
@@ -68,7 +68,7 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
 
     Route::resource('address', UserAddressController::class);
     
-    Route::get('/{id}/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
+    Route::get('/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
     //detail order history
     Route::get('/{order}/ohdetails', [OrderController::class, 'historyDetails'])->name('psDetails');
     

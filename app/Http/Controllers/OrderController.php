@@ -174,7 +174,7 @@ class OrderController extends Controller
 
     public function history()
     {
-        $order = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        $order = Order::where('user_id', Auth::user()->id)->with('order_details')->orderBy('created_at', 'desc')->get();
 
         $categories = Category::withCount('products')
             ->orderBy('products_count', 'desc')

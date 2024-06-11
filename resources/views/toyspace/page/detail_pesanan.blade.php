@@ -10,15 +10,30 @@
                     <div class="card-header">
                         <div class="d-flex">
                             <div class="col-md-7">
-                                <a href="{{ route('pesananSaya', Auth::user()->id) }}">
+                                <a href="{{ route('pesananSaya') }}">
                                     <i class="fa-solid fa-chevron-left"></i> Kembali
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a>ID PESANAN. ToySpace-{{ $order->id }}</a>
+                                <a>ID Pesanan : ToySpace-{{ $order->id }}</a>
                             </div>
                             <div class="col-md-2">
-                                <a>{{ $order->status }}</a>
+                                    @if ($order->status === 'PENDING')
+                                    <a href="{{ $order->payment_url }}">
+                                        Belum Dibayar
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                    @elseif($order->status === 'SUCCESS')
+                                        Pesanan Sedang Diproses
+                                    @elseif($order->status === 'CANCELLED')
+                                        Dibatalkan
+                                    @elseif($order->status === 'SEND')
+                                        Sedang Dikirim
+                                    @elseif($order->status === 'FINISHED')
+                                        Pesanan Selesai
+                                    @else
+                                        Status Tidak Dikenal
+                                    @endif
                             </div>
                         </div>
                     </div>
@@ -37,18 +52,19 @@
                     </div>
                     <div class="card-body">
                         @php
-                            $sub = 0
+                            $sub = 0;
                         @endphp
                         @foreach ($orderDetails as $detail)
-                            <div class="d-flex orders">
+                            <div class="d-flex orders mt-3">
                                 <div class="col-md-4">
-                                    <img src="{{ $detail->product->images()->exists() ? Storage::url($detail->product->images->first()->path) : 'https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30538.jpg?w=740&t=st=1717040880~exp=1717041480~hmac=48d946a95d70e6d9bdcaf19b81aaf4e71dce68fc0d9ab5a3109b75929f23c4d8' }}" class="card-img-top" alt="...">
+                                    <img src="{{ $detail->product->images()->exists() ? Storage::url($detail->product->images->first()->path) : 'https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30538.jpg?w=740&t=st=1717040880~exp=1717041480~hmac=48d946a95d70e6d9bdcaf19b81aaf4e71dce68fc0d9ab5a3109b75929f23c4d8' }}"
+                                        class="card-img-top" alt="...">
                                 </div>
-                                <div class="col-md-2"></div>
                                 <div class="col-md-6">
                                     <div class="nameproduk">{{ $detail->product->name }}</div>
                                     <div class="card-qty">Rp{{ $detail->product->price }} x {{ $detail->qty }}</div>
-                                    <div class="card-price">Rp{{ $sub = $sub + $detail->product->price * $detail->qty }}</div>
+                                    <div class="card-price">Rp{{ $sub = $sub + $detail->product->price * $detail->qty }}
+                                    </div>
                                 </div>
                                 {{-- <div class="col-md-2">
                                     <a href="{{ route('psDetails', Auth::user()->id) }}" class="btn btn-primary-all">Lacak
@@ -72,7 +88,7 @@
                                 Biaya Pengiriman</p>
                             </div>
                             <div class="col-md-2 h">
-                                <p>Rp178.000</p>
+                                <p>Rp{{ $order->ongkir_price }}</p>
                             </div>
                         </div>
                         <div class="d-flex">
@@ -88,7 +104,7 @@
                                 <p>Metode Pembayaran</p>
                             </div>
                             <div class="col-md-2 h">
-                                <p>Transfer Bank</p>
+                                <p>{{ $order->payment }}</p>
                             </div>
                         </div>
                     </div>

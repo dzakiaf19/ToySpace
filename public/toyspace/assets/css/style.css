@@ -1364,7 +1364,7 @@ section {
 # Shop Cart Page
 --------------------------------------------------------------*/
 #title-cart {
-    /* margin-top: 60px; */
+    margin-top: 80px;
     padding: 20px 0;
 }
 
@@ -1640,12 +1640,22 @@ section {
     box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 4px;
 }
 
-.pesanan-saya .card-header {
-    font-weight: 900;
-    font-family: 'Montserrat';
+.pesanan-saya .card-header{
     background-color: var(--t-white);
     border-radius: 8px 8px 0px 0px;
 
+}
+
+.pesanan-saya .card-header .order-id{
+    font-weight: 600;
+    font-family: 'Montserrat';
+
+}
+
+.pesanan-saya .card-header .status{
+    font-family: 'Montserrat';
+    margin-left: 10px;
+    color: var(--primary-color);
 }
 
 .pesanan-saya .card-body {
@@ -1655,18 +1665,23 @@ section {
 .pesanan-saya .nameproduk {
     font-weight: bold;
     font-family: 'Montserrat';
-    font-size: 18px;
+    font-size: 14px;
+}
+
+.pesanan-saya .card-barang {
+    font-family: 'Montserrat';
+    font-size: 16px;
 }
 
 .pesanan-saya .card-qty {
     font-family: 'Montserrat';
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .pesanan-saya .card-price {
     color: var(--primary-color);
     font-family: 'Montserrat';
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .pesanan-saya .btn-primary-all {
@@ -1720,8 +1735,16 @@ section {
 }
 
 .detail-pesanan-saya .col-md-2 {
-    color: var(--primary-color);
     text-align: end;
+}
+
+.detail-pesanan-saya .col-md-2 a{
+    color: var(--primary-color);
+    font-size: 16px;
+}
+
+.detail-pesanan-saya .col-md-2 a:hover{
+    color: #bd0205;
 }
 
 .detail-pesanan-saya .address {
@@ -1758,6 +1781,15 @@ section {
 
 .detail-pesanan-saya .orders {
     align-items: center;
+}
+
+.orders .card-img-top {
+    object-fit: scale-down;
+    /* Do not scale the image */
+    object-position: center;
+    /* Center the image within the element */
+    width: 100%;
+    max-height: 150px;
 }
 
 .detail-pesanan-saya .nameproduk {

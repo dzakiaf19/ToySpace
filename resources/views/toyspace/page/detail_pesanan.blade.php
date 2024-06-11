@@ -113,7 +113,7 @@
                                 <p>Metode Pembayaran</p>
                             </div>
                             <div class="col-md-2 h">
-                                <p>{{ $order->payment }}</p>
+                                <p>{{ $order->payment_type }}</p>
                             </div>
                         </div>
                         @if ($order->status === 'SEND')

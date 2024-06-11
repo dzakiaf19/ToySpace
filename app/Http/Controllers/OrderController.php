@@ -110,7 +110,7 @@ class OrderController extends Controller
                 //setup variable midtrans
                 $midtrans = [
                     'transaction_details' => [
-                        'order_id' => 'hdjas-' . $transaksi->id,
+                        'order_id' => 'toyspace-' . $transaksi->id,
                         'gross_amount' => (int) $transaksi->total_price,
                     ],
                     'customer_details' => [

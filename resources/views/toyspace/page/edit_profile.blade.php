@@ -5,7 +5,7 @@
 
     <main id="about-us" class="about-us">
         <section id="title-cart" class="title-cart">
-            <div class="container">
+            <div class="container mt-5">
                 <div class="card">
                     <div class="card-body p-5">
                         <h2>Data Pribadi</h2>

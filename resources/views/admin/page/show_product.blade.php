@@ -13,17 +13,17 @@
                                 Products</button>
                         </div>
                         @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
-                            @if (Session::has('success'))
+                                @if (Session::has('success'))
                                     <div class="alert alert-success" role="alert" id="success-alert">
                                         {{ Session::get('success') }}
                                     </div>
@@ -49,7 +49,7 @@
                                     </thead>
                                     <tbody>
                                         @php
-                                            $i =1;
+                                            $i = 1;
                                         @endphp
                                         @foreach ($product as $key => $prod)
                                             <tr>
@@ -84,16 +84,18 @@
                                                         data-original-title="" title="">
                                                         <i class="fa-regular fa-pen-to-square"></i>
                                                     </a>
-                                                    <a href="{{ route('product.destroy', ['product' => $prod]) }}" rel="tooltip" class="btn btn-icon btn-simple"
+                                                    <a href="{{ route('product.destroy', ['product' => $prod]) }}"
+                                                        rel="tooltip" class="btn btn-icon btn-simple"
                                                         style="background-color:#DD322B; color:#fff;padding: 10px 15px;"
                                                         data-confirm-delete="true">
                                                         <i class="fa-regular fa-trash-can" data-confirm-delete="true"></i>
-                                                    </a>                                                    
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
+                                    {{ $product->links() }}
                             </div>
                         </div>
                     </div>

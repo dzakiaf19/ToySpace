@@ -30,6 +30,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'prefix' => '/admin'], function () {
     Route::get('/dashboard', [OrderController::class, 'dashboard'])->name('admin.dashboard');
+    Route::put('/dashboard/{order}', [OrderController::class, 'noresi'])->name('order.resi');
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
@@ -71,6 +72,7 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
     Route::get('/orderhistory', [OrderController::class, 'history'])->name('pesananSaya');
     //detail order history
     Route::get('/{order}/ohdetails', [OrderController::class, 'historyDetails'])->name('psDetails');
+    Route::get('/{order}/selesai', [OrderController::class, 'finishorder'])->name('selesai.pesan');
     
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

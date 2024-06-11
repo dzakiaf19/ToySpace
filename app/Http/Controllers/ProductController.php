@@ -14,8 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        $product = Product::all()->reverse();
+        $product = Product::orderBy('created_at', 'desc')
+            ->paginate(10);
 
         $title = 'Delete Product!';
         $text = "Are you sure you want to delete?";
@@ -36,7 +36,7 @@ class ProductController extends Controller
 
         $topProducts = Product::withSum('order_details', 'qty')
             ->orderBy('order_details_sum_qty', 'desc')
-            ->take(3)
+            ->take(6)
             ->get();
 
         return view('toyspace.index', compact('product', 'categories', 'topProducts'));

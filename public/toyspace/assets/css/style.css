@@ -1779,6 +1779,17 @@ section {
     text-align: end;
 }
 
+.detail-pesanan-saya .card-resi a{
+    color: var(--primary-color);
+    font-family: 'Cabin';
+    font-size: 16px;
+    text-align: end;
+}
+
+.detail-pesanan-saya .card-resi a:hover{
+    color: #bd0205;
+}
+
 .detail-pesanan-saya .orders {
     align-items: center;
 }

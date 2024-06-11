@@ -97,7 +97,7 @@ class OrderController extends Controller
                 }
 
                 //delete cart
-                $carts->each(function($cart) {
+                $carts->each(function ($cart) {
                     $cart->delete();
                 });
 
@@ -172,6 +172,23 @@ class OrderController extends Controller
         //
     }
 
+    public function noresi(Request $request, Order $order)
+    {
+        $order->no_resi = $request->input('no_resi');
+        $order->status = "SEND";
+        $order->save();
+
+        return back();
+    }
+    
+    public function finishorder(Order $order)
+    {
+        $order->status = "FINISHED";
+        $order->save();
+
+        return back();
+    }
+
     public function history()
     {
         $order = Order::where('user_id', Auth::user()->id)->with('order_details')->orderBy('created_at', 'desc')->get();
@@ -182,6 +199,7 @@ class OrderController extends Controller
 
         return view('toyspace.page.pesanan_saya', compact('order', 'categories'));
     }
+
     //detail order history
     public function historyDetails(Order $order)
     {
@@ -219,10 +237,24 @@ class OrderController extends Controller
 
     public function dashboard()
     {
-        $totalProductsSold = OrderDetail::sum('qty');
+        $totalProductsSold = Order::where('status', 'FINISHED')
+            ->with('order_details')
+            ->get()
+            ->pluck('order_details')
+            ->flatten()
+            ->sum('qty');
+
+        $totalOrderToProceed = Order::where('status', 'SUCCESS')->count();
+
+        $totalNotPaid = Order::where('status', 'PENDING')->orWhere('status', 'CANCELLED')->count();
 
         $productsOutOfStock = Product::where('stock', 0)->count();
 
-        return view('admin.index', compact('totalProductsSold', 'productsOutOfStock'));
+        $orders = Order::with('order_details')
+            ->orderByRaw("FIELD(status, 'SEND', 'SUCCESS') DESC")
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
+        return view('admin.index', compact('orders', 'totalProductsSold', 'productsOutOfStock', 'totalOrderToProceed', 'totalNotPaid'));
     }
 }

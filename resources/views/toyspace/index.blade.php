@@ -22,10 +22,10 @@
                         <h4>Temukan Mainan yang<br>Tepat Untuk Anda</h4>
                         <p>Lorem ipsum dolor si amet, consectetur adipiscing elit, sed do euismod
                             tempor incididunt ut</p>
-                        <button class="btn btn-get-started">Lihat Selengkapnya</button>
+                        <a href="{{ route('pageProducts') }}" class="btn btn-get-started">Lihat Selengkapnya</a>
                     </div>
                 </div>
-                <div class="carousel-item">
+                {{-- <div class="carousel-item">
                     <img src="{{ asset('toyspace/assets/img/hero.png') }}" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>PRODUK TERBARU</h5>
@@ -44,7 +44,7 @@
                             tempor incididunt ut</p>
                         <button class="btn btn-get-started">Lihat Selengkapnya</button>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -194,7 +194,7 @@
             </div>
         </section>
 
-        <section id="penawaran-produk" class="penawaran-produk">
+        {{-- <section id="penawaran-produk" class="penawaran-produk">
             <div class="container">
                 <div class="section-title d-flex justify-content-between">
                     <h3>Penawaran Terbaik</h3>
@@ -216,8 +216,7 @@
                                     <div class="homecar-button d-flex justify-content-between">
                                         <button class="btn-beli"
                                             onclick="window.location.href = 'detailkendaraan.html';">Beli Sekarang</button>
-                                        <button class="btn-keranjang"
-                                            onclick="window.location.href = 'keranjang.html';"><i
+                                        <button class="btn-keranjang" onclick="window.location.href = 'keranjang.html';"><i
                                                 class="fa-solid fa-cart-shopping"></i></button>
                                     </div>
                                 </div>
@@ -341,7 +340,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         {{-- <section id="featured-product" class="featured-product">
             <div class="container">
@@ -352,30 +351,29 @@
                 </div>
                 <div class="products row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 g-lg-3 align-items-center"
                     data-aos="fade-up">
-@foreach ($product as $prod)
+                    @foreach ($product as $prod)
                         <div class="product col">
                             <a href="{{ route('singleProduct', ['product' => $prod]) }}">
-    <div class="card card-product shadow-sm h-10">
-        <img class="card-img-top"
-            src='{{ $prod->images()->exists() ? Storage::url($prod->images->first()->path) : 'https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30538.jpg?w=740&t=st=1717040880~exp=1717041480~hmac=48d946a95d70e6d9bdcaf19b81aaf4e71dce68fc0d9ab5a3109b75929f23c4d8' }}'
-            alt=''>
-        <div class="card-overlay">
-            <span>See Details</span>
-        </div>
-    </div>
-    </a>
-    <div class="card-body">
-        <a href="{{ route('singleProduct', ['product' => $prod]) }}"
-            style="color:black">
-            <h2 class="card-title">{{ $prod->name }}</h2>
-        </a>
-        <h4 class="price">Rp {{ $prod->price }}</h4>
-    </div>
-    </div>
-    @endforeach
-    </div>
-    </div>
-    </section> --}}
+                                <div class="card card-product shadow-sm h-10">
+                                    <img class="card-img-top"
+                                        src='{{ $prod->images()->exists() ? Storage::url($prod->images->first()->path) : 'https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30538.jpg?w=740&t=st=1717040880~exp=1717041480~hmac=48d946a95d70e6d9bdcaf19b81aaf4e71dce68fc0d9ab5a3109b75929f23c4d8' }}'
+                                        alt=''>
+                                    <div class="card-overlay">
+                                        <span>See Details</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="card-body">
+                                <a href="{{ route('singleProduct', ['product' => $prod]) }}" style="color:black">
+                                    <h2 class="card-title">{{ $prod->name }}</h2>
+                                </a>
+                                <h4 class="price">Rp {{ $prod->price }}</h4>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section> --}}
 
     </main>
     <!-- End #main -->

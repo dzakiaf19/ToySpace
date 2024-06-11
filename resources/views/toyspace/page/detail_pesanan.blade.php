@@ -18,22 +18,22 @@
                                 <a>ID Pesanan : ToySpace-{{ $order->id }}</a>
                             </div>
                             <div class="col-md-2">
-                                    @if ($order->status === 'PENDING')
-                                    <a href="{{ $order->payment_url }}">
+                                @if ($order->status === 'PENDING')
+                                    <a target="_blank" href="{{ $order->payment_url }}">
                                         Belum Dibayar
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                     </a>
-                                    @elseif($order->status === 'SUCCESS')
-                                        Pesanan Sedang Diproses
-                                    @elseif($order->status === 'CANCELLED')
-                                        Dibatalkan
-                                    @elseif($order->status === 'SEND')
-                                        Sedang Dikirim
-                                    @elseif($order->status === 'FINISHED')
-                                        Pesanan Selesai
-                                    @else
-                                        Status Tidak Dikenal
-                                    @endif
+                                @elseif($order->status === 'SUCCESS')
+                                    Pesanan Sedang Diproses
+                                @elseif($order->status === 'CANCELLED')
+                                    Dibatalkan
+                                @elseif($order->status === 'SEND')
+                                    Sedang Dikirim
+                                @elseif($order->status === 'FINISHED')
+                                    Pesanan Selesai
+                                @else
+                                    Status Tidak Dikenal
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,16 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="card-nresi">Nomor Resi :</div>
-                                <div class="card-resi">-</div>
+                                <div class="card-resi">
+                                    @if ($order->status === 'SEND' || $order->status === 'FINISHED')
+                                        <a href='https://cekresi.com/tracking/cek-resi-jne.php?noresi=+{{ $order->no_resi }}'
+                                            target='_blank'>
+                                            {{ $order->no_resi }}<i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    @else
+                                        -
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -107,6 +116,15 @@
                                 <p>{{ $order->payment }}</p>
                             </div>
                         </div>
+                        @if ($order->status === 'SEND')
+                            <div class="d-flex">
+                                <div class="col-md-12">
+                                    <a href="{{ route('selesai.pesan', $order) }}" class="btn btn-primary-all">
+                                        Selesaikan Pesanan
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

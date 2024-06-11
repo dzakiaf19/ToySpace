@@ -132,24 +132,16 @@
                         <div class="col-12 titles sub-tot d-flex">
                             <h4>Cart Total : Rp <span id="cartTotal">0</span></h4>
                             @if ($alamat != null)
-                                @if ($carts->isEmpty())
-                                    <a rel="tooltip" class="btn btn-simple">
-                                        Check Out
-                                    </a>
-                                @else
-                                    <button type="button" id="checkoutButton" onclick="submitCartForm()"
-                                        class="btn btn-simple" disabled>
-                                        Check Out
-                                    </button>
-                                @endif
+                                <button type="button" id="checkoutButton" onclick="submitCartForm()" class="btn btn-simple"
+                                    disabled>
+                                    Check Out
+                                </button>
                             @else
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-simple" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop">
                                     Check Out
                                 </button>
-
-
                             @endif
                         </div>
                         {{-- <div class="body">

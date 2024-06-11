@@ -15,12 +15,12 @@
                             @method('patch')
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="namadepan" class="form-label">First Name</label>
+                                    <label for="namadepan" class="form-label">Nama Depan</label>
                                     <input id="namadepan" name="firstName" class="form-control" type="text"
                                         value="{{ old('firstName', $user->firstName) }}" aria-label="default input example">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="namabelakang" class="form-label">Last Name</label>
+                                    <label for="namabelakang" class="form-label">Nama Belakang</label>
                                     <input id="namabelakang" name="lastName" class="form-control" type="text"
                                         value="{{ old('lastName', $user->lastName) }}" aria-label="default input example">
                                 </div>

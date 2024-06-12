@@ -29,7 +29,8 @@
                                 <div class="col-lg-5">
                                     <div class="form-group">
                                         <input name="fontawesome" type="text" class="form-control"
-                                            id="exampleFormControlInput1" placeholder="Add Logo From Font Awesome E.G 'fa-solid fa-cube'">
+                                            id="exampleFormControlInput1"
+                                            placeholder="Add Logo From Font Awesome E.G 'fa-solid fa-cube'">
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -66,7 +67,7 @@
                                         @php
                                             $i = 1;
                                         @endphp
-                                        @foreach ($category as $key => $cat)
+                                        @forelse ($category as $key => $cat)
                                             <tr>
                                                 <td>
                                                     <div class="d-flex px-3 py-1">
@@ -101,7 +102,8 @@
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title" id="exampleModalLabel">Edit
                                                                         Category</h5>
-                                                                    <button type="button" class="close" style="border:none; font-size:24px; background: transparent;"
+                                                                    <button type="button" class="close"
+                                                                        style="border:none; font-size:24px; background: transparent;"
                                                                         data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
@@ -157,7 +159,13 @@
                                                         <i class="fa-regular fa-trash-can" data-confirm-delete="true"></i>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @empty
+                                            <tr class="text-center">
+                                                <td>
+                                                    Kosong
+                                                </td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

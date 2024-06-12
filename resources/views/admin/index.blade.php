@@ -198,7 +198,9 @@
                                 </tr>
                             @empty
                                 <tr class="text-center">
-                                    Kosong
+                                    <td>
+                                        Kosong
+                                    </td>
                                 </tr>
                             @endforelse
                         </tbody>

@@ -51,7 +51,7 @@
                                         @php
                                             $i = 1;
                                         @endphp
-                                        @foreach ($product as $key => $prod)
+                                        @forelse ($product as $key => $prod)
                                             <tr>
                                                 <td>
                                                     <div class="d-flex px-3 py-1">
@@ -92,10 +92,16 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @empty
+                                            <tr class="text-center">
+                                                <td>
+                                                    Kosong
+                                                </td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
-                                    {{ $product->links() }}
+                                {{ $product->links() }}
                             </div>
                         </div>
                     </div>

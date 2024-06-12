@@ -14,7 +14,7 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'fontawesome' => 'default_value',
+        'fontawesome',
     ];
 
     public function getSlugOptions(): SlugOptions
@@ -32,5 +32,10 @@ class Category extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function setFontawesomeAttribute($value)
+    {
+        $this->attributes['fontawesome'] = $value ?: 'fa-solid fa-cube';
     }
 }

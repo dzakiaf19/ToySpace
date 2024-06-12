@@ -135,7 +135,7 @@
                                                                             <input name="fontawesome" type="text"
                                                                                 class="form-control"
                                                                                 id="exampleFormControlInput1"
-                                                                                placeholder="Category Name"
+                                                                                placeholder="fa"
                                                                                 value="{{ $cat->fontawesome }}">
                                                                         </div>
                                                                     </div>

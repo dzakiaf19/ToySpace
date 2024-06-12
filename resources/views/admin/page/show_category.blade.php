@@ -135,7 +135,7 @@
                                                                             <input name="fontawesome" type="text"
                                                                                 class="form-control"
                                                                                 id="exampleFormControlInput1"
-                                                                                placeholder="fa"
+                                                                                placeholder="Add Logo From Font Awesome E.G 'fa-solid fa-cube'"
                                                                                 value="{{ $cat->fontawesome }}">
                                                                         </div>
                                                                     </div>

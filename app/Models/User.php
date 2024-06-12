@@ -15,6 +15,25 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, HasUlids, HasRoles, SoftDeletes;
 
+    // Untuk mencegah adanya user baru dengan email/phone yang sama dengan entry yang sudah dihapus
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::creating(function ($user) {
+    //         $existingUser = User::withTrashed()->where('email', $user->email)->first();
+    //         if ($existingUser) {
+    //             $existingUser->restore();
+    //             return false; // Mencegah proses penyimpanan baru
+    //         }
+
+    //         $existingPhone = User::withTrashed()->where('phone', $user->phone)->first();
+    //         if ($existingPhone) {
+    //             $existingPhone->restore();
+    //             return false; // Mencegah proses penyimpanan baru
+    //         }
+    //     });
+    // }
 
     /**
      * The attributes that are mass assignable.
@@ -50,4 +69,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    
 }

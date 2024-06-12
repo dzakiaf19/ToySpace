@@ -39,10 +39,19 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex shipping">
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <div class="address">Alamat Pengiriman :</div>
                                 <div class="receive">{{ $order->name }} (+62){{ $order->phone }}</div>
                                 <div class="street">{{ $order->address }}</div>
+                            </div>
+                            <div class="col-md-1">
+                                @if ($order->status === 'SUCCESS' || $order->status === 'SEND' || $order->status === 'FINISHED')
+                                    <div class="card-nresi">
+                                            <a href='{{ route('invoice.show', $order) }}' target='_blank'>
+                                                {{ $order->no_resi }}Invoice
+                                            </a>
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-md-3">
                                 <div class="card-nresi">Nomor Resi :</div>

@@ -249,7 +249,7 @@
         gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
         gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
         new Chart(ctx1, {
-            type: "line",
+            type: "bar",
             data: {
                 labels: months,
                 datasets: [{
@@ -317,6 +317,7 @@
                                 lineHeight: 2
                             },
                         }
+                        // min: 0
                     },
                 },
             },

@@ -36,9 +36,13 @@ class RegisteredUserController extends Controller
         $request->validate([
             'firstName' => ['required', 'string', 'max:255'],
             'lastName' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'regex:/^8[1-9][0-9]{6,10}$/', 'string', 'min:9', 'max:11', Rule::unique('users')->whereNull('deleted_at')],
+            'phone' => ['required','regex:/^8[1-9][0-9]{6,10}$/', 'string', 'min:9', 'max:11', Rule::unique('users')->where(function ($query) {
+                return $query->whereNull('deleted_at');
+            })],
             'birthdate' => ['required'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique('users')->whereNull('deleted_at')],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique('users')->where(function ($query) {
+                return $query->whereNull('deleted_at');
+            })],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 

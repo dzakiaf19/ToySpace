@@ -19,7 +19,7 @@ class ProfileUpdateRequest extends FormRequest
             'firstName' => ['required', 'string', 'max:255'],
             'lastName' => ['required', 'string', 'max:255'],
             'birthdate' => ['required', 'date'],
-            'phone' => ['required', 'string', 'regex:/^8[1-9][0-9]{6,10}$/']
+            'phone' => ['min:9', 'max:12','required', 'string', 'regex:/^8[1-9][0-9]{6,10}$/']
         ];
     }
 }

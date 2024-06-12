@@ -19,13 +19,13 @@
                                     <input id="namadepan" name="firstName" class="form-control" type="text"
                                         value="{{ $user->firstName }}" aria-label="default input example">
                                 </div>
-                                <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('firstName')" class="" />
                                 <div class="col-md-6">
                                     <label for="namabelakang" class="form-label">Nama Belakang</label>
                                     <input id="namabelakang" name="lastName" class="form-control" type="text"
                                         value="{{ $user->lastName }}" aria-label="default input example">
                                 </div>
-                                <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('lastName')" class="" />
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -33,7 +33,7 @@
                                     <input id="birthdate" name="birthdate" type="date" class="form-control"
                                         value="{{ $user->birthdate }}">
                                 </div>
-                                <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('birthdate')" class="" />
                                 <div class="col-md-6">
                                     <label class="phone" for="form2Example11">Phone/Whatsapp</label>
                                     <div class="input-group">
@@ -42,7 +42,7 @@
                                         <input type="text" name="phone" class="form-control" maxlength="11"
                                             value="{{ $user->phone }}">
                                     </div>
-                                    <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('phone')" class="" />
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-simple col-md-12 mb-3">Simpan Perubahan</button>

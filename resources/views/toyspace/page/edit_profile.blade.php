@@ -17,19 +17,22 @@
                                 <div class="col-md-6">
                                     <label for="namadepan" class="form-label">Nama Depan</label>
                                     <input id="namadepan" name="firstName" class="form-control" type="text"
-                                        value="{{ old('firstName', $user->firstName) }}" aria-label="default input example">
+                                        value="{{ $user->firstName }}" aria-label="default input example">
+                                        <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
                                 </div>
                                 <div class="col-md-6">
                                     <label for="namabelakang" class="form-label">Nama Belakang</label>
                                     <input id="namabelakang" name="lastName" class="form-control" type="text"
-                                        value="{{ old('lastName', $user->lastName) }}" aria-label="default input example">
+                                        value="{{ $user->lastName }}" aria-label="default input example">
+                                        <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="birthdate" class="form-label">Tanggal Lahir</label>
                                     <input id="birthdate" name="birthdate" type="date" class="form-control"
-                                        value="{{ old('birthdate', $user->birthdate) }}">
+                                        value="{{ $user->birthdate }}">
+                                        <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
                                 </div>
                                 <div class="col-md-6">
                                     <label class="phone" for="form2Example11">Phone/Whatsapp</label>
@@ -37,7 +40,8 @@
                                         <span class="input-group-text" id="inputGroup-sizing-default"
                                             style="background-color: #e9ecef;">+62</span>
                                         <input type="text" name="phone" class="form-control" maxlength="11"
-                                            value="{{ old('phone', $user->phone) }}">
+                                            value="{{ $user->phone }}">
+                                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
                                     </div>
                                 </div>
                             </div>

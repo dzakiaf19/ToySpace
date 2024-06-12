@@ -15,7 +15,9 @@
         <section class="detail_cart">
             <div class="container">
                 <form id="cartForm"
-                    action="{{ route('checkoutProduct', [Auth::user()->id, 'address' => $alamat->id ?? '']) }}"
+                    @if ($alamat != null) action="{{ route('checkoutProduct', [Auth::user()->id, 'address' => $alamat->id ?? '']) }}"
+                    @else
+                    action="#" @endif
                     method="GET">
                     @csrf
                     <div class="head-cart d-flex">
@@ -167,8 +169,9 @@
                     </div>
                 </form>
                 <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal
+                    fade" id="staticBackdrop" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">

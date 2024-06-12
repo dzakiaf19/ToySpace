@@ -15,8 +15,8 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('firstName', 12);
             $table->string('lastName', 12);
-            $table->string('email', 50)->unique();
-            $table->string('phone', 12)->unique();
+            $table->string('email', 50);
+            $table->string('phone', 12);
             $table->string('address', 75)->nullable(
                 
             );

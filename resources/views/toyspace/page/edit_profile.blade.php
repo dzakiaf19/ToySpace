@@ -14,34 +14,42 @@
                             @csrf
                             @method('patch')
                             <div class="row mb-3">
-                                <div class="form-outline mb-4">
-                                    <label for="namadepan" class="form-label">Nama Depan</label>
-                                    <input id="namadepan" name="firstName" class="form-control" type="text"
-                                        value="{{ $user->firstName }}" aria-label="default input example">
-                                    <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
+                                <div class="col-md-6">
+                                    <div class="form-outline mb-4">
+                                        <label for="namadepan" class="form-label">Nama Depan</label>
+                                        <input id="namadepan" name="firstName" class="form-control" type="text"
+                                            value="{{ $user->firstName }}" aria-label="default input example">
+                                        <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
+                                    </div>
                                 </div>
-                                <div class="form-outline mb-4">
-                                    <label for="namabelakang" class="form-label">Nama Belakang</label>
-                                    <input id="namabelakang" name="lastName" class="form-control" type="text"
-                                        value="{{ $user->lastName }}" aria-label="default input example">
-                                    <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
+                                <div class="col-md-6">
+                                    <div class="form-outline mb-4">
+                                        <label for="namabelakang" class="form-label">Nama Belakang</label>
+                                        <input id="namabelakang" name="lastName" class="form-control" type="text"
+                                            value="{{ $user->lastName }}" aria-label="default input example">
+                                        <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
+                                    </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="form-outline mb-4">
-                                    <label for="birthdate" class="form-label">Tanggal Lahir</label>
-                                    <input id="birthdate" name="birthdate" type="date" class="form-control"
-                                        value="{{ $user->birthdate }}">
-                                    <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
+                                <div class="col-md-6">
+                                    <div class="form-outline mb-4">
+                                        <label for="birthdate" class="form-label">Tanggal Lahir</label>
+                                        <input id="birthdate" name="birthdate" type="date" class="form-control"
+                                            value="{{ $user->birthdate }}">
+                                        <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
+                                    </div>
                                 </div>
-                                <div class="form-outline mb-4">
-                                    <label class="phone" for="form2Example11">Phone/Whatsapp</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="inputGroup-sizing-default"
-                                            style="background-color: #e9ecef;">+62</span>
-                                        <input type="text" name="phone" class="form-control" maxlength="11"
-                                            value="{{ $user->phone }}">
-                                        <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                                <div class="col-md-6">
+                                    <div class="form-outline mb-4">
+                                        <label class="phone" for="form2Example11">Phone/Whatsapp</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="inputGroup-sizing-default"
+                                                style="background-color: #e9ecef;">+62</span>
+                                            <input type="text" name="phone" class="form-control" maxlength="11"
+                                                value="{{ $user->phone }}">
+                                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +99,8 @@
                                                                     value="{{ old('nama', $pilih->nama) }}">
                                                             </div>
                                                             <div class="col-6">
-                                                                <label for="phone" class="col-form-label">No HP:</label>
+                                                                <label for="phone" class="col-form-label">No
+                                                                    HP:</label>
                                                                 <div class="input-group">
                                                                     <span class="input-group-text"
                                                                         id="inputGroup-sizing-default"

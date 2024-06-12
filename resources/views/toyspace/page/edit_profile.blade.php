@@ -18,22 +18,22 @@
                                     <label for="namadepan" class="form-label">Nama Depan</label>
                                     <input id="namadepan" name="firstName" class="form-control" type="text"
                                         value="{{ $user->firstName }}" aria-label="default input example">
-                                        <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
                                 </div>
+                                <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
                                 <div class="col-md-6">
                                     <label for="namabelakang" class="form-label">Nama Belakang</label>
                                     <input id="namabelakang" name="lastName" class="form-control" type="text"
                                         value="{{ $user->lastName }}" aria-label="default input example">
-                                        <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
                                 </div>
+                                <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="birthdate" class="form-label">Tanggal Lahir</label>
                                     <input id="birthdate" name="birthdate" type="date" class="form-control"
                                         value="{{ $user->birthdate }}">
-                                        <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
                                 </div>
+                                <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
                                 <div class="col-md-6">
                                     <label class="phone" for="form2Example11">Phone/Whatsapp</label>
                                     <div class="input-group">
@@ -41,8 +41,8 @@
                                             style="background-color: #e9ecef;">+62</span>
                                         <input type="text" name="phone" class="form-control" maxlength="11"
                                             value="{{ $user->phone }}">
-                                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
                                     </div>
+                                    <x-input-error :messages="$errors->get('phone')" class="mt-2" />
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-simple col-md-12 mb-3">Simpan Perubahan</button>
@@ -289,7 +289,8 @@
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalToggleLabel2">Apakah Anda yakin ingin menghapus akun Anda?</h5>
+                                        <h5 class="modal-title" id="exampleModalToggleLabel2">Apakah Anda yakin ingin
+                                            menghapus akun Anda?</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -300,9 +301,12 @@
                                             <div class="mb-3">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <label for="hapus" class="col-form-label">Tindakan ini tidak dapat dibatalkan dan semua data Anda akan hilang secara permanen.</label>
+                                                        <label for="hapus" class="col-form-label">Tindakan ini tidak
+                                                            dapat dibatalkan dan semua data Anda akan hilang secara
+                                                            permanen.</label>
                                                         <input required type="password" name="password"
-                                                            class="form-control" id="hapus" placeholder="Masukkan Password">
+                                                            class="form-control" id="hapus"
+                                                            placeholder="Masukkan Password">
                                                     </div>
                                                 </div>
                                             </div>

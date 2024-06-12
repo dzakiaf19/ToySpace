@@ -110,7 +110,7 @@ class OrderController extends Controller
                 //setup variable midtrans
                 $midtrans = [
                     'transaction_details' => [
-                        'order_id' => 'toyspace-' . $transaksi->id,
+                        'order_id' => 'dasdsad-' . $transaksi->id,
                         'gross_amount' => (int) $transaksi->total_price,
                     ],
                     'customer_details' => [
@@ -180,7 +180,7 @@ class OrderController extends Controller
 
         return back();
     }
-    
+
     public function finishorder(Order $order)
     {
         $order->status = "FINISHED";
@@ -255,6 +255,16 @@ class OrderController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(5);
 
-        return view('admin.index', compact('orders', 'totalProductsSold', 'productsOutOfStock', 'totalOrderToProceed', 'totalNotPaid'));
+        $salesData = Order::selectRaw('MONTHNAME(created_at) as month, SUM(total_price) as revenue')
+            ->whereIn('status', ['SEND', 'FINISHED'])
+            ->groupBy('month')
+            ->orderByRaw('MIN(created_at)')
+            ->get();
+
+        // Mengubah data ke format yang bisa digunakan di chart.js
+        $months = $salesData->pluck('month');
+        $revenues = $salesData->pluck('revenue');
+
+        return view('admin.index', compact('months', 'revenues', 'orders', 'totalProductsSold', 'productsOutOfStock', 'totalOrderToProceed', 'totalNotPaid'));
     }
 }

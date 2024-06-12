@@ -48,7 +48,7 @@
                                 @if ($order->status === 'SUCCESS' || $order->status === 'SEND' || $order->status === 'FINISHED')
                                     <div class="card-nresi">
                                             <a href='{{ route('invoice.show', $order) }}' target='_blank'>
-                                                {{ $order->no_resi }}Invoice
+                                                Invoice
                                             </a>
                                     </div>
                                 @endif

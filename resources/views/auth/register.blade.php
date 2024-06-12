@@ -126,7 +126,7 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="inputGroup-sizing-default"
                                                 style="background-color: #EF0003; color :#fff">+62</span>
-                                            <input type="number" name="phone" class="form-control"
+                                            <input maxlength="11" type="number" name="phone" class="form-control"
                                                 aria-label="Sizing example input"
                                                 aria-describedby="inputGroup-sizing-default" maxlength="11"
                                                 value="{{ old('phone') }}">

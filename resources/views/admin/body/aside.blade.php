@@ -42,12 +42,57 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @if (request()->is('admin/orders')) active @endif" href="{{ route('admin.orders') }}">
+                <a class="nav-link @if (request()->is('admin/orders') && request()->query('status') == 'all') active @endif" href="{{ route('admin.orders', ['status' => 'all']) }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-money-bill text-dark text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Orders</span>
+                    <span class="nav-link-text ms-1">Semua Pesanan</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if (request()->is('admin/orders') && request()->query('status') == 'processed') active @endif" href="{{ route('admin.orders', ['status' => 'processed']) }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-boxes-packing text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Pesanan Diproses</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if (request()->is('admin/orders') && request()->query('status') == 'unpaid') active @endif" href="{{ route('admin.orders', ['status' => 'unpaid']) }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-hourglass-half text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Pesanan Belum Dibayar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if (request()->is('admin/orders') && request()->query('status') == 'shipped') active @endif" href="{{ route('admin.orders', ['status' => 'shipped']) }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-truck-fast text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Pesanan Dikirim</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if (request()->is('admin/orders') && request()->query('status') == 'canceled') active @endif" href="{{ route('admin.orders', ['status' => 'canceled']) }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-ban text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Pesanan Dibatalkan</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if (request()->is('admin/orders') && request()->query('status') == 'completed') active @endif" href="{{ route('admin.orders', ['status' => 'completed']) }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-check-to-slot text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Pesanan Selesai</span>
                 </a>
             </li>
             @role('superadmin')

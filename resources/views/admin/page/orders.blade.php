@@ -3,70 +3,120 @@
 <main class="main-content position-relative border-radius-lg ">
     <div class="container-fluid py-4">
         <div class="row">
-            <div class="col-12">
-                <div class="card mb-4">
-                    <div class="card-header pb-0 font-weight-bolder d-flex justify-content-between">
-                        <h6>All Orders</h6>
+            <div class="col-lg-12 mb-lg-0 mb-4">
+                <div class="card ">
+                    <div class="card-header pb-0 p-3">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="mb-2" style="font-weight:bold;">Transactions</h6>
+                        </div>
                     </div>
-                    <div class="card-body px-0 pt-3 pb-2">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            No</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Order Date</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Product Name</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Quantity</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Total</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Order ID</th>
+                                    <th>Nama</th>
+                                    <th>Harga Total</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($orders as $key => $order)
+                                    <tr class="text-center">
+                                        <td>ToySpace-{{ $order->id }}</td>
+                                        <td>{{ $order->name }}</td>
+                                        <td>Rp {{ $order->total_price }}</td>
                                         <td>
-                                            <div class="d-flex px-3 py-1">
-                                                <span class="text-secondary text-xs font-weight-bold">1</span>
-                                            </div>
+                                            @if ($order->status === 'PENDING')
+                                                Belum Dibayar
+                                            @elseif($order->status === 'SUCCESS')
+                                                Pesanan Perlu Diproses
+                                            @elseif($order->status === 'CANCELLED')
+                                                Dibatalkan
+                                            @elseif($order->status === 'SEND')
+                                                Sedang Dikirim
+                                            @elseif($order->status === 'FINISHED')
+                                                Pesanan Selesai
+                                            @else
+                                                Status Tidak Dikenal
+                                            @endif
                                         </td>
-                                        <td class="text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">12/11/2023</span>
-                                        </td>
-                                        <td>
-                                            <span class="text-secondary text-xs font-weight-bold">The Armored
-                                                Helicopter</span>
-                                        </td>
-                                        <td class="text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">2</span>
-                                        </td>
-                                        <td class="text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">Rp 59.500</span>
-                                        </td>
-                                        <td class="text-sm">
-                                            <button type="button" rel="tooltip" class="btn btn-icon btn-simple"
-                                                style="background-color:#FFC93F; color:#fff; padding: 10px 15px;"
-                                                data-original-title="" title="">
-                                                <i class="fa-regular d fa-pen-to-square"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" class="btn btn-icon btn-simple"
-                                                style="background-color:#DD322B; color:#fff;padding: 10px 15px;"
-                                                data-original-title="" title="">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
+                                        <td class="td-actions text-center">
+                                            @if ($order->status === 'SUCCESS' || $order->status === 'SEND')
+                                                <button type="button" rel="tooltip" class="btn btn-icon btn-simple"
+                                                    style="background-color:#FFC93F; color:#fff; padding: 10px 15px;"
+                                                    data-bs-toggle="modal" title=""
+                                                    data-bs-target="#staticBackdrop{{ $key }}">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                    {{ $order->status === 'SEND' ? 'Ubah No Resi' : 'Tambahkan No Resi' }}
+                                                </button>
+                                                <div class="modal fade" id="staticBackdrop{{ $key }}"
+                                                    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Isi Alamat
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <form action="{{ route('order.resi', $order) }}" method="POST">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <div class="modal-body">
+                                                                    <div class="mb-3">
+                                                                        <div class="row">
+                                                                            <div class="col-12">
+                                                                                <label for="no_resi"
+                                                                                    class="col-form-label">Nomor Resi :
+                                                                                </label>
+                                                                                <input
+                                                                                    value="{{ $order->status === 'SEND' ? $order->no_resi : '' }}"
+                                                                                    required type="text" name="no_resi"
+                                                                                    class="form-control" id="nama">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Tutup</button>
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">Simpan</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            @if ($order->status === 'SEND')
+                                                <a type="button" rel="tooltip" class="btn btn-icon btn-primary"
+                                                    style="color:#fff; padding: 10px 15px;" data-original-title=""
+                                                    href="https://cekresi.com/tracking/cek-resi-jne.php?noresi=+{{ $order->no_resi }}"
+                                                    target="_blank">
+                                                    Lacak
+                                                </a>
+                                            @endif
+                                            <a href="{{ route('invoice.show', $order) }}" target="_blank" type="button" rel="tooltip" class="btn btn-icon btn-success"
+                                                style="color:#fff; padding: 10px 15px;" data-original-title=""
+                                                title="">
+                                                <i class="fa-regular fa-eye"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                </tbody>
-                            </table>
+                                @empty
+                                    <tr class="text-center">
+                                        <td>
+                                            Kosong
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                        <div class="">
+                            {{ $orders->links() }}
                         </div>
                     </div>
                 </div>

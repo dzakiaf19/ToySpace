@@ -53,9 +53,7 @@ Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'pr
         Route::get('/deleteAdmin/{admin}', [AdminController::class, 'destroy'])->name('deleteAdmin');
     });
 
-    Route::get('/orders', function () {
-        return view('admin.page.orders');
-    })->name('admin.orders');
+    Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders');
 });
 
 Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
@@ -78,6 +76,11 @@ Route::group(['middleware' => ['role:user', 'auth', 'verified']], function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::get('/invoice/{order}', [OrderController::class, 'show'])->name('invoice.show');
+    Route::get('/invoice/{order}/pdf', [OrderController::class, 'downloadPDF'])->name('invoice.pdf');
 });
 
 Route::get('/', [ProductController::class, 'home'])->name('home');

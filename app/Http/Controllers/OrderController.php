@@ -14,15 +14,34 @@ use Midtrans\Config;
 use Midtrans\Snap;
 use Exception;
 use App\Models\Category;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $status = $request->query('status');
+
+        if ($status == 'all') {
+            $orders = Order::orderBy('created_at', 'desc')->paginate(10);
+        } elseif ($status == 'processed') {
+            $orders = Order::where('status', 'SUCCESS')->orderBy('created_at', 'desc')->paginate(10);
+        } elseif ($status == 'unpaid') {
+            $orders = Order::where('status', 'PENDING')->orderBy('created_at', 'desc')->paginate(10);
+        } elseif ($status == 'shipped') {
+            $orders = Order::where('status', 'SEND')->orderBy('created_at', 'desc')->paginate(10);
+        } elseif ($status == 'canceled') {
+            $orders = Order::where('status', 'CANCELED')->orderBy('created_at', 'desc')->paginate(10);
+        } elseif ($status == 'completed') {
+            $orders = Order::where('status', 'FINISHED')->orderBy('created_at', 'desc')->paginate(10);
+        } else {
+            $orders = Order::orderBy('created_at', 'desc')->paginate(10);
+        }
+
+        return view('admin.page.orders', compact('orders'));
     }
 
     /**
@@ -145,7 +164,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        return view('admin.page.order_show', compact('order'));
     }
 
     /**
@@ -266,5 +285,11 @@ class OrderController extends Controller
         $revenues = $salesData->pluck('revenue');
 
         return view('admin.index', compact('months', 'revenues', 'orders', 'totalProductsSold', 'productsOutOfStock', 'totalOrderToProceed', 'totalNotPaid'));
+    }
+
+    public function downloadPDF(Order $order)
+    {
+        $pdf = PDF::loadView('admin.page.order_show_download', compact('order'));
+        return $pdf->download('invoice_'.$order->id.'.pdf');
     }
 }

@@ -70,7 +70,7 @@ class AdminController extends Controller
 
         event(new Registered($createAdmin));
 
-        return redirect()->route('indexAdmin')->with('success', 'Admin added successfully');
+        return redirect()->route('admin.index')->with('success', 'Admin added successfully');
     }
 
     /**

@@ -50,7 +50,7 @@
                                                 </td>
                                                 <td class="text-sm">
                                                     <span
-                                                        class="text-secondary text-xs font-weight-bold">{{ $atmin->phone }}</span>
+                                                        class="text-secondary text-xs font-weight-bold">(+62){{ $atmin->phone }}</span>
                                                 </td>
                                                 <td class="text-sm">
                                                     <a href="{{route('admin.show', ['admin' => $atmin])}}" type="button" rel="tooltip" class="btn btn-icon btn-simple"

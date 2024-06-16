@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 font-weight-bold">Product Sold</p>
+                                <p class="text-sm mb-0 font-weight-bold">Prdoduk Terjual</p>
                                 <h5 class="font-weight-bolder" style="font-size: 35px;">
                                     {{ $totalProductsSold }}
                                 </h5>
@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 font-weight-bold">Out of Stock</p>
+                                <p class="text-sm mb-0 font-weight-bold">Produk Habis</p>
                                 <h5 class="font-weight-bolder" style="font-size: 35px;">
                                     {{ $productsOutOfStock }}
                                 </h5>
@@ -55,7 +55,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 font-weight-bold">Processed</p>
+                                <p class="text-sm mb-0 font-weight-bold">Pesanan Diproses</p>
                                 <h5 class="font-weight-bolder" style="font-size: 35px;">
                                     {{ $totalOrderToProceed }}
                                 </h5>

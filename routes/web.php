@@ -46,11 +46,18 @@ Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'pr
     // Route::get('/deleteBanner/{id}', [BannerController::class, 'destroy'])->name('deleteBanner');
 
     Route::group(['middleware' => ['role:superadmin']], function () {
-        Route::get('/indexAdmin', [AdminController::class, 'index'])->name('indexAdmin');
-        Route::get('/showAdmin/{admin}', [AdminController::class, 'show'])->name('viewAdmin');
-        Route::get('/addAdmin', [AdminController::class, 'create'])->name('addAdmin');
-        Route::post('/storeAdmin', [AdminController::class, 'store'])->name('storeAdmin');
-        Route::get('/deleteAdmin/{admin}', [AdminController::class, 'destroy'])->name('deleteAdmin');
+        Route::resource('admin', AdminController::class);
+        // Route::get('/indexAdmin', [AdminController::class, 'index'])->name('indexAdmin');
+        // Route::get('/showAdmin/{admin}', [AdminController::class, 'show'])->name('viewAdmin');
+        // Route::get('/addAdmin', [AdminController::class, 'create'])->name('addAdmin');
+        // Route::post('/storeAdmin', [AdminController::class, 'store'])->name('storeAdmin');
+        // Route::get('/editAdmin/{admin}', [AdminController::class, 'edit'])->name('editAdmin');
+        // Route::get('/deleteAdmin/{admin}', [AdminController::class, 'destroy'])->name('deleteAdmin');
+    });
+
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::get('/editPassword', [AdminController::class, 'editPassword'])->name('editPassword');
+        Route::get('/updatePassword', [AdminController::class, 'updatePassword'])->name('updatePassword');
     });
 
     Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders');

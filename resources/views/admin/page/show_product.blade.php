@@ -9,8 +9,7 @@
                             <h6>All Products</h6>
                             <button type="button button-add" onclick="location.href='{{ route('product.create') }}'"
                                 class="btn btn-primary"
-                                style="background: #344767; border: 1px solid #24263D; color: #FFFDF4; shadow: none;">Add
-                                Products</button>
+                                style="background: #344767; border: 1px solid #24263D; color: #FFFDF4; shadow: none;">Tambah Produk</button>
                         </div>
                         @if ($errors->any())
                             <div class="alert alert-danger">

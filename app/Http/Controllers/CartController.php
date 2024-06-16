@@ -86,7 +86,6 @@ class CartController extends Controller
                 'quantity' => $request->quantity,
             ]);
         };
-
         return redirect('shopCart');
     }
 
@@ -154,13 +153,10 @@ class CartController extends Controller
         if (Auth::user()->id == $id) {
             $selectedItems = $request->input('selected_items', []);
 
-            // Fetch the selected cart items with the products
             $carts = Cart::with(['product'])
                 ->whereIn('id', $selectedItems)
                 ->where('user_id', $id)
                 ->get();
-
-            // dd($selectedItems);
 
             if ($address != null) {
                 $cityResponse = Http::withHeaders([
@@ -174,8 +170,6 @@ class CartController extends Controller
                 $cities = $cityResponse['rajaongkir']['results'];
                 $provinces = $provinceResponse['rajaongkir']['results'];
 
-                // $carts = Cart::with(['product'])->where('user_id', $id)->get();
-
                 $berat = 0;
                 foreach ($carts as $cart) {
                     for ($i = 1; $i <= $cart->quantity; $i++) {
@@ -186,15 +180,13 @@ class CartController extends Controller
                 $cost = Http::withHeaders([
                     'key' => 'ad16d62acd291a4aabb9694414cad4f3'
                 ])->post('https://api.rajaongkir.com/starter/cost', [
-                    'origin' => '444',
+                    'origin' => '444', //id kota surabaya
                     'destination' => $address->kota_id,
                     'weight' => $berat,
                     'courier' => 'jne',
                 ]);
 
                 $costs = $cost['rajaongkir']['results'][0]['costs'];
-
-                // dd($costs);
 
                 $alamat = UserAddress::all()->where('user_id', $id);
 

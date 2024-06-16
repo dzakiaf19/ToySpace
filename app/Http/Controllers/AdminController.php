@@ -134,7 +134,7 @@ class AdminController extends Controller
     public function editPassword()
     {
         $admin = Auth::user();
-        return view('admin.page.update_password', compact('admin'));
+        return view('admin.page.updatePassword', compact('admin'));
     }
     
     public function updatePassword(Request $request)

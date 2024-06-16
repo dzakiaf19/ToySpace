@@ -57,7 +57,7 @@ Route::group(['middleware' => ['role:admin|superadmin', 'auth', 'verified'], 'pr
 
     Route::group(['middleware' => ['role:admin']], function () {
         Route::get('/editPassword', [AdminController::class, 'editPassword'])->name('editPassword');
-        Route::get('/updatePassword', [AdminController::class, 'updatePassword'])->name('updatePassword');
+        Route::posrt('/updatePassword', [AdminController::class, 'updatePassword'])->name('updatePassword');
     });
 
     Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders');

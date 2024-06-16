@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\Rules\Password;
 
 class AdminController extends Controller
 {

@@ -9,7 +9,7 @@
                         <h6>Tambah Admin</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2" style="margin: 20px 24px 20px 24px">
-                        <form method="POST" enctype="multipart/form-data" action="{{route('storeAdmin')}}">
+                        <form method="POST" enctype="multipart/form-data" action="{{route('admin.store')}}">
                             @csrf
                             @if($errors->any())
                                 <div class="alert alert-danger" style="color: white">

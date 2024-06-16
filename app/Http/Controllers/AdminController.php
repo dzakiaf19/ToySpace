@@ -131,13 +131,13 @@ class AdminController extends Controller
         return redirect()->route('admin.index')->with('success', 'Admin deleted successfully');
     }
 
-    public function editPasword()
+    public function editPassword()
     {
         $admin = Auth::user();
         return view('admin.page.edit_user', compact('admin'));
     }
     
-    public function updatePasword(Request $request)
+    public function updatePassword(Request $request)
     {
         $validated = $request->validateWithBag('updatePassword', [
             'current_password' => ['required', 'current_password'],

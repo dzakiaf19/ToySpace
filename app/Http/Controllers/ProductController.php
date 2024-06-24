@@ -130,7 +130,20 @@ class ProductController extends Controller
             ->orderBy('products_count', 'desc')
             ->get();
 
-        return view('toyspace.page.single_product', compact('product', 'categories'));
+        $breadcrumbs = [
+            ['name' => 'Beranda', 'link' => route('home')],
+            ['name' => 'Product', 'link' => route('pageProducts')],
+            ['name' => $product->category->name, 'link' => url('/pageProducts?category=' . $product->category->id)],
+            ['name' => $product->name, 'link' => route('singleProduct', ['product' => $product])]
+        ];
+
+        $relatedProducts = Product::where('category_id', $product->category_id)
+        ->where('id', '!=', $product->id)
+        ->inRandomOrder()
+        ->limit(3)
+        ->get();
+
+        return view('toyspace.page.single_product', compact('breadcrumbs','product', 'categories', 'relatedProducts'));
     }
 
     public function pageProducts()
@@ -157,8 +170,8 @@ class ProductController extends Controller
             ->get();
 
         $breadcrumbs = [
-            ['name' => 'Beranda', 'link' => url('/')],
-            ['name' => 'Produk', 'link' => url('/pageProducts')]
+            ['name' => 'Beranda', 'link' => route('home')],
+            ['name' => 'Produk', 'link' => route('pageProducts')]
         ];
 
         if (!empty($category_id)) {

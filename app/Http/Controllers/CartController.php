@@ -151,7 +151,11 @@ class CartController extends Controller
     public function checkout(Request $request, $id, UserAddress $address)
     {
         if (Auth::user()->id == $id) {
-            $selectedItems = $request->input('selected_items', []);
+            $selectedItems = $request->query('items', []);
+
+            $queryString = http_build_query(['items' => $selectedItems]);
+
+            // dd($selectedItems);
 
             $carts = Cart::with(['product'])
                 ->whereIn('id', $selectedItems)
@@ -194,7 +198,7 @@ class CartController extends Controller
                     ->orderBy('products_count', 'desc')
                     ->get();
 
-                return view('toyspace.page.checkout', compact('address', 'carts', 'costs', 'alamat', 'cities', 'provinces', 'categories'));
+                return view('toyspace.page.checkout', compact('queryString','address', 'carts', 'costs', 'alamat', 'cities', 'provinces', 'categories'));
             } else {
                 return redirect()->route('shopCart');
             }

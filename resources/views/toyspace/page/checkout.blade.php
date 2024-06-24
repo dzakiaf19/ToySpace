@@ -39,7 +39,7 @@
                                                 </div>
                                                 <div class="col-2">
                                                     <a class="btn btn-simple form-control"
-                                                        href="{{ route('checkoutProduct', [Auth::user()->id, $pilih->id]) }}">Pilih</a>
+                                                        href="{{ route('checkoutProduct', [Auth::user()->id, $pilih->id]) }}?{{ $queryString }}">Pilih</a>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -122,7 +122,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                            <button type="submit" class="btn btn-simple">Simpan</button>
                                         </div>
                                     </form>
                                 </div>

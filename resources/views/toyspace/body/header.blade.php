@@ -48,8 +48,8 @@
                             <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                                     class="fa-regular fa-user"></i> {{ Auth::user()->firstName }}</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profil</a></li>
-                                <li><a class="dropdown-item" href="{{ route('pesananSaya', Auth::user()->id) }}">Pesanan
+                                <li><a class="dropdown-item " href="{{ route('profile.edit') }}">Edit Profil</a></li>
+                                <li><a class="dropdown-item " href="{{ route('pesananSaya', Auth::user()->id) }}">Pesanan
                                         Saya</a></li>
                                 <form method="POST" action="{{ route('logout') }}" x-data>
                                     @csrf
@@ -72,7 +72,7 @@
                     <a href="{{ route('shopCart') }}">
 
                         <div class="cart">
-                            <i class="bi bi-cart3"></i>
+                            <i style="margin: 0px;" class="bi bi-cart3"></i>
                             {{-- <span class="notification">3</span> --}}
                         </div>
                     </a>

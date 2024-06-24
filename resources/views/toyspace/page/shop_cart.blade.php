@@ -2,23 +2,16 @@
 @section('title', 'TOYSPACE. INC | Shop Product')
 
 @section('content')
-
     <main id="shop_cart_page" class="shop_cart_page">
-        <section id="breadcrumbs" class="breadcrumbs">
+        <section id="title-cart" class="title-cart">
             <div class="container">
-                <ol>
-                    <li><a href="">ini breadcrumbs</a>
-                    </li>
-                </ol>
+                <h3>Keranjang Belanja</h3>
             </div>
-        </section><!-- End Breadcrumbs -->
+        </section>
+        <!-- End Breadcrumbs -->
         <section class="detail_cart">
             <div class="container">
-                <form id="cartForm"
-                    @if ($alamat != null) action="{{ route('checkoutProduct', [Auth::user()->id, 'address' => $alamat->id ?? '']) }}"
-                    @else
-                    action="#" @endif
-                    method="GET">
+                <form id="cartForm">
                     @csrf
                     <div class="head-cart d-flex">
                         <div class="col-1">
@@ -46,7 +39,7 @@
                                 </div>
                                 <div class="col-md-4 d-flex">
                                     <div class="image" style="padding-right: 5px">
-                                        <img src="{{ $item->product->images()->exists() ? Storage::url($item->product->images->first()->path) : 'https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30538.jpg?w=740&t=st=1717040880~exp=1717041480~hmac=48d946a95d70e6d9bdcaf19b81aaf4e71dce68fc0d9ab5a3109b75929f23c4d8' }}"
+                                        <img src="{{ $item->product->images()->exists() ? Storage::url($item->product->images->first()->path) : 'https://www.martela.com/sites/default/files/styles/material_gallery_thumb/public/pim2022_files/MU38_dark_grey_melamine_fullHD.jpeg?itok=_vd_qojF' }}"
                                             class="cart-img-top">
                                     </div>
                                     <div class="desc">
@@ -79,57 +72,6 @@
                             </div>
                         </div>
                     @endforelse
-                    {{-- <div id="shop-cart" class="shop-cart" style="padding:0;">
-                        <div class="table-responsive">
-                            <table class="table table-borderless">
-                                <tbody>
-                                    @php
-                                        $subtot = 0;
-                                    @endphp
-                                    @forelse($carts as $item)
-                                        <tr class="">
-                                            <td>{{ $item->product->name }}</td>
-                                            <td>Rp {{ $item->product->price }}</td>
-                                            <td class="quantity">
-                                                <form style="display: contents"
-                                                    action="{{ route('decreaseCart', $item->id) }}" method="POST">
-                                                    @csrf
-                                                    <button class="decrease">-</button>
-                                                </form>
-                                                <span class="count">{{ $item->quantity }}</span>
-                                                <form style="display: contents"
-                                                    action="{{ route('increaseCart', $item->id) }}" method="POST">
-                                                    @csrf
-                                                    <button class="increase">+</button>
-                                                </form>
-                                            </td>
-                                            <td>Rp {{ $item->product->price * $item->quantity }}</td>
-                                            @php
-                                                $subtot = $subtot + $item->product->price * $item->quantity;
-                                            @endphp
-                                            <td class="td-actions">
-                                                <form action="{{ route('deleteCart', $item->id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" rel="tooltip" class="btn btn-icon btn-simple"
-                                                        data-original-title="" title="">
-                                                        <i class="fa-regular fa-trash-can"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td>
-                                                Kosong
-                                            </td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> --}}
-
                     <div id="cart-total" class="cart-total">
                         <div class="col-12 titles sub-tot d-flex">
                             <h4>Cart Total : Rp <span id="cartTotal">0</span></h4>
@@ -146,32 +88,11 @@
                                 </button>
                             @endif
                         </div>
-                        {{-- <div class="body">
-                        <div class="shipping">
-                            <h3>Isi alamat pengiriman :</h3>
-                        </div>
-                        <div class="sub-tot d-flex">
-                            <form action="">
-                                <label for="destination">Pilith Kota</label>
-                                <select name="" id="destination" class="form-control">
-                                    <option value=""></option>
-                                </select>
-                            </form>
-                        </div>
-                    </div> --}}
-                        {{-- <div class="body  sub-tot">
-                        <h5>Change Shipping Address</h5>
-                    </div>
-                    <div class="body  sub-tot d-flex" style="border: none;">
-                        <h5 style="font-weight: bold;">Total</h5>
-                        <h5>Rp 212.999</h5>
-                    </div> --}}
                     </div>
                 </form>
                 <!-- Modal -->
-                <div class="modal
-                    fade" id="staticBackdrop" data-bs-backdrop="static"
-                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -211,8 +132,7 @@
                                                     <option value=""></option>
                                                     @foreach ($provinces as $province)
                                                         <option value="{{ $province['province_id'] }}">
-                                                            {{ $province['province'] }}
-                                                        </option>
+                                                            {{ $province['province'] }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -221,8 +141,7 @@
                                                 <select required name="kota" id="city" class="form-control">
                                                     <option value=""></option>
                                                     @foreach ($cities as $city)
-                                                        <option value="{{ $city['city_id'] }}">
-                                                            {{ $city['city_name'] }}
+                                                        <option value="{{ $city['city_id'] }}">{{ $city['city_name'] }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -235,22 +154,20 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="alamat" class="col-form-label">Detail Alamat
-                                            :</label>
+                                        <label for="alamat" class="col-form-label">Detail Alamat :</label>
                                         <textarea required name="alamat_lengkap" id="alamat" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Tutup</button>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <button type="submit" class="btn btn-simple">Simpan</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
     </main>
 
@@ -315,9 +232,7 @@
                 alert(error.message || 'Terjadi kesalahan. Silakan coba lagi.');
             }
         }
-    </script>
 
-    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const checkAll = document.getElementById('checkAll');
             const checkboxes = document.querySelectorAll('input[name="items[]"]');
@@ -359,17 +274,12 @@
             }
 
             window.submitCartForm = function() {
-                let form = document.getElementById('cartForm');
-                checkboxes.forEach(checkbox => {
-                    if (checkbox.checked) {
-                        let input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = 'selected_items[]';
-                        input.value = checkbox.value;
-                        form.appendChild(input);
-                    }
-                });
-                form.submit();
+                const selectedItems = Array.from(document.querySelectorAll('input[name="items[]"]:checked'))
+                    .map(checkbox => checkbox.value);
+                const queryString = selectedItems.map(item => `items[]=${item}`).join('&');
+                const formAction =
+                    '{{ route('checkoutProduct', ['id' => Auth::user()->id, 'address' => $alamat->id ?? '']) }}';
+                window.location.href = `${formAction}?${queryString}`;
             }
 
             // Initialize total and button state on page load

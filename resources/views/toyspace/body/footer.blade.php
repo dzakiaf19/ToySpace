@@ -6,8 +6,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 footer-desc">
                     <h3>TOYSPACE.INC</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <p>Temukan mainan sempurna untuk setiap usia dan minat di sini, dan wujudkan keceriaan tak terbatas bagi semua orang!</p>
                     <div class="social-links mt-3">
                         <a href="#" class="facebook"><i class="bx bxl-facebook-circle"></i></a>
                         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -21,9 +20,9 @@
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="{{route('aboutUs')}}">Tentang Kami</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="{{route('contactUs')}}">Kontak Kami</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Produk Kami</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Masuk Akun</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Daftar Akun</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('pageProducts')}}">Produk Kami</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('login')}}">Masuk Akun</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('register')}}">Daftar Akun</a></li>
                     </ul>
                 </div>
 

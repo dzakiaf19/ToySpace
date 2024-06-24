@@ -27,7 +27,7 @@
                             <a href="{{ route('singleProduct', ['product' => $prod]) }}" class="card-link">
                                 <div class="card card-product shadow-sm h-100">
                                     <img class="card-img-top"
-                                        src='{{ $prod->images()->exists() ? Storage::url($prod->images->first()->path) : 'https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30538.jpg?w=740&t=st=1717040880~exp=1717041480~hmac=48d946a95d70e6d9bdcaf19b81aaf4e71dce68fc0d9ab5a3109b75929f23c4d8' }}'
+                                        src='{{ $prod->images()->exists() ? Storage::url($prod->images->first()->path) : 'https://www.martela.com/sites/default/files/styles/material_gallery_thumb/public/pim2022_files/MU38_dark_grey_melamine_fullHD.jpeg?itok=_vd_qojF' }}'
                                         alt=''>
                                     <div class="card-body h-100">
                                         <h3 class="card-title">Rp. {{ $prod->price }}</h3>

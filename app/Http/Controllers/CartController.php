@@ -155,14 +155,14 @@ class CartController extends Controller
 
             $queryString = http_build_query(['items' => $selectedItems]);
 
-            // dd($selectedItems);
-
             $carts = Cart::with(['product'])
                 ->whereIn('id', $selectedItems)
                 ->where('user_id', $id)
                 ->get();
 
-            if ($address != null) {
+            if (empty($address)) {
+                return redirect()->route('shopCart');
+            } else { 
                 $cityResponse = Http::withHeaders([
                     'key' => 'ad16d62acd291a4aabb9694414cad4f3'
                 ])->get('https://api.rajaongkir.com/starter/city');
@@ -179,6 +179,10 @@ class CartController extends Controller
                     for ($i = 1; $i <= $cart->quantity; $i++) {
                         $berat = $berat + $cart->product->berat;
                     }
+                }
+
+                if (empty($carts) || $berat == 0) {
+                    return redirect()->route('shopCart');
                 }
 
                 $cost = Http::withHeaders([
@@ -198,9 +202,7 @@ class CartController extends Controller
                     ->orderBy('products_count', 'desc')
                     ->get();
 
-                return view('toyspace.page.checkout', compact('queryString','address', 'carts', 'costs', 'alamat', 'cities', 'provinces', 'categories'));
-            } else {
-                return redirect()->route('shopCart');
+                return view('toyspace.page.checkout', compact('queryString', 'address', 'carts', 'costs', 'alamat', 'cities', 'provinces', 'categories'));
             }
         } else {
             toast('Error Page', 'error');

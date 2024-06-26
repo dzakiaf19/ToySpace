@@ -278,7 +278,11 @@
                     .map(checkbox => checkbox.value);
                 const queryString = selectedItems.map(item => `items[]=${item}`).join('&');
                 const formAction =
-                    '{{ route('checkoutProduct', ['id' => Auth::user()->id, 'address' => $alamat->id ?? '']) }}';
+                    @if (empty($alamat))
+                        '';
+                    @else
+                        '{{ route('checkoutProduct', ['id' => Auth::user()->id, 'address' => $alamat->id ?? '']) }}';
+                    @endif
                 window.location.href = `${formAction}?${queryString}`;
             }
 

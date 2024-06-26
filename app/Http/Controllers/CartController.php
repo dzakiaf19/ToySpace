@@ -160,7 +160,7 @@ class CartController extends Controller
                 ->where('user_id', $id)
                 ->get();
 
-            if (empty($address)) {
+            if (empty($address) || empty($carts)) {
                 return redirect()->route('shopCart');
             } else { 
                 $cityResponse = Http::withHeaders([
@@ -179,10 +179,6 @@ class CartController extends Controller
                     for ($i = 1; $i <= $cart->quantity; $i++) {
                         $berat = $berat + $cart->product->berat;
                     }
-                }
-
-                if (empty($carts) || $berat == 0) {
-                    return redirect()->route('shopCart');
                 }
 
                 $cost = Http::withHeaders([

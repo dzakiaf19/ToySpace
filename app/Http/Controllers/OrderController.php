@@ -68,7 +68,7 @@ class OrderController extends Controller
 
             //get carts data
             // $carts = Cart::with(['product'])->where('user_id', Auth::user()->id)->get();
-            if (empty($cart)) {
+            if ($carts->isEmpty()) {
                 toast('Keranjang kosong', 'error');
 
                 return redirect()->route('home');

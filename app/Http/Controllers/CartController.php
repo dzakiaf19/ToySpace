@@ -12,6 +12,8 @@ use App\Models\Product;
 use App\Models\UserAddress;
 use App\Models\Category;
 
+use function PHPUnit\Framework\isEmpty;
+
 class CartController extends Controller
 {
     /**
@@ -159,8 +161,8 @@ class CartController extends Controller
                 ->whereIn('id', $selectedItems)
                 ->where('user_id', $id)
                 ->get();
-
-            if (empty($address) || empty($carts)) {
+                
+            if (empty($address) || $carts->isEmpty()) {
                 return redirect()->route('shopCart');
             } else { 
                 $cityResponse = Http::withHeaders([

@@ -173,7 +173,7 @@
                             <label for="ongkit">Shipping</label>
                             <div class="col-6">
                                 <select required id="ongkir" class="form-control" name="ongkir" id="">
-                                    <option value=""></option>
+                                    <option value="">Pilih Pengiriman</option>
                                     @foreach ($costs as $cost)
                                         <option
                                             value='{"nama":"{{ $cost['description'] }}","harga":{{ $cost['cost'][0]['value'] }}}'>

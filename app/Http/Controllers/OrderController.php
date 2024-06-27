@@ -65,9 +65,7 @@ class OrderController extends Controller
             $carts = Cart::with('product')
                 ->whereIn('id', $cartIds)
                 ->get();
-
-            //get carts data
-            // $carts = Cart::with(['product'])->where('user_id', Auth::user()->id)->get();
+                
             if ($carts->isEmpty()) {
                 toast('Keranjang kosong', 'error');
 

@@ -79,7 +79,7 @@ class MidtransController extends Controller
         } else if ($status == 'deny') {
             $this->updateqty($transaction);
             $transaction->status = 'CANCELLED';
-        } else if ($status == 'expired') {
+        } else if ($status == 'expire') {
             $this->updateqty($transaction);
             $transaction->status = 'CANCELLED';
         } else if ($status == 'cancel') {

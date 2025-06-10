@@ -24,10 +24,6 @@ ToySpace is an e-commerce platform developed as a final college project. Designe
 - **Ayu Wulandari** – Front-End Developer  
 - **Gabriel Radith Widianto** – Front-End Developer  
 
-## 📷 Screenshots
-
-> *(Tambahkan gambar tampilan produk, halaman checkout, dan dashboard admin jika tersedia)*
-
 ## 🚀 Installation
 
 ```bash
